@@ -28,3 +28,7 @@ Configuration files exist for:
 -[ ] Create a script to auto update `packages.txt.`
 -[ ] Create a script to auto-install from `packages.txt`
 -[ ] Create a script to auto 'install' configuration files, i.e. create appropriate symlinks
+
+## Notes to self
+
+* Remember that symlinks should be relative to ~
