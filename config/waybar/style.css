@@ -1,0 +1,81 @@
+* {
+    border: none;
+    border-radius: 0;
+    color: #cccccc;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #000000;
+    border-bottom: 2px solid #666666;
+    color: #333333;
+}
+
+#workspaces button {
+    padding: 0 5px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: inherit;
+    box-shadow: inherit;
+    border-bottom: 2px solid #ffffff;
+}
+
+#workspaces button.focused {
+    background: #336565;
+    border-bottom: 2px solid #00A8A8;
+}
+
+#workspaces button.urgent {
+    background: #AA0000;
+    border-bottom: 2px solid #CC0000;
+}
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+    padding: 0 5px;
+    margin: 0 10px;
+    color: #ffffff;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network.disconnected {
+    background: #aa0000;
+}
+/*
+.custom-vlc {
+    background: #ffa000;
+}
+*/
+
+#temperature.critical {
+    background: #aa0000;
+}
+
+#idle_inhibitor.activated {
+    background: #aa0000;
+}
+
