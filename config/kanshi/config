@@ -6,3 +6,7 @@
 	output DP-5 mode 2560x1440 position 1920,0
 	output DP-3 mode 2560x1440 position 4480,0 transform 270 
 }
+{
+	output eDP1 mode 1920x1080 position 0,0
+	output "Hewlett Packard HP vs19e CNN62415W4" mode 1280x1024 position 1920,0
+}
