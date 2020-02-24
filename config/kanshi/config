@@ -4,9 +4,13 @@
 {
 	output eDP-1 mode 1920x1080 position 0,0
 	output "Dell Inc. DELL U2719DC 7W6XSS2" mode 2560x1440 position 1920,0
-	output "Dell Inc. DELL U2719DC HW6XSS2" mode 2560x1440 position 4480,0 transform 270 
+	output "Dell Inc. DELL U2719DC HW6XSS2" mode 2560x1440 position 4480,0 transform 90 
 }
 {
 	output eDP1 mode 1920x1080 position 0,0
 	output "Hewlett Packard HP vs19e CNN62415W4" mode 1280x1024 position 1920,0
+}
+{
+	output eDP-1 mode 1920x1080 position 0,0
+	output "Dell Inc. DELL U2719DC 7W6XSS2" mode 2560x1440 position 1920,0
 }
