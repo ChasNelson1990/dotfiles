@@ -4,6 +4,7 @@
 ln -s ./.zshrc ~/.zshrc
 ln -s ./config/albert/albert.conf ~/.config/albert/albert.conf
 ln -s ./config/kanshi/config ~/.config/kanshi/config
+ln -s ./config/mako/config ~/.config/mako/config
 ln -s ./config/redshift/redshift.conf ~/.config/redshift/redshift.conf
 ln -s ./config/sway/config.d/10-systemd ~/.config/sway/config.d/10-systemd
 ln -s ./config/sway/config ~/.config/sway/config

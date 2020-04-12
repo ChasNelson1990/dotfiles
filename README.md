@@ -19,6 +19,7 @@ Configuration files exist for:
 * Artha (http://artha.sourceforge.net/wiki/index.php/Home)
 * [Oh My] ZSH (https://ohmyz.sh/)
 * BorgBackup (https://www.borgbackup.org/)
+* Mako (https://wayland.emersion.fr/mako/)
 
 ## Installed Packages
 
