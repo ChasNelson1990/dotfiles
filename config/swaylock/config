@@ -1,0 +1,13 @@
+font=Roboto
+inside-color=00000000
+inside-clear-color=000000ff
+inside-ver-color=00aa00ff
+inside-wrong-color=aa0000ff
+ring-color=00000000
+ring-clear-color=000000ff
+ring-ver-color=00aa00ff
+ring-wrong-color=aa0000ff
+separator-color=00000000
+line-uses-ring
+bs-hl-color=000000ff
+key-hl-color=aa0000ff

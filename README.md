@@ -10,6 +10,7 @@ This set-up is for a DELL XPS 13 9380 running Arch Linux.
 
 Configuration files exist for:
 * Sway (https://swaywm.org)
+* Swaylock (https://github.com/swaywm/swaylock)
 * Waybar (https://github.com/Alexays/Waybar)
 * Ranger (https://ranger.github.io/)
 * Kitty (https://sw.kovidgoyal.net/kitty/)
