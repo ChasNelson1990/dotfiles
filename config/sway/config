@@ -143,7 +143,7 @@ input "1739:30383:DELL08AF:00_06CB:76AF_Touchpad" {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+h splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -189,6 +189,12 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# border background text indicator
+client.focused  #000000 #000000 #ffffff #aaaaaa
+client.focused_inactive #666666 #666666 #ffffff #aaaaaa
+client.unfocused #666666 #666666 #ffffff #aaaaaa
+client.urgent #a51e1c #6d0c0a #ffffff #aaaaaa
 
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
