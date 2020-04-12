@@ -26,13 +26,12 @@ Configuration files exist for:
 
 ## Manual Steps
 
-* Note that current BorgBackup scripts (`/local/bin/borg_hdd.sh`, `/local/bin/borg_beag-shuil.sh`) each require a passphrase to be added and a file key to be put in `config/borg/keys` before running the install file. Remember to keep both of these changes dirty and not committed. If not set, it defaults to a blank passphrase (less secure anyway) but will fail due to the lack of file.
+* Note that current BorgBackup script (`/local/bin/borg_cjn-bak.sh`) requires a passphrase to be added and a file key to be put in `config/borg/keys` before running the install file. Remember to keep both of these changes dirty and not committed. If not set, it defaults to a blank passphrase (less secure anyway) but will fail due to the lack of file.
 
 ## TODO:
 
 -[ ] Create a script to auto update `packages.txt.`
 -[ ] Create a script to auto-install from `packages.txt`
--[ ] Create a script to auto 'install' configuration files, i.e. create appropriate symlinks
 
 ## Notes to self
 
