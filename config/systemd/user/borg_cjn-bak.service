@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup to external HDD
+Requires=run-media-chas-CJN.bak.mount
+After=run-media-chas-CJN.bak.mount
+
+[Service]
+ExecStart=/home/chas/.local/bin/borg_cjn-bak.sh
+
+[Install]
+WantedBy=run-media-chas-CJN.bak.mount

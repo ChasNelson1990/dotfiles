@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Setting this, so the repo does not need to be given on the commandline:
-export BORG_REPO=ssh://cn78d@beag-shuil.physics.gla.ac.uk/~/backup/main
+export BORG_REPO=/run/media/chas/CJN.bak/main
 
 # Setting this, so you won't be asked for your repository passphrase:
 export BORG_PASSPHRASE=''
