@@ -207,10 +207,9 @@ focus_follows_mouse no
 exec mako
 exec "albert"
 exec "mullvad-vpn"
-exec $term
 exec swaymsg "workspace 4; exec firefox"
 exec swaymsg "workspace 2; exec thunderbird"
-exec swaymsg "workspace 3; exec slack; exec telegram-desktop"
+exec swaymsg "workspace 3; exec slack; exec telegram-desktop; exec signal-desktop; exec riot-desktop"
 exec swaymsg "workspace 1"
 exec thunar --daemon
 exec etesync-dav
