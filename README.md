@@ -12,7 +12,7 @@ Configuration files exist for:
 * Sway (https://swaywm.org)
 * Waybar (https://github.com/Alexays/Waybar)
 * Ranger (https://ranger.github.io/)
-* Termite (https://github.com/thestinger/termite)
+* Kitty (https://sw.kovidgoyal.net/kitty/)
 * Redshift (http://jonls.dk/redshift/)
 * Kanshi (https://wayland.emersion.fr/kanshi/)
 * Albert (https://albertlauncher.github.io/)
