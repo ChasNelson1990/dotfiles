@@ -1,0 +1,21 @@
+# Maintainer: Chas Nelson <aur at chasnelson dot co dot uk>
+pkgname=(otf-sansguilt)
+pkgbase=sansguilt-font
+pkgver=1.000
+pkgrel=1
+pkgdesc='Sans Guilt typeface by OSP'
+arch=(any)
+url="https://fontlibrary.org/en/font/sans-guilt"
+license=(OFL)
+source=("https://fontlibrary.org/assets/downloads/sans-guilt/e4e92cb8f5c05a0b6a6908a9839ca62b/sans-guilt.zip")
+sha512sums=('590673010f573312bc405b848805caf36e05f532fe4d418d40c16888219bdaef2f26becfa202242a332184528e55a75c02cca79bb37463f6beb0c4f1d45f5d1c')
+
+package_otf-sansguilt() {
+	pkgdesc+=' (Install all three fonts)'
+    cd osp.foundry.sans-guilt
+    ls $srcdir
+	install -Dm644 -t "$pkgdir/usr/share/licenses/$pkgname" "$srcdir/osp.foundry.sans-guilt/OFL-1.1.txt"
+	install -Dm644 -t "$pkgdir/usr/share/fonts/$pkgname" "$srcdir/osp.foundry.sans-guilt/Lead Based/SansGuiltLB.otf"
+    install -Dm644 -t "$pkgdir/usr/share/fonts/$pkgname" "$srcdir/osp.foundry.sans-guilt/Original Drawings Based/SansGuiltDB.otf"
+    install -Dm644 -t "$pkgdir/usr/share/fonts/$pkgname" "$srcdir/osp.foundry.sans-guilt/System Gill Sans Based/SansGuiltMB.otf"
+}

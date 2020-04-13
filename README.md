@@ -26,6 +26,12 @@ Configuration files exist for:
 
 `packages.txt` includes a list of key OS packages installed
 
+## Custom Packages
+
+Also includes custom PKGBUILD files for:
+
+* otf-sansguilt (https://fontlibrary.org/en/font/sans-guilt)
+
 ## Manual Steps
 
 * Note that current BorgBackup script (`/local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
