@@ -9,6 +9,7 @@ This set-up is for a DELL XPS 13 9380 running Arch Linux.
 ## Configuration files
 
 Configuration files exist for:
+
 * Sway (https://swaywm.org)
 * Swaylock (https://github.com/swaywm/swaylock)
 * Waybar (https://github.com/Alexays/Waybar)
@@ -21,6 +22,8 @@ Configuration files exist for:
 * [Oh My] ZSH (https://ohmyz.sh/)
 * BorgBackup (https://www.borgbackup.org/)
 * Mako (https://wayland.emersion.fr/mako/)
+* VSCode (https://code.visualstudio.com/)
+  * N.B. I currently use the proprietary build for access to the Remote-SSH features
 
 ## Installed Packages
 

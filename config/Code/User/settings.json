@@ -1,0 +1,103 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "cSpell.language": "en-GB",
+    "cSpell.ignoreRegExpList": [
+        "\\\\\\w*(\\[.*?\\])?(\\{.*?\\})?",
+        "\\$.+?\\$"
+    ],
+    "cSpell.userWords": [
+        "bioinformatics",
+        "chas"
+    ],
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "copy_pdf",
+            "command": "cp",
+            "args": [
+                "%OUTDIR%/%DOCFILE%.pdf",
+                "%DIR%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk",
+                "copy_pdf"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.external.viewer.command": "okular",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 79,
+    "editor.wrappingIndent": "indent",
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "all",
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Roboto, 'monospace', monospace",
+    "editor.fontSize": 13,
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.statusBar.feedback.visible": false,
+    "explorer.confirmDragAndDrop": false,
+    "python.dataScience.sendSelectionToInteractiveWindow": false,
+    "python.linting.pylintArgs": [
+        "--errors-only",
+        "--disable=E1101"
+    ],
+    "python.testing.pytestEnabled": true,
+}

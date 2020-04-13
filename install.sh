@@ -6,6 +6,7 @@ ROOT="$( dirname $( readlink -f $0 ) )"
 # note: assumes folders already exist
 ln -sf $ROOT/.zshrc ~/.zshrc
 ln -sf $ROOT/config/albert/albert.conf ~/.config/albert/albert.conf
+ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -sf $ROOT/config/kanshi/config ~/.config/kanshi/config
 ln -sf $ROOT/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -sf $ROOT/config/mako/config ~/.config/mako/config
@@ -22,5 +23,11 @@ ln -sf $ROOT/config/waybar/config ~/.config/waybar/config
 ln -sf $ROOT/config/waybar/style.css ~/.config/waybar/style.css
 ln -sf $ROOT/config/artha.conf ~/.config/artha.conf
 ln -sf $ROOT/local/bin/borg_cjn-bak.sh ~/.local/bin/borg_cjn-bak.sh
+
+# enable backup service
 # note this will only work if the harddrive is plugged in
 systemctl enable --now --user borg_cjn-bak.service
+
+# install custom packages
+cd otf-sansguilt
+makepkg -si
