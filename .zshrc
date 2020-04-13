@@ -123,3 +123,12 @@ PERL_MB_OPT="--install_base \"/home/chas/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/chas/perl5"; export PERL_MM_OPT;
 
 export EDITOR=code
+
+# prevent nested ranger instances
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
