@@ -191,9 +191,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # border background text indicator
-client.focused  #000000 #000000 #ffffff #aaaaaa
-client.focused_inactive #666666 #666666 #ffffff #aaaaaa
-client.unfocused #666666 #666666 #ffffff #aaaaaa
+client.focused  #666666 #000000 #ffffff #aaaaaa #666666
+client.focused_inactive #000000 #000000 #ffffff #aaaaaa
+client.unfocused #000000 #000000 #ffffff #aaaaaa
 client.urgent #a51e1c #6d0c0a #ffffff #aaaaaa
 
 # Status Bar:

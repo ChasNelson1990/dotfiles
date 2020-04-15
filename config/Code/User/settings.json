@@ -86,8 +86,7 @@
     "editor.formatOnSave": true,
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
-    "editor.fontFamily": "Roboto, 'monospace', monospace",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "monospace",
     "window.zoomLevel": 0,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.enablePreview": false,
@@ -99,5 +98,5 @@
         "--errors-only",
         "--disable=E1101"
     ],
-    "python.testing.pytestEnabled": true,
+    "terminal.integrated.fontSize": 12,
 }

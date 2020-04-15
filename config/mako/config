@@ -9,12 +9,12 @@ default-timeout=3000
 # Only for desktop, ignored when no such output exists
 # output=DP-4
 
-background-color=#001C55
-border-color=#0a2472
+background-color=#000000
+border-color=#ffffff
 text-color=#ffffff
 
 [urgency=high]
-background-color=#6d0c0a
-border-color=#a51e1c
-text-color=#ffffff
+background-color=#000000
+border-color=#aa0000
+text-color=#aa0000
 ignore-timeout=1
