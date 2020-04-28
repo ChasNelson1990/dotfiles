@@ -83,7 +83,6 @@
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 79,
     "editor.wrappingIndent": "indent",
-    "editor.formatOnSave": true,
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
     "editor.fontFamily": "monospace",
@@ -94,9 +93,8 @@
     "workbench.statusBar.feedback.visible": false,
     "explorer.confirmDragAndDrop": false,
     "python.dataScience.sendSelectionToInteractiveWindow": false,
-    "python.linting.pylintArgs": [
-        "--errors-only",
-        "--disable=E1101"
-    ],
     "terminal.integrated.fontSize": 12,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "latex-workshop.latexindent.path": "",
+    "editor.formatOnSave": true
 }
