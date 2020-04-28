@@ -3,7 +3,7 @@ font=Roboto 9
 width=350
 padding=10
 margin=10
-border-size=5
+border-size=3
 default-timeout=3000
 
 # Only for desktop, ignored when no such output exists
