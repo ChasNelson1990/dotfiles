@@ -49,6 +49,8 @@ input "1739:30383:DELL08AF:00_06CB:76AF_Touchpad" {
     dwt enabled
     middle_emulation disabled
 }
+# hide cursor after 5 s of idle
+seat * hide_cursor 5000
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
