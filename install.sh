@@ -5,6 +5,7 @@ ROOT="$( dirname $( readlink -f $0 ) )"
 # create symlinks for files
 # note: assumes folders already exist
 ln -sf $ROOT/.zshrc ~/.zshrc
+ln -sf $ROOT/.zlogin ~/.zlogin 
 ln -sf $ROOT/config/albert/albert.conf ~/.config/albert/albert.conf
 ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -sf $ROOT/config/kanshi/config ~/.config/kanshi/config
