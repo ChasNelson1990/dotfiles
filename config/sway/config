@@ -211,6 +211,29 @@ include ~/.config/sway/config.d/*
 # Don't follow the mouse around the screen
 focus_follows_mouse no
 
+# autoassignments
+# use `swaymsg -t get_tree` to get app_id or class
+assign [app_id="thunderbird"] workspace 1
+assign [class="Telegram"] workspace 2
+assign [class="Signal"] workspace 2
+assign [class="Slack"] workspace 3
+assign [class="Element"] workspace 3
+assign [class="Microsoft Teams"] workspace 3
+workspace 1 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
+workspace 2 output eDP1 "Dell Inc. DELL U2719DC HW6XSS2"
+workspace 3 output eDP1 "Dell Inc. DELL U2719DC HW6XSS2"
+workspace 4 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
+
 # Autostarts
+exec thunar --daemon  # for automounts
 exec mako
+exec albert
+exec mullvad-vpn
+exec thunderbird
+exec slack
+exec telegram-desktop
+exec signal-desktop
+exec element-desktop
+exec teams
+exec swaymsg "workspace 3; exec firefox"
 exec xrdb -load ~/.Xresources  # fix for large items after unplugging monitors
