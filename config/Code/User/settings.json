@@ -77,6 +77,12 @@
                 "latexmk",
                 "copy_pdf"
             ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex",
+            ]
         }
     ],
     "latex-workshop.view.pdf.external.viewer.command": "okular",
@@ -90,11 +96,21 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.enablePreview": false,
     "workbench.list.openMode": "doubleClick",
-    "workbench.statusBar.feedback.visible": false,
     "explorer.confirmDragAndDrop": false,
     "python.dataScience.sendSelectionToInteractiveWindow": false,
     "terminal.integrated.fontSize": 12,
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Nord",
     "latex-workshop.latexindent.path": "",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "\\todo",
+        "\\missingfigure"
+    ]
 }
