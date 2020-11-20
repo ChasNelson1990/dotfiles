@@ -23,7 +23,7 @@ firefox
 firefox-i18n-en-gb
 thunderbird
 thunderbird-i18n-en-gb
-chromium-wayland
+chromium-ozone
 ntfs-3g
 exfat-utils
 mullvad-vpn-bin
