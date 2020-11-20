@@ -1,16 +1,16 @@
-laptop_only {
+{
 	output eDP-1 enable mode 1920x1080 position 0,0
 }
-laptop_dock_two_monitors {
+{
 	output "Dell Inc. DELL U2719DC HW6XSS2" mode 2560x1440 position 0,0 transform 270 
 	output "Dell Inc. DELL U2719DC 7W6XSS2" mode 2560x1440 position 1440,0
 	output eDP-1 disable
 }
-laptop_one_monitor {
+{
 	output "Dell Inc. DELL U2719DC 7W6XSS2" mode 2560x1440 position 0,0
 	output eDP-1 enable mode 1920x1080 position 2560,0
 }
-laptop_other_monitor {
+{
 	output "Dell Inc. DELL U2719DC HW6XSS2" mode 2560x1440 position 0,0
 	output eDP-1 enable mode 1920x1080 position 2560,0
 }

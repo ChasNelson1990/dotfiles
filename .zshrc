@@ -119,9 +119,7 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/.poetry/bin:$PATH"
-
-export WLR_DRM_NO_MODIFIERS=1
+export PATH="$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
 
 PATH="/home/chas/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/chas/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -143,5 +141,13 @@ ranger() {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export MOZ_ENABLE_WAYLAND=1
-export MOZ_DBUS_REMOTE=1
+# ?I think this was a fix for my dock?
+export WLR_DRM_NO_MODIFIERS=1
+
+# make firefox/thunderbird use wayland
+# export MOZ_ENABLE_WAYLAND=1
+# export MOZ_DBUS_REMOTE=1
+
+# make QT use wayland for telegram
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct

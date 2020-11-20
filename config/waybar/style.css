@@ -1,16 +1,16 @@
 * {
     border: none;
     border-radius: 0;
-    color: #cccccc;
+    color: #d8dee9;
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background: #000000;
-    border-bottom: 1px solid #000000;
-    color: #333333;
+    background: #2e3440;
+    border-bottom: 1px solid #2e3440;
+    color: #4c566a;
 }
 
 #workspaces button {
@@ -21,40 +21,40 @@ window#waybar {
 #workspaces button:hover {
     background: inherit;
     box-shadow: inherit;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #eceff4;
 }
 
 #workspaces button.focused {
-    background: #336565;
-    border-bottom: 2px solid #00A8A8;
+    background: #5e81ac;
+    border-bottom: 2px solid #81a1c1;
 }
 
 #workspaces button.urgent {
-    background: #AA0000;
-    border-bottom: 2px solid #CC0000;
+    background: #bf616a;
+    border-bottom: 2px solid #d08770;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
     padding: 0 5px;
     margin: 0 10px;
-    color: #ffffff;
+    color: #eceff4;
 }
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #eceff4;
+    background-color: #a3be8c;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #eceff4;
+        color: #2e3440;
     }
 }
 
 #battery.critical:not(.charging) {
-    background: #f53c3c;
-    color: #ffffff;
+    background: #bf616a;
+    color: #eceff4;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -63,7 +63,7 @@ window#waybar {
 }
 
 #network.disconnected {
-    background: #aa0000;
+    background: #5e81ac;
 }
 /*
 .custom-vlc {
@@ -72,10 +72,10 @@ window#waybar {
 */
 
 #temperature.critical {
-    background: #aa0000;
+    background: #5e81ac;
 }
 
 #idle_inhibitor.activated {
-    background: #aa0000;
+    background: #5e81ac;
 }
 

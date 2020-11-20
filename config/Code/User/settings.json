@@ -9,8 +9,34 @@
         "\\$.+?\\$"
     ],
     "cSpell.userWords": [
+        "Movie",
+        "Poisson",
+        "Pseudocode",
+        "ROIs",
+        "agarose",
+        "bioimage",
         "bioinformatics",
-        "chas"
+        "brightfield",
+        "chas",
+        "fastpins",
+        "mesoscopic",
+        "movies",
+        "numba",
+        "omics",
+        "optogenetics",
+        "parallelisation",
+        "photobleaching",
+        "photodamage",
+        "phototoxicity",
+        "pyproject",
+        "pytest",
+        "subsample",
+        "subsampled",
+        "subsamples",
+        "subsampling",
+        "transgene",
+        "voxel",
+        "zebrafish"
     ],
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.latex.outDir": "%DIR%/build",
@@ -22,6 +48,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-shell-escape",
                 "-pdf",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
@@ -112,5 +139,32 @@
         "XXX",
         "\\todo",
         "\\missingfigure"
-    ]
+    ],
+    "window.menuBarVisibility": "toggle",
+    "todo-tree.general.tagGroups": {
+        "TODO": ["TODO", "\\todo", "\\missingfigure"]
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "red",
+        "background": "white",
+        "opacity": 25,
+        "iconColour": "#aa0000"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line"
+        },
+        "FIXME": {
+            "foreground": "black",
+            "iconColour": "yellow",
+            "gutterIcon": true
+        }
+    },
+    "todo-tree.general.enableFileWatcher": true,
+    "todo-tree.highlights.enabled": true,
+    "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|\\|)\\s*($TAGS)|^\\s*- \\[ \\])",
+    "git.smartCommitChanges": "tracked"
 }

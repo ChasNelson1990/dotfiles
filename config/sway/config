@@ -1,18 +1,20 @@
 # Read `man 5 sway` for a complete reference.
 
+font pango:Roboto, Helvetica 13px
+
 ### Variables
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
-set $menu "albert show"
+set $menu "wofi --show dmenu,drun"
 set $browser firefox
 
 ### Output configuration
 # note: moved output control to kanshi 20190118
 exec_always pkill kanshi; exec kanshi
-output * background ~/git/dotfiles/wallfull.png fit #000000
+output * background ~/git/dotfiles/wallfull.png fit #2E3440
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -20,10 +22,10 @@ output * background ~/git/dotfiles/wallfull.png fit #000000
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000 -i ~/git/dotfiles/wallfull.png' \
+    timeout 300 'swaylock -f -c 2E3440 -i ~/git/dotfiles/wallfull.png' \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000 -i ~/git/dotfiles/wallfull.png'
+    before-sleep 'swaylock -f -c 2E3440 -i ~/git/dotfiles/wallfull.png'
 
 # Inhibit Idle if a window is fullscreen
 for_window [class="^.*"] inhibit_idle fullscreen
@@ -31,7 +33,7 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 
 # Key-bindings
     # $mod+s: Lock screen 
-    bindsym $mod+l exec swaylock -f -c 000000 -i ~/git/dotfiles/wallfull.png
+    bindsym $mod+l exec swaylock -f -c 2E3440 -i ~/git/dotfiles/wallfull.png
     # $mod+Shift+s: Lock and Suspend
     # bindsym $mod+Shift+s exec sudo systemctl suspend
 
@@ -193,10 +195,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # border background text indicator
-client.focused  #666666 #000000 #ffffff #aaaaaa #666666
-client.focused_inactive #000000 #000000 #ffffff #aaaaaa
-client.unfocused #000000 #000000 #ffffff #aaaaaa
-client.urgent #a51e1c #6d0c0a #ffffff #aaaaaa
+client.focused  #4c566a #2e3440 #eceff4 #d8dee9 #4c566a
+client.focused_inactive #2e3440 #2e3440 #eceff4 #d8dee9
+client.unfocused #2e3440 #2e3440 #eceff4 #d8dee9
+client.urgent #a51e1c #6d0c0a #eceff4 #d8dee9
 
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
@@ -214,26 +216,27 @@ focus_follows_mouse no
 # autoassignments
 # use `swaymsg -t get_tree` to get app_id or class
 assign [app_id="thunderbird"] workspace 1
-assign [class="Telegram"] workspace 2
+assign [app_id="telegramdesktop"] workspace 2
 assign [class="Signal"] workspace 2
 assign [class="Slack"] workspace 3
 assign [class="Element"] workspace 3
-assign [class="Microsoft Teams"] workspace 3
+# assign [class="Microsoft Teams"] workspace 3
 workspace 1 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
-workspace 2 output eDP1 "Dell Inc. DELL U2719DC HW6XSS2"
-workspace 3 output eDP1 "Dell Inc. DELL U2719DC HW6XSS2"
+workspace 2 output "Dell Inc. DELL U2719DC HW6XSS2" eDP1
+workspace 3 output "Dell Inc. DELL U2719DC HW6XSS2" eDP1
 workspace 4 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
 
 # Autostarts
 exec thunar --daemon  # for automounts
 exec mako
-exec albert
 exec mullvad-vpn
 exec thunderbird
 exec slack
 exec telegram-desktop
 exec signal-desktop
-exec element-desktop
-exec teams
-exec swaymsg "workspace 3; exec firefox"
-exec xrdb -load ~/.Xresources  # fix for large items after unplugging monitors
+# exec element-desktop
+# exec teams
+exec swaymsg "workspace 4; exec firefox"
+exec swaymsg "workspace 4; exec chromium"
+# exec xrdb -load ~/.Xresources  # fix for large items after unplugging monitors
+exec bluetoothctl power on
