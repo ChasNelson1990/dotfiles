@@ -5,12 +5,17 @@ swayidle
 waybar
 wofi
 alacritty
-xorg-server-wayland
+xorg-server-xwayland
 mako
 kanshi
 ranger
 brightnessctl
-redshift-wayland
+redshift-wayland-git
+oh-my-zsh-git
+zsh-theme-powerlevel10k-git
+awesome-terminal-fonts
+powerline-fonts
+ttf-meslo-nerd-font-powerlevel10k
 htop
 ytop
 powertop
@@ -21,9 +26,7 @@ thunderbird-i18n-en-gb
 chromium-wayland
 ntfs-3g
 exfat-utils
-oh-my-zsh
-wireguard
-mullvad-tray
+mullvad-vpn-bin
 telegram-desktop
 slack-desktop
 signal-desktop
@@ -34,7 +37,7 @@ openshot
 vlc
 bluez-utils
 hunspell-en_GB
-trasnmission-gtk
+transmission-gtk
 xournal
 borg
 grim
@@ -42,7 +45,6 @@ slurp
 wl-clipboard
 graphicsmagick
 vscode
-zsh-theme-powerlevel10k-git
 libcdio
 libdvdread
 libdvdcss
@@ -57,5 +59,5 @@ laptop-mode-tools
 pipewire
 xdg-desktop-portal
 intel-mkl
-qt-wayland
+qt5-wayland
 qt5ct
