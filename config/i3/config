@@ -186,11 +186,13 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# border background text indicator
-client.focused  #4c566a #2e3440 #eceff4 #d8dee9 #4c566a
+# Colours
+# Property Name         Border  BG      Text    Indicator   Child Border
+client.focused          #4c566a #2e3440 #eceff4 #d8dee9     #4c566a
 client.focused_inactive #2e3440 #2e3440 #eceff4 #d8dee9
-client.unfocused #2e3440 #2e3440 #eceff4 #d8dee9
-client.urgent #a51e1c #6d0c0a #eceff4 #d8dee9
+client.unfocused        #2e3440 #2e3440 #eceff4 #d8dee9
+client.urgent           #a51e1c #6d0c0a #eceff4 #d8dee9
+client.background       #2e3440
 
 # Status Bar:
 bar {
