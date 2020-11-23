@@ -127,8 +127,6 @@ PERL_LOCAL_LIB_ROOT="/home/chas/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_RO
 PERL_MB_OPT="--install_base \"/home/chas/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/chas/perl5"; export PERL_MM_OPT;
 
-export EDITOR=code
-
 # prevent nested ranger instances
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
@@ -141,13 +139,15 @@ ranger() {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ?I think this was a fix for my dock?
-export WLR_DRM_NO_MODIFIERS=1
+sway() {
+    # ?I think this was a fix for my dock?
+    export WLR_DRM_NO_MODIFIERS=1
 
-# make firefox/thunderbird use wayland
-# export MOZ_ENABLE_WAYLAND=1
-# export MOZ_DBUS_REMOTE=1
+    # make firefox/thunderbird use wayland
+    export MOZ_ENABLE_WAYLAND=1
+    export MOZ_DBUS_REMOTE=1
 
-# make QT use wayland for telegram
-export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORMTHEME=qt5ct
+    # make QT use wayland for telegram
+    export QT_QPA_PLATFORM=wayland
+    export QT_QPA_PLATFORMTHEME=qt5ct
+}
