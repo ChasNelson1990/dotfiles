@@ -6,7 +6,7 @@ set $mod Mod4
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu "rofi --show dmenu,drun"
+set $menu "rofi -combi-modi window,drun -show combi -modi combi"
 set $browser firefox
 
 ### Output configuration
