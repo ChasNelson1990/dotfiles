@@ -61,6 +61,8 @@ xdg-desktop-portal
 intel-mkl
 qt5-wayland
 qt5ct
+xorg
+xorg-xinit
 i3
 rofi
 dunst

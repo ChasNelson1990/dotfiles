@@ -6,9 +6,10 @@ ROOT="$( dirname $( readlink -f $0 ) )"
 
 
 # create symlinks for files
+ln -sf $ROOT/.xinitrc ~/.xinitrc
+ln -sf $ROOT/.Xresources ~/.Xresources
 ln -sf $ROOT/.zshrc ~/.zshrc
 ln -sf $ROOT/.zprofile ~/.zprofile
-ln -sf $ROOT/.Xresources ~/.Xrresources
 mkdir -p ~/.config/alacritty
 ln -sf $ROOT/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.config/Code/User
