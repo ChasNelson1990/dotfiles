@@ -46,7 +46,7 @@ exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l dim"
 #    middle_emulation disabled
 #}
 # hide cursor after 5 s of idle
-seat * hide_cursor 5000
+# seat * hide_cursor 5000
 
 ### Key bindings
 # Basics:
@@ -76,7 +76,7 @@ seat * hide_cursor 5000
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    floating_modifier $mod normal
+    # floating_modifier $mod normal
 
     # reload the configuration file
     bindsym $mod+Shift+c reload
@@ -207,10 +207,6 @@ bar {
         urgent_workspace #bf616a #d8dee9
     }
 }
-
-# Load other config files
-include /etc/i3/config.d/*
-include ~/.config/i3/config.d/*
 
 # Don't follow the mouse around the screen
 focus_follows_mouse no

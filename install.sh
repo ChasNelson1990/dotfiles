@@ -1,6 +1,6 @@
 #! /bin/bash
 
-pikaur -Syu --no-confirm --needed - < pkglist.txt
+pikaur -Syu --needed - < pkglist.txt
 
 ROOT="$( dirname $( readlink -f $0 ) )"
 
