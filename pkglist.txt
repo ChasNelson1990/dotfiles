@@ -61,3 +61,8 @@ xdg-desktop-portal
 intel-mkl
 qt5-wayland
 qt5ct
+i3
+rofi
+dunst
+feh
+betterlockscreen
