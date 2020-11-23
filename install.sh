@@ -7,6 +7,8 @@ ROOT="$( dirname $( readlink -f $0 ) )"
 ln -sf $ROOT/.zshrc ~/.zshrc
 ln -sf $ROOT/.zprofile ~/.zprofile
 ln -sf $ROOT/.Xresources ~/.Xrresources
+mkdir -p ~/.config/alacritty
+ln -sf $ROOT/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.config/Code/User
 ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
 mkdir -p ~/.config/kanshi
@@ -23,6 +25,8 @@ ln -sf $ROOT/config/redshift/redshift.conf ~/.config/redshift/redshift.conf
 mkdir -p ~/.config/sway/config.d
 ln -sf $ROOT/config/sway/config.d/10-systemd ~/.config/sway/config.d/10-systemd
 ln -sf $ROOT/config/sway/config ~/.config/sway/config
+mkdir -p ~/.config/i3
+ln -sf $ROOT/config/i3/config ~/.config/i3/config
 mkdir -p ~/.config/swaylock
 ln -sf $ROOT/config/swaylock/config ~/.config/swaylock/config
 mkdir -p ~/.config/systemd/user
