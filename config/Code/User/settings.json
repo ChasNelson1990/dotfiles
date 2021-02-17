@@ -124,7 +124,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.list.openMode": "doubleClick",
     "explorer.confirmDragAndDrop": false,
-    "python.dataScience.sendSelectionToInteractiveWindow": false,
     "terminal.integrated.fontSize": 12,
     "workbench.colorTheme": "Nord",
     "latex-workshop.latexindent.path": "",
@@ -136,13 +135,13 @@
         "HACK",
         "FIXME",
         "TODO",
-        "XXX",
-        "\\todo",
-        "\\missingfigure"
+        "XXX"
     ],
     "window.menuBarVisibility": "toggle",
     "todo-tree.general.tagGroups": {
-        "TODO": ["TODO", "\\todo", "\\missingfigure"]
+        "TODO": [
+            "TODO"
+        ]
     },
     "todo-tree.highlights.defaultHighlight": {
         "icon": "alert",
@@ -166,5 +165,11 @@
     "todo-tree.general.enableFileWatcher": true,
     "todo-tree.highlights.enabled": true,
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|\\|)\\s*($TAGS)|^\\s*- \\[ \\])",
-    "git.smartCommitChanges": "tracked"
+    "git.smartCommitChanges": "tracked",
+    "jupyter.sendSelectionToInteractiveWindow": false,
+    "files.insertFinalNewline": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.linting.mypyEnabled": true
 }
