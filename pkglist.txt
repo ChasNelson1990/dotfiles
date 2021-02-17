@@ -23,7 +23,7 @@ firefox
 firefox-i18n-en-gb
 thunderbird
 thunderbird-i18n-en-gb
-chromium-ozone
+chromium
 ntfs-3g
 exfat-utils
 mullvad-vpn-bin
@@ -38,13 +38,13 @@ vlc
 bluez-utils
 hunspell-en_GB
 transmission-gtk
-xournal
+xournalpp
 borg
 grim
 slurp
 wl-clipboard
 graphicsmagick
-vscode
+visual-studio-code-bin
 libcdio
 libdvdread
 libdvdcss
@@ -68,3 +68,6 @@ rofi
 dunst
 feh
 betterlockscreen
+clamav
+python-fangfrisch
+firewalld

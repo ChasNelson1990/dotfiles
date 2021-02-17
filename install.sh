@@ -21,6 +21,8 @@ ln -sf $ROOT/config/ranger/scope.sh ~/.config/ranger/scope.sh
 mkdir -p ~/.config/redshift
 ln -sf $ROOT/config/redshift/redshift.conf ~/.config/redshift/redshift.conf
 ln -sf $ROOT/config/artha.conf ~/.config/artha.conf
+sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
+sudo ln -sf $ROOT/config/clamav/freshclam.conf /etc/clamav/freshclam.conf
 
 # wayland-based sway
 mkdir -p ~/.config/kanshi
@@ -57,3 +59,12 @@ systemctl enable --now --user borg_cjn-bak.service
 # install custom packages
 cd otf-sansguilt
 makepkg -si
+
+# update AV and firewall
+freshclam
+sudo systemctl enable --now clamav-freshclam.service
+sudo -u clamav /usr/bin/fangfrisch --conf /etc/fangfrisch/fangfrisch.conf initdb
+sudo systemctl enable --now fangfrisch.timer
+sudo systemctl enable --now clamav-daemon.service
+sudo systemctl enable --now clamav-clamonacc.service
+sudo systemctl enable --now firewalld.service
