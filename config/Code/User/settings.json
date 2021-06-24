@@ -119,7 +119,6 @@
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
     "editor.fontFamily": "monospace",
-    "window.zoomLevel": 0,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.enablePreview": false,
     "workbench.list.openMode": "doubleClick",
@@ -127,8 +126,7 @@
     "terminal.integrated.fontSize": 12,
     "workbench.colorTheme": "Nord",
     "latex-workshop.latexindent.path": "",
-    "editor.formatOnSave": true,
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "none",
     "todo-tree.tree.showScanModeButton": false,
     "todo-tree.general.tags": [
         "BUG",
@@ -171,5 +169,13 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "python.linting.mypyEnabled": true
+    "python.linting.pylintEnabled": false,
+    "editor.largeFileOptimizations": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "platformio-ide.activateOnlyOnPlatformIOProject": true,
+    "editor.formatOnSave": true
 }
