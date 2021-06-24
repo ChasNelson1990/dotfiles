@@ -31,22 +31,7 @@ exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l dim"
     # bindsym $mod+Shift+s exec sudo systemctl suspend
 
 ### Input configuration
-# TODO how for i3?
-#input "1:1:AT_Translated_Set_2_keyboard" {
-#    xkb_layout gb
-#    xkb_options altwin:menu
-#}
-#input "1241:8211:daskeyboard" {
-#    xkb_layout gb
-#    xkb_numlock enabled
-#}
-#input "1739:30383:DELL08AF:00_06CB:76AF_Touchpad" {
-#    natural_scroll enabled
-#    dwt enabled
-#    middle_emulation disabled
-#}
-# hide cursor after 5 s of idle
-# seat * hide_cursor 5000
+# dealt with by localectl in install.sh
 
 ### Key bindings
 # Basics:

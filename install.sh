@@ -4,6 +4,8 @@ pikaur -Syu --needed - < pkglist.txt
 
 ROOT="$( dirname $( readlink -f $0 ) )"
 
+# locale (needed for i3 kbd control)
+sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 
 # create symlinks for files
 # general
