@@ -1,4 +1,4 @@
-font pango:Roboto, Helvetica 13
+font pango:Roboto, Helvetica 11
 
 ### Variables
 # Logo key. Use Mod1 for Alt.
@@ -11,7 +11,7 @@ set $browser firefox
 
 ### Output configuration
 #exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-0 --off --output DVI-1 --off
-exec_always --no-startup-id feh --bg-fill ~/git/dotfiles/wallfull.png
+exec_always --no-startup-id feh --bg-center ~/git/dotfiles/wallfull.png
 
 ### Idle configuration
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -70,8 +70,8 @@ exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l dim"
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
     # screen capture to clipboard
-    bindsym --release Print exec grim - | wl-copy
-    bindsym --release Alt+Print exec grim -g \"$(slurp)" - | wl-copy
+    #interactive screenshot by pressing printscreen
+    bindsym Print exec xfce4-screenshooter
 
 # Moving around:
     # Move your focus around
