@@ -1,9 +1,10 @@
 configuration {
- modi: "window,drun,ssh,combi";
+ modi: "combi";
  theme: "nord";
- font: "Roboto 13";
- combi-modi: "window,drun,ssh";
+ font: "Roboto 11";
+ combi-modi: "drun,window,ssh";
  show-icons: true;
- matching: "fuzzy";
- dpi: 220;
+ matching: "normal";
+ terminal: "alacritty";
+ dpi: 96;
  }
