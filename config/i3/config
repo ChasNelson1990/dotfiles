@@ -11,6 +11,7 @@ set $browser firefox
 
 ### Output configuration
 #exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-0 --off --output DVI-1 --off
+exec --no-startup-id xsetroot -solid "#2E3440"
 exec_always --no-startup-id feh --bg-center ~/git/dotfiles/wallfull.png
 
 ### Idle configuration
@@ -72,6 +73,9 @@ exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l dim"
     # screen capture to clipboard
     #interactive screenshot by pressing printscreen
     bindsym Print exec xfce4-screenshooter
+
+    # pause notifications
+    bindsym $mod+n exec dunstctl set-paused toggle
 
 # Moving around:
     # Move your focus around
@@ -161,8 +165,8 @@ mode "resize" {
     # up will shrink the containers height
     # down will grow the containers height
     bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
+    bindsym Up resize grow height 10px
+    bindsym Down resize shrink height 10px
     bindsym Right resize grow width 10px
 
     # return to default mode
@@ -212,9 +216,10 @@ workspace 3 output "Dell Inc. DELL U2719DC HW6XSS2" eDP1
 workspace 4 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
 
 # Autostarts
+exec_always --no-startup-id dunst
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 exec thunar --daemon  # for automounts
-exec --no-startup-id dunst
 exec mullvad-vpn
 exec thunderbird
 exec slack
@@ -222,7 +227,7 @@ exec telegram-desktop
 exec signal-desktop
 # exec element-desktop
 # exec teams
-exec --no-startup-id i3-msg"workspace 4; exec firefox"
-exec --no-startup-id i3-msg"workspace 4; exec chromium"
+# exec --no-startup-id i3-msg"workspace 4; exec firefox"
+# exec --no-startup-id i3-msg"workspace 4; exec chromium"
 # exec xrdb -load ~/.Xresources  # fix for large items after unplugging monitors
 exec bluetoothctl power on
