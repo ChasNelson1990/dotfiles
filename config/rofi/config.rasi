@@ -1,6 +1,5 @@
 configuration {
  modi: "combi";
- theme: "nord";
  font: "Roboto 11";
  combi-modi: "drun,window,ssh";
  show-icons: true;
@@ -8,3 +7,4 @@ configuration {
  terminal: "alacritty";
  dpi: 96;
  }
+@theme "nord"
