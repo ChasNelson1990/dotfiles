@@ -27,22 +27,7 @@ ln -sf $ROOT/config/artha.conf ~/.config/artha.conf
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
 sudo ln -sf $ROOT/config/clamav/freshclam.conf /etc/clamav/freshclam.conf
 
-# wayland-based sway
-mkdir -p ~/.config/kanshi
-ln -sf $ROOT/config/kanshi/config ~/.config/kanshi/config
-mkdir -p ~/.config/mako
-ln -sf $ROOT/config/mako/config ~/.config/mako/config
-mkdir -p ~/.config/sway/config.d
-ln -sf $ROOT/config/sway/config.d/10-systemd ~/.config/sway/config.d/10-systemd
-ln -sf $ROOT/config/sway/config ~/.config/sway/config
-mkdir -p ~/.config/swaylock
-ln -sf $ROOT/config/swaylock/config ~/.config/swaylock/config
-mkdir -p ~/.config/waybar
-ln -sf $ROOT/config/waybar/config ~/.config/waybar/config
-ln -sf $ROOT/config/waybar/style.css ~/.config/waybar/style.css
-
-
-# alternative X-based i3
+# i3
 ln -sf $ROOT/.xinitrc ~/.xinitrc
 ln -sf $ROOT/.Xresources ~/.Xresources
 mkdir -p ~/.config/i3
