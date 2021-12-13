@@ -121,7 +121,7 @@
     "editor.wrappingIndent": "indent",
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
-    "editor.fontFamily": "monospace",
+    "editor.fontFamily": "Hack Nerd Font",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.enablePreview": false,
     "workbench.list.openMode": "doubleClick",
@@ -206,5 +206,6 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "editor.inlineSuggest.enabled": true,
-    "git.enableCommitSigning": true
+    "git.enableCommitSigning": true,
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono"
 }
