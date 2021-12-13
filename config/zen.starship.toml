@@ -1,0 +1,45 @@
+add_newline = false
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$cmd_duration\
+$line_break\
+$time \
+$status\
+$character\
+"""
+
+[username]
+format = "[$user]($style)@"
+show_always = false
+
+[hostname]
+ssh_only = true
+
+[directory]
+truncation_length = 1
+truncate_to_repo = true
+
+[git_branch]
+symbol = "שׂ "
+disabled = false
+
+[cmd_duration]
+min_time = 500
+show_notifications = true
+min_time_to_notify = 30000
+
+[line_break]
+# if true info and prompts are merged into a single line
+disabled = true
+
+[time]
+format = "%T"
+disabled = false
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+

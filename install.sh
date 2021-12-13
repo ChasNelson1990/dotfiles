@@ -11,6 +11,7 @@ sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 # general
 ln -sf $ROOT/.zshrc ~/.zshrc
 ln -sf $ROOT/.zprofile ~/.zprofile
+ln -sf $ROOT/config/starship.toml ~/.config/starship.toml
 mkdir -p ~/.config/alacritty
 ln -sf $ROOT/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.config/Code/User
@@ -61,6 +62,10 @@ systemctl enable --now --user borg_cjn-bak.service
 # install custom packages
 cd otf-sansguilt
 makepkg -si
+
+# install oh-my-zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # update AV and firewall
 freshclam

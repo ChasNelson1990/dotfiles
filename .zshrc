@@ -1,43 +1,19 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+## oh-my-zsh configuration
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# theme
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -68,41 +44,42 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.local/share/oh-my-zsh
+ZSH_CUSTOM=~/.local/share/oh-my-zsh/custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(
+    bgnotify # Show notifications when a command finishes
+    command-not-found # Show recommended installs from archpkg if command not found
+    docker # Docker autocomplete
+    docker-compose # Docker-compose autocomplete and aliases
+    extract # easily extract archives
+    gpg-agent # run gpg agent in background
+    last-working-dir # Show last working directory and adds lwd for cd there
+    safe-paste # Paste from clipboard without running code
+    screen # title setter for screen
+    ssh-agent # run ssh agent in background
+    sudo # double esc for sudo
+    zsh-autosuggestions # autosuggestions
+    zsh-syntax-highlighting # syntax highlighting
+)
 
+# fix ls aliases by turning zsh colouring off
+# needed for ls=exa alias
+export DISABLE_LS_COLORS="true"
+alias ls="exa"
 
-# User configuration
+# cats to bats alias
+alias cat="bat"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# (y)top alias
+alias top="btm"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -117,15 +94,7 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
 fi
 
-source $ZSH/oh-my-zsh.sh
-
 export PATH="$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
-
-PATH="/home/chas/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/chas/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/chas/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/chas/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/chas/perl5"; export PERL_MM_OPT;
 
 # prevent nested ranger instances
 ranger() {
@@ -136,21 +105,17 @@ ranger() {
     fi
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-sway() {
-    # ?I think this was a fix for my dock?
-    export WLR_DRM_NO_MODIFIERS=1
-
-    # make firefox/thunderbird use wayland
-    export MOZ_ENABLE_WAYLAND=1
-    export MOZ_DBUS_REMOTE=1
-
-    # make QT use wayland for telegram
-    export QT_QPA_PLATFORM=wayland
-    export QT_QPA_PLATFORMTHEME=qt5ct
-}
-
-
 export GPG_TTY=$(tty)
+
+# starship mode switching aliases
+alias zenmode="export STARSHIP_CONFIG=~/.config/zen.starship.toml"
+alias unzenmode="export STARSHIP_CONFIG=~/.config/starship.toml"
+
+# activate oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+# activate starship
+eval "$(starship init zsh)"
+
+# run macchina
+macchina
