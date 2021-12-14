@@ -67,16 +67,18 @@ plugins=(
     zsh-syntax-highlighting # syntax highlighting
 )
 
+## Rust utilities
 # fix ls aliases by turning zsh colouring off
-# needed for ls=exa alias
 export DISABLE_LS_COLORS="true"
+# aliases
 alias ls="exa"
-
-# cats to bats alias
 alias cat="bat"
-
-# (y)top alias
 alias top="btm"
+alias htop="btm"
+alias find="fd"
+alias grep="rg"
+alias ps="procs"
+alias sed="sd"
 
 # autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff"
