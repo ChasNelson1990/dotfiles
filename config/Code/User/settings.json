@@ -207,5 +207,11 @@
     },
     "editor.inlineSuggest.enabled": true,
     "git.enableCommitSigning": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono"
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false
+    }
 }
