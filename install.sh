@@ -36,6 +36,10 @@ mkdir -p ~/.config/rofi
 ln -sf $ROOT/config/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -sf $ROOT/config/rofi/nord.rasi ~/.config/rofi/nord.rasi
 
+# notifications
+mkdir ~/.config/wired
+ln -sf $ROOT/config/wired/wired.ron ~/.config/wired/wired.ron
+
 # enable backup service
 # note this will only work if the harddrive is plugged in
 mkdir -p ~/.config/systemd/user

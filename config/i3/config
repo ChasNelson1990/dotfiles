@@ -208,26 +208,19 @@ assign [class="Thunderbird"] workspace 1
 assign [class="Telegram"] workspace 2
 assign [class="Signal"] workspace 2
 assign [class="Slack"] workspace 3
-assign [class="Element"] workspace 3
-# assign [class="Microsoft Teams"] workspace 3
-workspace 1 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
+workspace 1 output "Dell Inc. DELL U2719DC HW6XSS2" eDP1
 workspace 2 output "Dell Inc. DELL U2719DC HW6XSS2" eDP1
 workspace 3 output "Dell Inc. DELL U2719DC HW6XSS2" eDP1
 workspace 4 output "Dell Inc. DELL U2719DC 7W6XSS2" eDP1
 
 # Autostarts
-exec_always --no-startup-id dunst
+exec_always --no-startup-id wired --run
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id blueman-applet
-exec thunar --daemon  # for automounts
+exec udiskie  # for auto mounting usb drives
 exec mullvad-vpn
 exec thunderbird
 exec slack
 exec telegram-desktop
 exec signal-desktop
-# exec element-desktop
-# exec teams
-# exec --no-startup-id i3-msg"workspace 4; exec firefox"
-# exec --no-startup-id i3-msg"workspace 4; exec chromium"
-# exec xrdb -load ~/.Xresources  # fix for large items after unplugging monitors
