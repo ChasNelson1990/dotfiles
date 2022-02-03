@@ -78,7 +78,7 @@ alias htop="btm"
 alias find="fd"
 alias grep="rg"
 alias ps="procs"
-alias sed="sd"
+# alias sed="sd"
 
 # autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff"
@@ -121,3 +121,4 @@ eval "$(starship init zsh)"
 
 # run macchina
 macchina
+
