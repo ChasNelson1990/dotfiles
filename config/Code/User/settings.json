@@ -121,7 +121,7 @@
     "editor.wrappingIndent": "indent",
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
-    "editor.fontFamily": "Hack Nerd Font",
+    "editor.fontFamily": "RobotoMono Nerd Font",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.enablePreview": false,
     "workbench.list.openMode": "doubleClick",
@@ -207,7 +207,7 @@
     },
     "editor.inlineSuggest.enabled": true,
     "git.enableCommitSigning": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontFamily": "RobotoMono Nerd Font Mono",
     "github.copilot.enable": {
         "*": true,
         "yaml": true,

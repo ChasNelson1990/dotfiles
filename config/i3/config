@@ -25,7 +25,7 @@
 
 # visuals
     ## font
-    font pango:"Hack Nerd Font Mono", Roboto, Helvetica 11
+    font pango:RobotoMono Nerd Font 11
 
     ## desktop background
         ### colour
@@ -42,7 +42,7 @@
         client.background       #2E3440
 
 # screenlock
-    set $screenlock "betterlockscreen --lock --off 10"
+    set $screenlock "betterlockscreen --lock"
 
 # workspace behaviour
     # don't follow the mouse around the screen
@@ -211,7 +211,7 @@ assign [class="firefox"] workspace number $ws4
 # assign [class="chromium"] workspace number $ws5
 
 # Autostarts
-exec_always --no-startup-id dunst
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id blueman-applet
