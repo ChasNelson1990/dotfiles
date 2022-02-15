@@ -213,5 +213,7 @@
         "yaml": true,
         "plaintext": true,
         "markdown": true
-    }
+    },
+    "notebook.lineNumbers": "on",
+    "jupyter.askForKernelRestart": false
 }
