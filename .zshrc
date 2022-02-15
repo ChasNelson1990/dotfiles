@@ -78,7 +78,10 @@ alias htop="btm"
 alias find="fd"
 alias grep="rg"
 alias ps="procs"
-# alias sed="sd"
+alias sed="sd"
+alias curl="curlie"
+alias du="dust"
+alias df="duf"
 
 # autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff"
@@ -115,6 +118,9 @@ alias unzenmode="export STARSHIP_CONFIG=~/.config/starship.toml"
 
 # activate oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# activate mcFly
+eval "$(mcfly init zsh)"
 
 # activate starship
 eval "$(starship init zsh)"
