@@ -38,7 +38,7 @@ battery all {
     format_down = ""
     status_chr = ""
     status_bat = ""
-    status_unk = ""
+    status_unk = ""
     status_full = ""
     integer_battery_capacity = true
 }
