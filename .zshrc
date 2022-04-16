@@ -59,6 +59,7 @@ plugins=(
     extract # easily extract archives
     gpg-agent # run gpg agent in background
     last-working-dir # Show last working directory and adds lwd for cd there
+    pyenv # pyenv autocomplete
     safe-paste # Paste from clipboard without running code
     screen # title setter for screen
     ssh-agent # run ssh agent in background
@@ -78,7 +79,7 @@ alias htop="btm"
 alias find="fd"
 alias grep="rg"
 alias ps="procs"
-alias sed="sd"
+# alias sed="sd"
 alias curl="curlie"
 alias du="dust"
 alias df="duf"
@@ -119,6 +120,9 @@ alias unzenmode="export STARSHIP_CONFIG=~/.config/starship.toml"
 # activate oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# activate pyenv
+eval "$(pyenv init -)"
+
 # activate mcFly
 eval "$(mcfly init zsh)"
 
@@ -128,3 +132,5 @@ eval "$(starship init zsh)"
 # run macchina
 macchina
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
