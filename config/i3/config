@@ -217,6 +217,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id blueman-applet
 exec --no-startup-id "udiskie --tray &"  # for auto mounting usb drives
+exec --no-startup-id kalu
 exec --no-startup-id mullvad-vpn
 exec thunderbird
 exec slack
