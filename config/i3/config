@@ -221,7 +221,7 @@ exec --no-startup-id kalu
 exec --no-startup-id mullvad-vpn
 exec thunderbird
 exec slack
-# exec telegram-desktop
+exec telegram-desktop
 exec signal-desktop
 # exec firefox
 # exec --no-startup-id i3-msg 'workspace 5; exec chromium; workspace 1'
