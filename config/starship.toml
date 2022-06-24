@@ -106,8 +106,10 @@ threshold = 90
 style = "bold green"
 
 [time]
-format = "%T"
+format = '[$time]($style)'
+time_format = "%T"
 disabled = false
+style = "blue"
 
 [character]
 success_symbol = "[➜](bold green)"
