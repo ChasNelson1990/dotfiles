@@ -1,205 +1,229 @@
 {
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "cSpell.language": "en-GB",
-  "cSpell.ignoreRegExpList": ["\\\\\\w*(\\[.*?\\])?(\\{.*?\\})?", "\\$.+?\\$"],
-  "cSpell.userWords": [
-    "Movie",
-    "Poisson",
-    "Pseudocode",
-    "ROIs",
-    "agarose",
-    "bioimage",
-    "bioinformatics",
-    "brightfield",
-    "chas",
-    "fastpins",
-    "mesoscopic",
-    "movies",
-    "numba",
-    "omics",
-    "optogenetics",
-    "parallelisation",
-    "photobleaching",
-    "photodamage",
-    "phototoxicity",
-    "pyproject",
-    "pytest",
-    "save",
-    "subsample",
-    "subsampled",
-    "subsamples",
-    "subsampling",
-    "transgene",
-    "user",
-    "userprofile",
-    "voxel",
-    "zebrafish"
-  ],
-  "latex-workshop.view.pdf.viewer": "external",
-  "latex-workshop.latex.outDir": "%DIR%/build",
-  "latex-workshop.latex.tools": [
-    {
-      "name": "latexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-shell-escape",
-        "-pdf",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
+    "telemetry.telemetryLevel": "off",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "cSpell.language": "en-GB",
+    "cSpell.ignoreRegExpList": [
+        "\\\\\\w*(\\[.*?\\])?(\\{.*?\\})?",
+        "\\$.+?\\$"
+    ],
+    "cSpell.userWords": [
+        "Movie",
+        "Poisson",
+        "Pseudocode",
+        "ROIs",
+        "agarose",
+        "bioimage",
+        "bioinformatics",
+        "brightfield",
+        "chas",
+        "fastpins",
+        "mesoscopic",
+        "movies",
+        "numba",
+        "omics",
+        "optogenetics",
+        "parallelisation",
+        "photobleaching",
+        "photodamage",
+        "phototoxicity",
+        "pyproject",
+        "pytest",
+        "save",
+        "subsample",
+        "subsampled",
+        "subsamples",
+        "subsampling",
+        "transgene",
+        "user",
+        "userprofile",
+        "voxel",
+        "zebrafish"
+    ],
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-shell-escape",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "copy_pdf",
+            "command": "cp",
+            "args": [
+                "%OUTDIR%/%DOCFILE%.pdf",
+                "%DIR%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk",
+                "copy_pdf"
+            ]
+        },
+        {
+            "name": "lualatexmk",
+            "tools": [
+                "lualatexmk",
+                "copy_pdf"
+            ]
+        },
+        {
+            "name": "xelatexmk",
+            "tools": [
+                "xelatexmk",
+                "copy_pdf"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.external.viewer.command": "okular",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 79,
+    "editor.wrappingIndent": "indent",
+    "editor.renderWhitespace": "all",
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "RobotoMono Nerd Font",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.list.openMode": "doubleClick",
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.fontSize": 12,
+    "workbench.colorTheme": "Nord",
+    "latex-workshop.latexindent.path": "",
+    "python.formatting.provider": "black",
+    "window.menuBarVisibility": "toggle",
+    "git.smartCommitChanges": "tracked",
+    "jupyter.sendSelectionToInteractiveWindow": false,
+    "files.insertFinalNewline": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "name": "lualatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
+    "python.linting.pylintEnabled": false,
+    "editor.largeFileOptimizations": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
     },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ],
-      "env": {}
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "platformio-ide.activateOnlyOnPlatformIOProject": true,
+    "editor.formatOnSave": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
     },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": ["%DOCFILE%"],
-      "env": {}
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "name": "copy_pdf",
-      "command": "cp",
-      "args": ["%OUTDIR%/%DOCFILE%.pdf", "%DIR%"],
-      "env": {}
-    }
-  ],
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "latexmk",
-      "tools": ["latexmk", "copy_pdf"]
+    "[html]": {
+        "editor.defaultFormatter": "monosans.djlint"
     },
-    {
-      "name": "pdflatex",
-      "tools": ["pdflatex"]
-    }
-  ],
-  "latex-workshop.view.pdf.external.viewer.command": "okular",
-  "editor.wordWrap": "on",
-  "editor.wordWrapColumn": 79,
-  "editor.wrappingIndent": "indent",
-  "editor.renderWhitespace": "all",
-  "editor.detectIndentation": false,
-  "editor.fontFamily": "RobotoMono Nerd Font",
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.enablePreview": false,
-  "workbench.list.openMode": "doubleClick",
-  "explorer.confirmDragAndDrop": false,
-  "terminal.integrated.fontSize": 12,
-  "workbench.colorTheme": "Nord",
-  "latex-workshop.latexindent.path": "",
-  "python.formatting.provider": "black",
-  "todo-tree.tree.showScanModeButton": false,
-  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX"],
-  "window.menuBarVisibility": "toggle",
-  "todo-tree.general.tagGroups": {
-    "TODO": ["TODO"]
-  },
-  "todo-tree.highlights.defaultHighlight": {
-    "icon": "alert",
-    "type": "text",
-    "foreground": "red",
-    "background": "white",
-    "opacity": 25,
-    "iconColour": "#aa0000"
-  },
-  "todo-tree.highlights.customHighlight": {
-    "TODO": {
-      "icon": "check",
-      "type": "line"
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "FIXME": {
-      "foreground": "black",
-      "iconColour": "yellow",
-      "gutterIcon": true
-    }
-  },
-  "todo-tree.general.enableFileWatcher": true,
-  "todo-tree.highlights.enabled": true,
-  "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|\\|)\\s*($TAGS)|^\\s*- \\[ \\])",
-  "git.smartCommitChanges": "tracked",
-  "jupyter.sendSelectionToInteractiveWindow": false,
-  "files.insertFinalNewline": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "python.linting.pylintEnabled": false,
-  "editor.largeFileOptimizations": false,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "diffEditor.ignoreTrimWhitespace": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "platformio-ide.activateOnlyOnPlatformIOProject": true,
-  "editor.formatOnSave": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "editor.inlineSuggest.enabled": true,
-  "git.enableCommitSigning": true,
-  "terminal.integrated.fontFamily": "RobotoMono Nerd Font Mono",
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": true,
-    "markdown": true
-  },
-  "notebook.lineNumbers": "on",
-  "jupyter.askForKernelRestart": false,
-  "readable.enableAutoComplete": false,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
-"workbench.iconTheme": "vscode-great-icons"
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "git.enableCommitSigning": true,
+    "terminal.integrated.fontFamily": "RobotoMono Nerd Font Mono",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true
+    },
+    "notebook.lineNumbers": "on",
+    "jupyter.askForKernelRestart": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "workbench.iconTheme": "vscode-great-icons",
+    "jest.enableCodeLens": false,
+    "jest.enableSnapshotPreviews": false,
+    "jest.enableSnapshotUpdateMessages": false,
+    "testing.openTesting": "openOnTestFailure",
+    "jest.autoRun": {},
+    "jest.shell": "{enabled: false}",
+    "editor.codeActionsOnSave": {},
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "cSpell.enabled": false,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ]
 }
