@@ -121,7 +121,7 @@ alias unzenmode="export STARSHIP_CONFIG=~/.config/starship.toml"
 source $ZSH/oh-my-zsh.sh
 
 # activate pyenv
-eval "$(pyenv init -)"
+eval "$(pyenv init - system)"
 
 # activate mcFly
 eval "$(mcfly init zsh)"
