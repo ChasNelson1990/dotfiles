@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 ## oh-my-zsh configuration
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -44,7 +46,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.local/share/oh-my-zsh/custom
+ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -59,7 +61,7 @@ plugins=(
     extract # easily extract archives
     gpg-agent # run gpg agent in background
     last-working-dir # Show last working directory and adds lwd for cd there
-    pyenv # pyenv autocomplete
+    pyenv-lazy # lazy load pyenv to speed up load time
     safe-paste # Paste from clipboard without running code
     screen # title setter for screen
     ssh-agent # run ssh agent in background
@@ -120,9 +122,6 @@ alias unzenmode="export STARSHIP_CONFIG=~/.config/starship.toml"
 # activate oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# activate pyenv
-eval "$(pyenv init - system)"
-
 # activate mcFly
 eval "$(mcfly init zsh)"
 
@@ -131,6 +130,5 @@ eval "$(starship init zsh)"
 
 # run macchina
 macchina
-
 
 export PATH="$HOME/.poetry/bin:$PATH"
