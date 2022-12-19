@@ -45,6 +45,10 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy-mm-dd"
 
+# settings for zsh-nvm
+NVM_LAZY_LOAD=true
+NVM_COMPLETION=true
+
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.oh-my-zsh/custom
 
@@ -62,6 +66,7 @@ plugins=(
     gpg-agent # run gpg agent in background
     last-working-dir # Show last working directory and adds lwd for cd there
     pyenv-lazy # lazy load pyenv to speed up load time
+    zsh-nvm # load nvm, we can set lazy load to true
     safe-paste # Paste from clipboard without running code
     screen # title setter for screen
     ssh-agent # run ssh agent in background

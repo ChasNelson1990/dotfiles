@@ -61,6 +61,7 @@ makepkg -si
 # install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:~/.oh-my-zsh/custom}/plugins/zsh-nvm
 
 # update AV and firewall
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
