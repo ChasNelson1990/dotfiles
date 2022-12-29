@@ -48,6 +48,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # settings for zsh-nvm
 NVM_LAZY_LOAD=true
 NVM_COMPLETION=true
+NVM_AUTO_USE=true
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.oh-my-zsh/custom
