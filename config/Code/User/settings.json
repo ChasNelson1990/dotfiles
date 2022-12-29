@@ -185,7 +185,8 @@
         "editor.defaultFormatter": "monosans.djlint"
     },
     "[yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4
     },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -194,7 +195,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.inlineSuggest.enabled": true,
     "git.enableCommitSigning": true,
@@ -222,8 +223,6 @@
     "editor.codeActionsOnSave": {},
     "latex-workshop.latex.recipe.default": "lastUsed",
     "cSpell.enabled": false,
-    "jupyter.widgetScriptSources": [
-        "jsdelivr.com",
-        "unpkg.com"
+        },
     ]
 }
