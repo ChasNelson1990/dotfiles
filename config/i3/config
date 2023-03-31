@@ -30,8 +30,6 @@
     ## desktop background
         ### colour
         exec_always --no-startup-id xsetroot -solid "#2E3440"
-        ### image
-        # exec_always --no-startup-id feh --bg-center ~/git/dotfiles/wallfull.png
 
     ## colours
         ### Property Name       Border  BG      Text    Indicator   Child Border
