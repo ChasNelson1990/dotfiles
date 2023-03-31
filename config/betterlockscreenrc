@@ -16,7 +16,7 @@ wallpaper_cmd="feh --bg-fill"
 loginbox=00000066
 loginshadow=00000000
 locktext="hello Chas..."
-font="Hack Nerd Font Mono"
+font="RobotoMono Nerd Font Mono"
 
 # ring
 ringcolor=ECEFF4FF

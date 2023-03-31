@@ -25,7 +25,7 @@
 
 # visuals
     ## font
-    font pango:RobotoMono Nerd Font 10
+    font pango:RobotoMono Nerd Font Mono 10
 
     ## desktop background
         ### colour
@@ -186,7 +186,7 @@
 # status Bar:
 bar {
     status_command i3status -c ~/.config/i3status/config
-    font pango:RobotoMono Nerd Font 11
+    font pango:RobotoMono Nerd Font Mono 11
     separator_symbol " "
     position top
     strip_workspace_numbers yes
