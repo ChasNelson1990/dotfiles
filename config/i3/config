@@ -205,12 +205,9 @@ bar {
 }
 
 # autoassignments
-assign [class="Thunderbird"] workspace number $ws1
 assign [class="telegram-desktop"] workspace number $ws2
 assign [class="signal"] workspace number $ws2
-assign [class="slack"] workspace number $ws3
-assign [class="firefox"] workspace number $ws4
-# assign [class="chromium"] workspace number $ws5
+assign [class="slack"] workspace number $ws2
 
 # Autostarts
 exec --no-startup-id "wired &"
@@ -220,7 +217,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id "udiskie --tray &"  # for auto mounting usb drives
 exec --no-startup-id kalu
 exec --no-startup-id mullvad-vpn
-exec thunderbird
+exec mailspring
 exec slack
 exec telegram-desktop
 exec signal-desktop
