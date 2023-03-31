@@ -32,3 +32,5 @@
 	required = true
 [color]
 	ui = auto
+[tag]
+	gpgSign = true
