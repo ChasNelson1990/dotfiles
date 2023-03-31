@@ -1,7 +1,7 @@
 configuration {
  modi: "combi";
  font: "Roboto 11";
- combi-modi: "drun,window,ssh";
+ combi-modi: "drun,window,vscode-recent,ssh";
  show-icons: true;
  matching: "normal";
  terminal: "alacritty";
