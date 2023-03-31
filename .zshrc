@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 ## oh-my-zsh configuration
 # Path to your oh-my-zsh installation.
@@ -49,6 +49,7 @@ HIST_STAMPS="yyyy-mm-dd"
 NVM_LAZY_LOAD=true
 NVM_COMPLETION=true
 NVM_AUTO_USE=true
+NVM_LAZY_LOAD_EXTRA_COMMANDS=('yarn')
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.oh-my-zsh/custom
@@ -59,7 +60,7 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    bgnotify # Show notifications when a command finishes
+    # bgnotify # Show notifications when a command finishes
     command-not-found # Show recommended installs from archpkg if command not found
     docker # Docker autocomplete
     docker-compose # Docker-compose autocomplete and aliases
@@ -108,7 +109,12 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
 fi
 
+# path for poetry
 export PATH="$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
+
+# path for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # prevent nested ranger instances
 ranger() {
@@ -136,5 +142,3 @@ eval "$(starship init zsh)"
 
 # run macchina
 macchina
-
-export PATH="$HOME/.poetry/bin:$PATH"

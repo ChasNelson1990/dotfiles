@@ -12,6 +12,8 @@ sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 ln -sf $ROOT/.xinitrc ~/.xinitrc
 ln -sf $ROOT/.Xresources ~/.Xresources
 ln -sf $ROOT/.zshrc ~/.zshrc
+ln -sf $ROOT/.zprofile ~/.zprofile
+ln -sf $ROOT/.zlogin ~/.zlogin
 
 ln -sf $ROOT/config/artha.conf ~/.config/artha.conf
 ln -sf $ROOT/config/betterlockscreenrc ~/.config/betterlockscreenrc
@@ -62,6 +64,7 @@ makepkg -si
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:~/.oh-my-zsh/custom}/plugins/zsh-nvm
+git clone https://github.com/davidparsson/zsh-pyenv-lazy.git  ${ZSH_CUSTOM:~/.oh-my-zsh/custom}/plugins/pyenv-lazy
 
 # update AV and firewall
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
