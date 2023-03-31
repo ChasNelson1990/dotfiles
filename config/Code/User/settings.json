@@ -97,48 +97,32 @@
         {
             "name": "bibtex",
             "command": "bibtex",
-            "args": [
-                "%DOCFILE%"
-            ],
+            "args": ["%DOCFILE%"],
             "env": {}
         },
         {
             "name": "copy_pdf",
             "command": "cp",
-            "args": [
-                "%OUTDIR%/%DOCFILE%.pdf",
-                "%DIR%"
-            ],
+            "args": ["%OUTDIR%/%DOCFILE%.pdf", "%DIR%"],
             "env": {}
         }
     ],
     "latex-workshop.latex.recipes": [
         {
             "name": "latexmk",
-            "tools": [
-                "latexmk",
-                "copy_pdf"
-            ]
+            "tools": ["latexmk", "copy_pdf"]
         },
         {
             "name": "lualatexmk",
-            "tools": [
-                "lualatexmk",
-                "copy_pdf"
-            ]
+            "tools": ["lualatexmk", "copy_pdf"]
         },
         {
             "name": "xelatexmk",
-            "tools": [
-                "xelatexmk",
-                "copy_pdf"
-            ]
+            "tools": ["xelatexmk", "copy_pdf"]
         },
         {
             "name": "pdflatex",
-            "tools": [
-                "pdflatex"
-            ]
+            "tools": ["pdflatex"]
         }
     ],
     "latex-workshop.view.pdf.external.viewer.command": "okular",
@@ -160,7 +144,6 @@
     "python.formatting.provider": "black",
     "window.menuBarVisibility": "toggle",
     "git.smartCommitChanges": "tracked",
-    "jupyter.sendSelectionToInteractiveWindow": false,
     "files.insertFinalNewline": true,
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -182,9 +165,6 @@
     "javascript.updateImportsOnFileMove.enabled": "never",
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "monosans.djlint"
     },
     "[yaml]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -221,9 +201,73 @@
     "testing.openTesting": "openOnTestFailure",
     "jest.autoRun": {},
     "jest.shell": "{enabled: false}",
-    "editor.codeActionsOnSave": {},
     "latex-workshop.latex.recipe.default": "lastUsed",
     "cSpell.enabled": false,
+    "githubPullRequests.pullBranch": "never",
+    "gitlens.graph.showDetailsView": false,
+    "git.openRepositoryInParentFolders": "always",
+    "jupyter.interactiveWindow.textEditor.executeSelection": false,
+    "gitlens.menus": {
+        "editor": {
+            "blame": false,
+            "clipboard": true,
+            "compare": true,
+            "history": false,
+            "remote": false
         },
-    ]
+        "editorGroup": {
+            "blame": true,
+            "compare": true
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scm": {
+            "graph": false
+        },
+        "scmRepositoryInline": {
+            "graph": false
+        },
+        "scmRepository": {
+            "authors": true,
+            "graph": false
+        },
+        "scmGroupInline": {
+            "stash": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true
+        },
+        "scmItemInline": {},
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": false,
+            "stash": true
+        }
+    },
+    "git-graph.repository.sign.tags": true,
+    "git-graph.repository.sign.commits": true,
+    "git-graph.repository.commits.showSignatureStatus": true,
+    "scm.alwaysShowActions": true,
+    "scm.alwaysShowRepositories": true,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "git.autoStash": true,
+    "git.fetchOnPull": true,
+    "git.pullBeforeCheckout": true,
+    "peacock.affectStatusAndTitleBorders": true,
+    "peacock.affectTabActiveBorder": true,
+    "peacock.showColorInStatusBar": false
 }
