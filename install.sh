@@ -26,8 +26,8 @@ ln -sf $ROOT/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.config/Code/User
 ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
 
-mkdir -p ~/.config/dunst
-ln -sf $ROOT/config/dunst/dunstrc ~/.config/dunst/dunstrc
+mkdir -p ~/.config/wired
+ln -sf $ROOT/config/wired/wired.ron ~/.config/wired/wired.ron
 
 mkdir -p ~/.config/i3
 ln -sf $ROOT/config/i3/config ~/.config/i3/config
