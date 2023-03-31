@@ -80,9 +80,9 @@ threshold = 75
 disabled = false
 
 [cmd_duration]
-min_time = 500
-show_notifications = true
-min_time_to_notify = 30000
+min_time = 1000
+show_notifications = false
+# min_time_to_notify = 30000
 
 [line_break]
 # if true info and prompts are merged into a single line
