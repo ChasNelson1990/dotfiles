@@ -106,6 +106,9 @@
         bindsym $mod+Shift+Up move up
         bindsym $mod+Shift+Right move right
 
+        # move to urgent window
+        bindsym $mod+x [urgent=latest] focus
+
     # workspaces:
         # switch to workspace
         bindsym $mod+1 workspace number $ws1
