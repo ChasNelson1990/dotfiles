@@ -4,30 +4,48 @@ A living repository including a list of installed software and containing global
 
 ## Operating System
 
-This set-up is for a DELL XPS 13 9380 running Arch Linux.
+This set-up is for a Framework 13 AMD Ryzen 7040 running Arch Linux.
 
 ## Configuration files
 
 Configuration files exist for:
 
-- Alacritty for terminal emulator (https://sw.kovidgoyal.net/alacritty/)
-- betterlockscreen for... well... y'know (https://github.com/betterlockscreen/betterlockscreen)
-- BorgBackup (https://www.borgbackup.org/)
-- clamAV for antivirus (https://www.clamav.net/)
-- VSCode (https://code.visualstudio.com/)
-  - N.B. I currently use the proprietary build for access to the Remote-SSH features
-- dunst for notifications (https://dunst-project.org)
-- i3 for window management (https://i3wm.org/)
-- i3bar with i3status (https://i3wm.org/)
-- [Oh My] ZSH (https://ohmyz.sh/)
-- Ranger for file browser (https://ranger.github.io/)
-- Redshift (http://jonls.dk/redshift/)
-- rofi for launcher (https://github.com/davatorium/rofi)
-- starship as prompt (https://starship.rs/)
+- [Alacritty](https://sw.kovidgoyal.net/alacritty/) for terminal emulator
+- [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen) for... well... y'know
+- [BorgBackup](https://www.borgbackup.org/)
+- [clamAV](https://www.clamav.net/) for antivirus
+- [VSCode](https://code.visualstudio.com/)
+- [i3](https://i3wm.org/) for window management
+- i3bar with [i3status-rust](https://github.com/greshake/i3status-rust)
+- [Oh My ZSH](https://ohmyz.sh/)
+- [Ranger](https://ranger.github.io/) for file browser
+- [Redshift](http://jonls.dk/redshift/)
+- [rofi](https://github.com/davatorium/rofi) for launcher
+- [starship](https://starship.rs/) as prompt
+- [wired](https://github.com/Toqozz/wired-notify) for notifications
 
 ## Installed Packages
 
-`packages.txt` includes a list of key OS packages installed. FIXME OUTDATED
+| **_Category_**     |                       |                          |                        |                  |                        |                |                   |        |                  |           |
+| ------------------ | --------------------- | ------------------------ | ---------------------- | ---------------- | ---------------------- | -------------- | ----------------- | ------ | ---------------- | --------- |
+| **3D**             | blender               | openscad                 |                        |                  |                        |                |                   |        |                  |           |
+| **Audio**          | audacity              | pipewire                 | pipewire-alsa          | pipewire-jack    | pipewire-pulse         | pipewire-v4l2  | wireplumber       |        |                  |           |
+| **Communications** | signal-desktop        | skypeforlinux-stable-bin | slack-desktop          | telegram-desktop |                        |                |                   |        |                  |           |
+| **DevOps**         | aws-cli-v2            | azure-cli                | dbeaver                | docker           | docker-buildx          | minikube       | postman-bin       |        |                  |           |
+| **Documents**      | hunspell-en_GB        | libreoffice-fresh-en-gb  | mailspring             | qpdf             | xournalpp              |                |                   |        |                  |           |
+| **Fonts**          | otf-firamono-nerd     | otf-monaspace            | ttf-nerd-fonts-symbols |                  |                        |                |                   |        |                  |           |
+| **GUI**            | betterlockscreen      | i3-layouts               | i3-wm                  | i3blocks         | i3status-rust          | i3wsr          | redshift          | rofi   | rofi-vscode-mode | wired-git |
+| **Imaging**        | darktable             | feh                      | gimp                   | graphics-magick  | inkscape               |                |                   |        |                  |           |
+| **Internet**       | chromium              | firefox                  | firefox-i18n-en-gb     | google-chrome    |                        |                |                   |        |                  |           |
+| **Monitoring**     | btm                   | cpupower                 | hddtemp                | htop             | Iio-sensor-proxy       | lm_sensors     | powertop          | procs  | tlp              |           |
+| **Networking**     | bandwhich             | clamav                   | curlie                 | firewalld        | mullvad-vpn-bin        | networkmanager | python-fangfrisch |        |                  |           |
+| **Programming**    | nvm                   | pyenv                    | r                      | texlive          | visual-studio-code-bin |                |                   |        |                  |           |
+| **Shell**          | alacritty             | mcfly                    | oh-my-zsh-git          | starship         | tealdeer               |                |                   |        |                  |           |
+| **Storage**        | duf                   | dust                     | exfat-utils            | mlocate          | ntfs-3g                | ranger         | zip               |        |                  |           |
+| **System**         | bat                   | brightnessctl            | exa                    | fd               | fwupd                  | ripgrep        | sd                | zoxide |                  |           |
+| **Utilities**      | android-file-transfer | borg                     | flameshot              | fprintd          | kalu                   | libfprint      | macchina          | paru   | transmission-gtk |           |
+| **VCS**            | git                   | git-lfs                  | github-cli             |                  |                        |                |                   |        |                  |           |
+| **Video**          | obs-studio            | shotcut                  | v4l-utils              | vlc              |                        |                |                   |        |                  |           |
 
 ## Custom Packages
 
@@ -38,10 +56,6 @@ Also includes custom PKGBUILD files for:
 ## Manual Steps
 
 - Note that current BorgBackup script (`/local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
-
-## TODO
-
--[ ] Create a script to auto update `packages.txt.` -[ ] Create a script to auto-install from `packages.txt`
 
 ## Notes to self
 
