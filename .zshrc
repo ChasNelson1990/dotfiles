@@ -2,7 +2,7 @@
 
 ## oh-my-zsh configuration
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=/usr/share/oh-my-zsh
 
 # theme
 ZSH_THEME=""
@@ -67,7 +67,7 @@ plugins=(
     extract # easily extract archives
     gpg-agent # run gpg agent in background
     last-working-dir # Show last working directory and adds lwd for cd there
-    pyenv-lazy # lazy load pyenv to speed up load time
+#    pyenv-lazy # lazy load pyenv to speed up load time
     zsh-nvm # load nvm, we can set lazy load to true
     safe-paste # Paste from clipboard without running code
     screen # title setter for screen
@@ -102,12 +102,12 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 # Socket for SSH agent
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
-fi
+#if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+#    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+#fi
+#if [[ ! "$SSH_AUTH_SOCK" ]]; then
+#    eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
+#fi
 
 # path for poetry
 export PATH="$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
