@@ -10,9 +10,7 @@ sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 # create symlinks for files
 # general
 ln -sf $ROOT/.xinitrc ~/.xinitrc
-ln -sf $ROOT/.Xresources ~/.Xresources
 ln -sf $ROOT/.zshrc ~/.zshrc
-ln -sf $ROOT/.zprofile ~/.zprofile
 ln -sf $ROOT/.zlogin ~/.zlogin
 
 ln -sf $ROOT/config/artha.conf ~/.config/artha.conf
