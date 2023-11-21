@@ -23,6 +23,7 @@ ln -sf $ROOT/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 mkdir -p ~/.config/Code/User
 ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -sf $ROOT/config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
 
 mkdir -p ~/.config/wired
 ln -sf $ROOT/config/wired/wired.ron ~/.config/wired/wired.ron
