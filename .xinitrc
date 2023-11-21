@@ -1,4 +1,2 @@
-xrdb -merge ~/.Xresources
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
+#!/bin/sh
 exec i3
