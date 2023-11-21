@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dunstctl set-paused true
+wired --dnd on
 sleep 0.1
 betterlockscreen --wall
-dunstctl set-paused false
+wired --dnd off
