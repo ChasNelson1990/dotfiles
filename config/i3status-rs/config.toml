@@ -1,0 +1,51 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "nord-dark"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "net"
+format = " $icon {$signal_strength $frequency $ip @ $ssid|$ip} "
+format_alt = " $icon via $device "
+
+[[block]]
+block = "battery"
+format = " $icon $percentage ($time) "
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon $available.eng(width:2,prefix_space:true) / $total.eng(width:3,prefix_space:true) "
+
+[[block]]
+block = "cpu"
+format =  " $icon $barchart $utilization.eng(width:2) "
+
+[[block]]
+block = "temperature"
+format = " $icon $average ($max) "
+interval = 10
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used.eng(width:2,unit:B,prefix:G,prefix_space:true) / $mem_total.eng(width:2,unit:B,prefix:G,prefix_space:true) ($mem_used_percents.eng(width:2,prefix_space:true)) "
+format_alt = " $icon_swap $swap_used.eng(width:2,unit:B,prefix:G,prefix_space:true) / $swap_total.eng(width:2,unit:B,prefix:G,prefix_space:true) ($swap_used_percents.eng(width:2,prefix_space:true)) "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %Y-%m-%d %R %Z') "

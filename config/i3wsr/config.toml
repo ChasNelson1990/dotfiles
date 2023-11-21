@@ -1,0 +1,22 @@
+[icons]
+"Telegram" = ""
+"Slack" = ""
+"Signal" = ""
+"firefox" = ""
+"Chromium" = ""
+"Alacritty" = ""
+"Mailspring" = ""
+"Code" = ""
+
+[aliases]
+TelegramDesktop = "Telegram"
+ 
+[general]
+separator = " "
+default_icon = ""
+wm_property = "class"
+
+[options]
+remove_duplicates = false
+no_names = true
+no_icon_names = false

@@ -186,12 +186,13 @@
 
 # status Bar:
 bar {
-    status_command i3status -c ~/.config/i3status/config
+    status_command i3status-rs ~/.config/i3status-rs/config.toml
     font pango:RobotoMono Nerd Font Mono 11
     separator_symbol " "
     position top
-    strip_workspace_numbers yes
+    strip_workspace_numbers no
     tray_output primary
+    tray_padding 2
 
     colors {
         background #2E3440
