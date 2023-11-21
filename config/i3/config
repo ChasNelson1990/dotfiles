@@ -205,23 +205,29 @@ bar {
     }
 }
 
-# autoassignments
-assign [class="telegram-desktop"] workspace number $ws2
-assign [class="signal"] workspace number $ws2
-assign [class="slack"] workspace number $ws2
-
-# Autostarts
+# genral autostarts
 exec_always --no-startup-id i3-layouts
-exec --no-startup-id "wired &"
+exec_always --no-startup-id i3wsr
+exec_always --no-startup-id "wired &"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id blueman-applet
 exec --no-startup-id "udiskie --tray &"  # for auto mounting usb drives
 exec --no-startup-id kalu
 exec --no-startup-id mullvad-vpn
+
+# workspace 1 - mail and calendar
+set $i3l companion 0.3 0.3 alt-down to workspace number $ws1
 exec mailspring
+
+# workspace 2 - chat
+set $i3l 3columns 0.5 0.33 0 right to workspace number $ws2
+assign [class="telegram-desktop"] workspace number $ws2
+assign [class="signal"] workspace number $ws2
+assign [class="slack"] workspace number $ws2
+exec signal
 exec slack
 exec telegram-desktop
-exec signal-desktop
-# exec firefox
-# exec --no-startup-id i3-msg 'workspace 5; exec chromium; workspace 1'
+
+# workspace 3 - personal
+set $i3l 3columns 0.5 0.33 0 right to workspace number $ws3
