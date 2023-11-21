@@ -116,6 +116,9 @@ export PATH="$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# pipenv
+export PIPENV_VENV_IN_PROJECT=1 
+
 # prevent nested ranger instances
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
