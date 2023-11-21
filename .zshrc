@@ -127,10 +127,6 @@ ranger() {
 
 export GPG_TTY=$(tty)
 
-# starship mode switching aliases
-alias zenmode="export STARSHIP_CONFIG=~/.config/zen.starship.toml"
-alias unzenmode="export STARSHIP_CONFIG=~/.config/starship.toml"
-
 # activate oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
