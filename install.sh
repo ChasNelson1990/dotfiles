@@ -153,5 +153,6 @@ systemctl enable --now --user pipewire-pulse.socket
 
 # link gtk and cursor themes
 sudo ln -sf $ROOT//gtkrc-2.0 ~/.gtkrc-2.0
+mkdir -p ~/.config/gtk-3.0
 sudo ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 sudo ln -sf $ROOT/icons ~/.icons
