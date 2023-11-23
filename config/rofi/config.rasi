@@ -1,6 +1,6 @@
 configuration {
  modi: "combi";
- font: "Roboto 11";
+ font: "MonospiceAr 9";
  combi-modi: "drun,window,vscode-recent,ssh";
  show-icons: true;
  matching: "normal";

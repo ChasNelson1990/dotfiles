@@ -128,8 +128,10 @@
   "editor.wrappingIndent": "indent",
   "editor.renderWhitespace": "all",
   "editor.detectIndentation": false,
-  "editor.fontFamily": "RobotoMono Nerd Font Mono",
+  "editor.fontFamily": "MonaspiceNe NFM",
   "editor.fontSize": 12,
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+  "terminal.integrated.fontFamily": "MonaspiceNe NFM",
   "terminal.integrated.fontSize": 12,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.enablePreview": false,
@@ -305,7 +307,7 @@
     "!Split sequence"
   ],
   "isort.check": true,
-  "isort.args": ["--python-version=27", "--profile=black"],
+  "isort.args": ["--python-version=311", "--profile=black"],
   "black-formatter.importStrategy": "fromEnvironment",
   "aws.codeWhisperer.importRecommendation": false,
   "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
@@ -361,5 +363,21 @@
       "italic": false
     }
   ],
-  "Notes.notesLocation": "/home/chas/notes"
+  "Notes.notesLocation": "/home/chas/notes",
+  "vscode-kubernetes.minikube-path-linux": "/usr/bin/minikube",
+  "explorer.autoReveal": "focusNoScroll",
+  "explorer.fileNesting.patterns": {
+    "Pipfile": "Pipfile.lock"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.incrementalNaming": "smart",
+  "vs-kubernetes": {
+    "vs-kubernetes.minikube-show-information-expiration": "2023-12-02T09:33:36.339Z"
+  },
+  "aws.resources.enabledResources": ["AWS::RDS::DBInstance"],
+  "explorer.confirmDelete": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+"inlineChat.showGutterIcon": true,
 }
