@@ -188,7 +188,7 @@
 # status Bar:
 bar {
     status_command i3status-rs ~/.config/i3status-rs/config.toml
-    font pango:MonaspiceAr NFM, FontAwesome 9
+    font pango:MonaspiceAr NFM 9
     separator_symbol " "
     position top
     strip_workspace_numbers no
