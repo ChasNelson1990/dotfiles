@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
 # merge in defaults
 if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
