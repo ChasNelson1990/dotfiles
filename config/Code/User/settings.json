@@ -130,7 +130,7 @@
   "editor.detectIndentation": false,
   "editor.fontFamily": "MonaspiceNe NFM",
   "editor.fontSize": 12,
-  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+  "editor.fontLigatures": "'calt' on, 'liga' on, 'dlig' off, 'ss01' off, 'ss02' off, 'ss03' off, 'ss04' off, 'ss05' off, 'ss06' off, 'ss07' off, 'ss08' off",
   "terminal.integrated.fontFamily": "MonaspiceNe NFM",
   "terminal.integrated.fontSize": 12,
   "workbench.editor.enablePreviewFromQuickOpen": false,
