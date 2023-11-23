@@ -33,7 +33,7 @@
 
     ## colours
         ### Property Name       Border  BG      Text    Indicator
-        client.focused          #81a1c1 #81a1c1 #E5E9F0 #5E81AC
+        client.focused          #5E81AC #5E81AC #E5E9F0 #81a1c1
         client.unfocused        #2e3440 #2E3440 #D8DEE9 #2E3440
         client.focused_inactive #2e3440 #2E3440 #D8DEE9 #2E3440
         client.placeholder      #2e3440 #2E3440 #D8DEE9 #2E3440
