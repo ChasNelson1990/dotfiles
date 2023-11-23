@@ -25,18 +25,19 @@
 
 # visuals
     ## font
-    font pango:RobotoMono Nerd Font Mono 10
+    font pango:MonaspiceAr NFM 9
 
     ## desktop background
         ### colour
         exec_always --no-startup-id xsetroot -solid "#2E3440"
 
     ## colours
-        ### Property Name       Border  BG      Text    Indicator   Child Border
-        client.focused          #5E81AC #2E3440 #ECEFF4 #88C0D0     #5E81AC
-        client.focused_inactive #2E3440 #2E3440 #ECEFF4 #2E3440     #2E3440
-        client.unfocused        #2E3440 #2E3440 #ECEFF4 #2E3440     #2E3440
-        client.urgent           #BF616A #BF616A #ECEFF4 #BF616A     #BF616A
+        ### Property Name       Border  BG      Text    Indicator
+        client.focused          #81a1c1 #81a1c1 #E5E9F0 #5E81AC
+        client.unfocused        #2e3440 #2E3440 #D8DEE9 #2E3440
+        client.focused_inactive #2e3440 #2E3440 #D8DEE9 #2E3440
+        client.placeholder      #2e3440 #2E3440 #D8DEE9 #2E3440
+        client.urgent           #BF616A #BF616A #E5E9F0 #BF616A
         client.background       #2E3440
 
 # screenlock
