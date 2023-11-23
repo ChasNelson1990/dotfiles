@@ -188,7 +188,7 @@
 # status Bar:
 bar {
     status_command i3status-rs ~/.config/i3status-rs/config.toml
-    font pango:RobotoMono Nerd Font Mono 11
+    font pango:MonaspiceAr NFM, FontAwesome 9
     separator_symbol " "
     position top
     strip_workspace_numbers no
@@ -208,7 +208,7 @@ bar {
 
 # genral autostarts
 exec_always --no-startup-id i3-layouts
-exec_always --no-startup-id i3wsr
+exec_always --no-startup-id i3wsr --icons awesome
 exec_always --no-startup-id "wired &"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray

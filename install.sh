@@ -21,7 +21,7 @@ paru -S aws-cli-v2 azure-cli dbeaver docker docker-buildx minikube postman-bin
 # install office tools
 paru -S hunspell-en_GB libreoffice-fresh-en-gb mailspring qpdf xournalpp
 # install fonts
-paru -S otf-firamono-nerd otf-monaspace-nerd ttf-nerd-fonts-symbols
+paru -S otf-monaspace-nerd otf-font-awesome-4
 # install system gui
 paru -S betterlockscreen i3-layouts i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired-git xorg-xinit xorg-server
 # install image viewing and editing tools

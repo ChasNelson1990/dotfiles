@@ -4,7 +4,7 @@ icons_format = "{icon}"
 theme = "nord-dark"
 
 [icons]
-icons = "material-nf"
+icons = "awesome"
 
 [[block]]
 block = "net"
