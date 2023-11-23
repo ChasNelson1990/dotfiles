@@ -21,9 +21,9 @@ paru -S aws-cli-v2 azure-cli dbeaver docker docker-buildx minikube postman-bin
 # install office tools
 paru -S hunspell-en_GB libreoffice-fresh-en-gb mailspring qpdf xournalpp
 # install fonts
-paru -S otf-firamono-nerd otf-monaspace ttf-nerd-fonts-symbols
+paru -S otf-firamono-nerd otf-monaspace-nerd ttf-nerd-fonts-symbols
 # install system gui
-paru -S betterlockscreen i3-layouts i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired-git
+paru -S betterlockscreen i3-layouts i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired-git xorg-xinit xorg-server
 # install image viewing and editing tools
 paru -S darktable feh gimp graphics-magick inkscape
 # install browsers
@@ -42,7 +42,7 @@ paru -S duf dust exfat-utils mlocate ntfs-3g ranger zip
 # install system tools
 paru -S bat brightnessctl exa fd fwupd ripgrep sd zoxide
 # install utilities
-paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu libfprint macchina paru transmission-gtk
+paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libfprint macchina transmission-gtk
 # install version control
 paru -S git git-lfs github-cli
 # install video tools
@@ -50,6 +50,9 @@ paru -S obs-studio shotcut v4l-utils vlc
 
 # locale (needed for i3 kbd control)
 sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
+
+# ensure ~/.ssh exists
+mkdir -p ~/.ssh
 
 ROOT="$( dirname $( readlink -f $0 ) )"
 # create symlinks for files
@@ -111,8 +114,8 @@ makepkg -si
 # install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:~/.oh-my-zsh/custom}/plugins/zsh-nvm
-git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:~/.oh-my-zsh/custom}/plugins/pyenv-lazy
+git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
+git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
 
 # update AV and firewall
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
@@ -126,9 +129,6 @@ sudo systemctl enable --now fangfrisch.timer
 sudo systemctl enable --now clamav-daemon.service
 sudo systemctl enable --now clamav-clamonacc.service
 sudo systemctl enable --now firewalld.service
-
-# enable fingerprint reader
-sudo systemctl enable --now fprintd
 
 # enable CPU power management
 sudo ln -sf $ROOT/cpupower /etc/default/cpupower
