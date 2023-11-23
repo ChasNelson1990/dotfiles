@@ -156,3 +156,6 @@ sudo ln -sf $ROOT//gtkrc-2.0 ~/.gtkrc-2.0
 mkdir -p ~/.config/gtk-3.0
 sudo ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 sudo ln -sf $ROOT/icons ~/.icons
+
+# install vscode extensions
+cat $ROOT/config/Code/extensions.txt | xargs -n 1 code --install-extension
