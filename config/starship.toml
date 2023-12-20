@@ -100,7 +100,7 @@ style = "purple"
 [aws]
 format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 symbol = "☁️ "
-disabled = true
+disabled = false
 
 [azure]
 format = "on aws [$symbol($username @ $subscription)]($style) "

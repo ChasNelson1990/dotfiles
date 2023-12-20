@@ -37,7 +37,7 @@ paru -S bandwhich clamav curlie firewalld mullvad-vpn-bin networkmanager python-
 # install programming languages and IDEs
 paru -S nvm pyenv r texlive visual-studio-code-bin
 # install shell tools
-paru -S alacritty mcfly oh-my-zsh-git starship tealdeer
+paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
 paru -S duf dust exfat-utils mlocate ntfs-3g ranger zip
 # install system tools

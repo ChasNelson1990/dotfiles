@@ -34,6 +34,7 @@ NVM_LAZY_LOAD_EXTRA_COMMANDS=('yarn')
 plugins=(
     # bgnotify # Show notifications when a command finishes
     command-not-found # Show recommended installs from archpkg if command not found
+    direnv # checks for .env files in local directory and loads them before running commands
     docker # Docker autocomplete
     docker-compose # Docker-compose autocomplete and aliases
     extract # easily extract archives
