@@ -8,12 +8,12 @@ icons = "material-nf"
 
 [[block]]
 block = "net"
-format = " $icon {$signal_strength $frequency $ip @ $ssid|$ip} "
-format_alt = " $icon via $device "
+format = " $icon {$signal_strength  $ip @ $ssid|$ip} "
+format_alt = " $icon via {$frequency $device|$device} "
 
 [[block]]
 block = "battery"
-format = " $icon $percentage ($time) "
+format = " $icon {$percentage ($time)|$power} "
 
 [[block]]
 block = "disk_space"
@@ -43,9 +43,16 @@ format_alt = " $icon_swap $swap_used.eng(width:2,unit:B,prefix:G,prefix_space:tr
 block = "sound"
 [[block.click]]
 button = "left"
-cmd = "pavucontrol"
+action = "toggle_mute"
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "xrandr"
+resolution = true
 
 [[block]]
 block = "time"
-interval = 5
-format = " $timestamp.datetime(f:'%a %Y-%m-%d %R %Z') "
+interval = 1
+format = " $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S %Z') "
