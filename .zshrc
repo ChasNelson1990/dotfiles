@@ -1,64 +1,36 @@
 # zmodload zsh/zprof
 
-## oh-my-zsh configuration
-# Path to your oh-my-zsh installation.
+# oh-my-zsh configuration root and custom folder
 ZSH=/usr/share/oh-my-zsh
+ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # theme
 ZSH_THEME=""
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
+# Use hyphen-insensitive completion.
 HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
+# Disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
+# Command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
+# Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
+# Command execution time stamp
 HIST_STAMPS="yyyy-mm-dd"
 
-# settings for zsh-nvm
+# Settings for zsh-nvm
 NVM_LAZY_LOAD=true
 NVM_COMPLETION=true
 NVM_AUTO_USE=true
 NVM_LAZY_LOAD_EXTRA_COMMANDS=('yarn')
 
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.oh-my-zsh/custom
-
-# Which plugins would you like to load?
+# Plugins
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
     # bgnotify # Show notifications when a command finishes
     command-not-found # Show recommended installs from archpkg if command not found
@@ -77,11 +49,11 @@ plugins=(
     zsh-syntax-highlighting # syntax highlighting
 )
 
-## Rust utilities
+# Utility aliases
 # fix ls aliases by turning zsh colouring off
-export DISABLE_LS_COLORS="true"
-# aliases
+DISABLE_LS_COLORS="true"
 alias ls="exa"
+
 alias cat="bat"
 alias top="btm"
 alias htop="btm"
