@@ -219,7 +219,7 @@ exec --no-startup-id mullvad-vpn
 
 # workspace 1 - mail and calendar
 set $i3l companion 0.3 0.3 alt-down to workspace number $ws1
-exec mailspring
+exec mailspring --password-store="gnome-libsecret"
 
 # workspace 2 - chat
 set $i3l 3columns 0.5 0.33 0 right to workspace number $ws2
