@@ -13,7 +13,7 @@ paru
 # install 3D graphics and printing tools
 paru -S blender	openscad
 # install audio tools
-paru -S audacity pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
+paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
 # install comms tools
 paru -S signal-desktop skypeforlinux-stable-bin slack-desktop telegram-desktop
 # install devOps tools
