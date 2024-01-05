@@ -24,7 +24,7 @@ paru -S hunspell-en_GB libreoffice-fresh-en-gb mailspring qpdf xournalpp
 paru -S otf-monaspace-nerd
 # install system gui
 paru -S autorandr betterlockscreen i3-layouts i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired-git xorg-xinit xorg-server xorg-xsetroot
-paru -S nordzy-cursors nordzy-icon-theme lxappearance
+paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
 paru -S darktable feh gimp graphics-magick inkscape
 # install browsers
@@ -160,7 +160,7 @@ systemctl enable --now --user pipewire.socket
 systemctl enable --now --user pipewire-pulse.socket
 
 # link gtk and cursor themes
-sudo ln -sf $ROOT//gtkrc-2.0 ~/.gtkrc-2.0
+sudo ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
 mkdir -p ~/.config/gtk-3.0
 sudo ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 sudo ln -sf $ROOT/icons ~/.icons
