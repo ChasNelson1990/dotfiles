@@ -129,8 +129,10 @@ git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh
 # update AV and firewall
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
 sudo ln -sf $ROOT/config/clamav/freshclam.conf /etc/clamav/freshclam.conf
+sudo ln -sf $ROOT/config/clamav/fdpass.conf /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
 sudo systemctl stop clamav-freshclam.service
 sudo freshclam
+sudo systemctl daemon-reload
 sudo systemctl enable --now clamav-freshclam.service
 # if the following line fails, add --force
 sudo -u clamav /usr/bin/fangfrisch --conf /etc/fangfrisch/fangfrisch.conf initdb
