@@ -35,7 +35,9 @@ paru -S bottom cpupower hddtemp htop Iio-sensor-proxy lm_sensors powertop procs 
 paru -S bandwhich bluez-utils clamav curlie firewalld mullvad-vpn-bin networkmanager python-fangfrisch
 paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
-paru -S nvm pyenv r texlive visual-studio-code-bin
+paru -S nvm pyenv python-pipenv r texlive visual-studio-code-bin
+# install databases
+paru -S postgresql
 # install shell tools
 paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
