@@ -32,8 +32,8 @@ paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
 paru -S bottom cpupower hddtemp htop Iio-sensor-proxy lm_sensors powertop procs battop tlp
 # install network tools
-paru -S bandwhich clamav curlie firewalld mullvad-vpn-bin networkmanager python-fangfrisch
-# paru -Rcnsu dhcpcd netctl
+paru -S bandwhich bluez-utils clamav curlie firewalld mullvad-vpn-bin networkmanager python-fangfrisch
+paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
 paru -S nvm pyenv r texlive visual-studio-code-bin
 # install shell tools
