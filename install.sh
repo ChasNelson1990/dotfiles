@@ -45,7 +45,7 @@ paru -S duf dust exfat-utils mlocate ntfs-3g ranger zip
 # install system tools
 paru -S bat brightnessctl exa fd fwupd ripgrep sd zoxide
 # install utilities
-paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libfprint macchina transmission-gtk
+paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina transmission-gtk udiskie
 # install version control
 paru -S git git-lfs github-cli
 # install video tools
