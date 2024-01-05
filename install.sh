@@ -63,7 +63,13 @@ ln -sf $ROOT/.xinitrc ~/.xinitrc
 ln -sf $ROOT/.zshrc ~/.zshrc
 ln -sf $ROOT/.zlogin ~/.zlogin
 
-ln -sf $ROOT/config/betterlockscreenrc ~/.config/betterlockscreenrc
+mkdir -p ~/.config/betterlockscreen
+ln -sf $ROOT/config/betterlockscreen/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
+ln -sf $ROOT/config/betterlockscreen/custom-pre.sh ~/.config/betterlockscreen/custom-pre.sh
+ln -sf $ROOT/config/betterlockscreen/custom-post.sh ~/.config/betterlockscreen/custom-post.sh
+ln -sf $ROOT/config/betterlockscreen/betterlockscreen@.service /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
+sudo systemctl daemon-reload
+sudo systemctl enable --now betterlockscreen@$USER
 
 ln -sf $ROOT/config/starship.toml ~/.config/starship.toml
 
