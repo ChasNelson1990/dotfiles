@@ -149,8 +149,9 @@
   "python.linting.pylintEnabled": false,
   "editor.largeFileOptimizations": false,
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
+    "*.ipynb": "jupyter-notebook",
+    "*.svg": "default"
+},
   "workbench.startupEditor": "newUntitledFile",
   "platformio-ide.activateOnlyOnPlatformIOProject": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -179,14 +180,13 @@
   "git.enableCommitSigning": true,
   "github.copilot.enable": {
     "*": true,
-    "yaml": true,
     "plaintext": true,
     "markdown": true
-  },
+},
   "notebook.lineNumbers": "on",
   "jupyter.askForKernelRestart": false,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
@@ -367,17 +367,137 @@
   "vscode-kubernetes.minikube-path-linux": "/usr/bin/minikube",
   "explorer.autoReveal": "focusNoScroll",
   "explorer.fileNesting.patterns": {
-    "Pipfile": "Pipfile.lock"
-  },
+    "Pipfile": "Pipfile.lock",
+    "package.json": "package-lock.json"
+},
   "explorer.fileNesting.enabled": true,
   "explorer.incrementalNaming": "smart",
   "vs-kubernetes": {
-    "vs-kubernetes.minikube-show-information-expiration": "2023-12-02T09:33:36.339Z"
-  },
+    "vs-kubernetes.minikube-show-information-expiration": "2025-02-07T16:17:26.444Z",
+    "vs-kubernetes.kubeconfig": "/home/chas/.kube/config",
+    "vs-kubernetes.knownKubeconfigs": [
+        "/home/chas/.kube/config"
+    ]
+},
   "aws.resources.enabledResources": ["AWS::RDS::DBInstance"],
   "explorer.confirmDelete": false,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 "inlineChat.showGutterIcon": true,
+"diffEditor.ignoreTrimWhitespace": false,
+"workbench.editor.centeredLayoutFixedWidth": true,
+"[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+},
+"search.defaultViewMode": "tree",
+"[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"inlineChat.mode": "preview",
+"debug.toolBarLocation": "docked",
+"r.bracketedPaste": true,
+"r.lsp.debug": true,
+"r.rpath.linux": "/usr/bin/R",
+"r.rterm.linux": "/usr/bin/radian",
+"r.plot.useHttpgd": true,
+"vscode-kubernetes.log-viewer.follow": true,
+"vscode-kubernetes.log-viewer.autorun": true,
+"vscode-kubernetes.log-viewer.timestamp": true,
+"github.copilot.editor.enableAutoCompletions": true,
+"isort.importStrategy": "fromEnvironment",
+"vscode-kubernetes.log-viewer.since": -1,
+"vscode-kubernetes.log-viewer.tail": -1,
+"vscode-kubernetes.log-viewer.destination": "Webview",
+"vscode-kubernetes.log-viewer.wrap": false,
+"githubPullRequests.commentExpandState": "collapseAll",
+"[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[jinja-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+},
+"djlint.formatLanguages": [
+    "django-html",
+    "jinja",
+    "jinja-html",
+    "nj",
+    "njk",
+    "nunjucks",
+    "twig",
+    "handlebars",
+    "hbs",
+    "mustache"
+],
+"djlint.blankLineAfterTag": [
+    "endblock"
+],
+"testing.automaticallyOpenTestResults": "openOnTestFailure",
+"gitlens.views.scm.grouped.views": {
+    "stashes": false
+},
+"github.copilot.advanced": {},
+"editor.inlineSuggest.syntaxHighlightingEnabled": true,
+"djlint.showInstallError": false,
+"extensions.trustedPublishers": [
+	"github",
+	"a5huynh",
+	"aaron-bond",
+	"albert",
+	"amazonwebservices",
+	"arcticicestudio",
+	"bierner",
+	"bungcip",
+	"davidanson",
+	"dbaeumer",
+	"eamodio",
+	"eg2",
+	"emmanuelbeziat",
+	"esbenp",
+	"firsttris",
+	"foxundermoon",
+	"grapecity",
+	"james-yu",
+	"jasonlhy",
+	"johnpapa",
+	"lextudio",
+	"mechatroner",
+	"mhutchie",
+	"mikestead",
+	"ms-azuretools",
+	"ms-dotnettools",
+	"ms-kubernetes-tools",
+	"redhat",
+	"ms-python",
+	"ms-toolsai",
+	"ms-vscode",
+	"naumovs",
+	"orta",
+	"reditorsupport",
+	"rusnasonov",
+	"rust-lang",
+	"seatonjiang",
+	"sourcery",
+	"streetsidesoftware",
+	"tamasfe",
+	"trond-snekvik",
+	"unifiedjs",
+	"vadimcn",
+	"wholroyd",
+	"yzane",
+	"yzhang",
+	"mattogodoy",
+	"monosans",
+	"pkief",
+	"samuelcolvin"
+],
+"markdown-pdf.displayHeaderFooter": false,
+"[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"window.customTitleBarVisibility": "windowed",
+"@azure.argTenant": "",
+"[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+},
 }
