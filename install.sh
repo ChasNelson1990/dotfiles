@@ -92,6 +92,8 @@ ln -sf $ROOT/config/i3status-rs/config.toml ~/.config/i3status-rs/config.toml
 mkdir -p ~/.config/i3wsr
 ln -sf $ROOT/config/i3wsr/config.toml ~/.config/i3wsr/config.toml
 
+ln -sf $ROOT/config/autorandr ~/.config/autorandr
+
 mkdir -p ~/.config/radian
 ln -sf $ROOT/config/radian/profile ~/.config/radian/profile
 
