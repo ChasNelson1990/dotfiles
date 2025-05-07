@@ -115,15 +115,15 @@ sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 
 # enable backup service
 # note this will only work if the harddrive is plugged in
-mkdir -p ~/.config/systemd/user
-ln -sf $ROOT/config/systemd/user/borg_cjn-bak.service ~/.config/systemd/user/borg_cjn-bak.service
-mkdir -p ~/.local/bin
-ln -sf $ROOT/local/bin/borg_cjn-bak.sh ~/.local/bin/borg_cjn-bak.sh
-systemctl enable --now --user borg_cjn-bak.service
+#mkdir -p ~/.config/systemd/user
+#ln -sf $ROOT/config/systemd/user/borg_cjn-bak.service ~/.config/systemd/user/borg_cjn-bak.service
+#mkdir -p ~/.local/bin
+#ln -sf $ROOT/local/bin/borg_cjn-bak.sh ~/.local/bin/borg_cjn-bak.sh
+#systemctl enable --now --user borg_cjn-bak.service
 
 # install custom packages
-cd otf-sansguilt
-makepkg -si
+# cd otf-sansguilt
+# makepkg -si
 
 # install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

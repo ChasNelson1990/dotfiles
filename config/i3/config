@@ -88,7 +88,7 @@
 
         # screen capture to clipboard
         #interactive screenshot by pressing printscreen
-        bindsym Print exec xfce4-screenshooter
+        bindsym Print exec flameshot gui
 
         # pause notifications
         #FIXME for wired
@@ -189,7 +189,7 @@
 bar {
     status_command i3status-rs ~/.config/i3status-rs/config.toml
     font pango:MonaspiceAr NFM 9
-    separator_symbol " "
+    separator_symbol "\ue0b0"
     position top
     strip_workspace_numbers no
     tray_output primary
@@ -207,28 +207,16 @@ bar {
 }
 
 # genral autostarts
-exec_always --no-startup-id i3-layouts
-exec_always --no-startup-id i3wsr --icons awesome
+exec_always --no-startup-id i3wsr
 exec_always --no-startup-id "wired &"
-exec --no-startup-id nm-applet
-exec --no-startup-id pasystray
-exec --no-startup-id blueman-applet
-exec --no-startup-id "udiskie --tray &"  # for auto mounting usb drives
+exec_always --no-startup-id "redshift-gtk &"
+exec --no-startup-id "udiskie --tray &"
 exec --no-startup-id kalu
-exec --no-startup-id mullvad-vpn
+# exec --no-startup-id protonvpn
 
-# workspace 1 - mail and calendar
-set $i3l companion 0.3 0.3 alt-down to workspace number $ws1
-exec mailspring --password-store="gnome-libsecret"
-
-# workspace 2 - chat
-set $i3l 3columns 0.5 0.33 0 right to workspace number $ws2
 assign [class="telegram-desktop"] workspace number $ws2
-assign [class="signal"] workspace number $ws2
-assign [class="slack"] workspace number $ws2
+assign [class="signal"] workspace number $ws1
+assign [class="slack"] workspace number $ws1
 exec signal-desktop
 exec slack
 exec telegram-desktop
-
-# workspace 3 - personal
-set $i3l 3columns 0.5 0.33 0 right to workspace number $ws3

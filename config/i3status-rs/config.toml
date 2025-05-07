@@ -8,12 +8,19 @@ icons = "material-nf"
 
 [[block]]
 block = "net"
+device = "wlp1s0"
 format = " $icon {$signal_strength  $ip @ $ssid|$ip} "
 format_alt = " $icon via {$frequency $device|$device} "
 
 [[block]]
 block = "battery"
-format = " $icon {$percentage ($time)|$power} "
+driver = "upower"
+format = " $icon $percentage ($power) "
+not_charging_format = " $icon $percentage ($time) "
+empty_format = " $icon $percentage LOW CHARGE! "
+[block.theme_overrides]
+good_bg = "#2e3440"
+good_fg = "#81a1c1"
 
 [[block]]
 block = "disk_space"
@@ -47,10 +54,6 @@ action = "toggle_mute"
 
 [[block]]
 block = "backlight"
-
-[[block]]
-block = "xrandr"
-resolution = true
 
 [[block]]
 block = "time"
