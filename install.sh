@@ -92,6 +92,9 @@ ln -sf $ROOT/config/i3status-rs/config.toml ~/.config/i3status-rs/config.toml
 mkdir -p ~/.config/i3wsr
 ln -sf $ROOT/config/i3wsr/config.toml ~/.config/i3wsr/config.toml
 
+mkdir -p ~/.config/radian
+ln -sf $ROOT/config/radian/profile ~/.config/radian/profile
+
 mkdir -p ~/.config/ranger
 ln -sf $ROOT/config/ranger/commands.py ~/.config/ranger/commands.py
 ln -sf $ROOT/config/ranger/rc.conf ~/.config/ranger/rc.conf

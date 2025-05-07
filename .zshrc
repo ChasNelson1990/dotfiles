@@ -65,6 +65,7 @@ alias ps="procs"
 alias curl="curlie"
 alias du="dust"
 alias df="duf"
+alias r="radian"
 
 # autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff"
