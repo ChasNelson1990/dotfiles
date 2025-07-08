@@ -74,7 +74,7 @@ sudo systemctl enable --now betterlockscreen@$USER
 ln -sf $ROOT/config/starship.toml ~/.config/starship.toml
 
 mkdir -p ~/.config/alacritty
-ln -sf $ROOT/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf $ROOT/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 mkdir -p ~/.config/Code/User
 ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
