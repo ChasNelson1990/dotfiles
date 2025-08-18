@@ -53,7 +53,7 @@ plugins=(
 # Utility aliases
 # fix ls aliases by turning zsh colouring off
 DISABLE_LS_COLORS="true"
-alias ls="exa"
+alias ls="eza"
 
 alias cat="bat"
 alias top="btm"

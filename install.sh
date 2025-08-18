@@ -43,7 +43,7 @@ paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
 paru -S duf dust exfat-utils mlocate ntfs-3g ranger zip
 # install system tools
-paru -S bat brightnessctl exa fd fwupd ripgrep sd zoxide
+paru -S bat brightnessctl eza fd fwupd ripgrep sd zoxide
 # install utilities
 paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina transmission-gtk udiskie
 # install version control
@@ -135,6 +135,8 @@ git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
 sudo ln -sf $ROOT/config/clamav/freshclam.conf /etc/clamav/freshclam.conf
 sudo ln -sf $ROOT/config/clamav/fdpass.conf /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
+sudo ln -sf $ROOT/config/clamav/virus-event.bash /etc/clamav/virus-event.bash
+sudo chmod +x /etc/clamav/virus-event.bash
 sudo systemctl stop clamav-freshclam.service
 sudo freshclam
 sudo systemctl daemon-reload
@@ -145,6 +147,8 @@ sudo systemctl enable --now fangfrisch.timer
 sudo systemctl enable --now clamav-daemon.service
 sudo systemctl enable --now clamav-clamonacc.service
 sudo systemctl enable --now firewalld.service
+sudo systemctl enable --now clamav-freshclam-once.timer
+sudo systemctl enable --now clamav-unofficial-sigs.timer
 
 # enable CPU power management
 sudo ln -sf $ROOT/cpupower /etc/default/cpupower
