@@ -30,7 +30,7 @@ paru -S darktable feh gimp graphics-magick inkscape
 # install browsers
 paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
-paru -S bottom cpupower hddtemp htop Iio-sensor-proxy lm_sensors powertop procs battop tlp
+paru -S bottom cpupower hddtemp htop Iio-sensor-proxy lm_sensors powertop procs battop power-profiles-daemon upower
 # install network tools
 paru -S bandwhich bluez-utils clamav curlie firewalld mullvad-vpn-bin networkmanager python-fangfrisch
 paru -Rcnsu dhcpcd netctl
@@ -155,8 +155,16 @@ sudo ln -sf $ROOT/cpupower /etc/default/cpupower
 sudo systemctl enable --now cpupower.service
 
 # enable power management
-sudo ln -sf $ROOT/01-custom-tlp.conf /etc/tlp.d/01-custom-tlp.conf
-sudo systemctl enable --now tlp.service
+# power-profiles-daemon handles AC/battery performance profiles (replaces TLP)
+sudo systemctl enable --now power-profiles-daemon.service
+# upower triggers hibernate at 1% battery
+sudo mkdir -p /etc/UPower
+sudo ln -sf $ROOT/etc/UPower/UPower.conf /etc/UPower/UPower.conf
+sudo systemctl enable --now upower.service
+# NOTE: hibernate requires the swap partition UUID in the kernel cmdline.
+# Add to /boot/loader/entries/arch.conf:
+#   options ... resume=UUID=<swap-partition-uuid>
+# Find the UUID with: lsblk -o NAME,UUID | grep swap-device
 
 # enable networking
 sudo systemctl enable --now NetworkManager.service
