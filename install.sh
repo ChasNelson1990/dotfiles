@@ -159,7 +159,7 @@ sudo systemctl enable --now cpupower.service
 sudo systemctl enable --now power-profiles-daemon.service
 # upower triggers hibernate at 1% battery
 sudo mkdir -p /etc/UPower
-sudo ln -sf $ROOT/etc/UPower/UPower.conf /etc/UPower/UPower.conf
+sudo cp $ROOT/etc/UPower/UPower.conf /etc/UPower/UPower.conf
 sudo systemctl enable --now upower.service
 # NOTE: hibernate requires the swap partition UUID in the kernel cmdline.
 # Add to /boot/loader/entries/arch.conf:
