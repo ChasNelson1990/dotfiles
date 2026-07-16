@@ -25,6 +25,7 @@ Run these on the live system now. All of it is reversible or already-discarded d
    already be empty (an unmatched glob aborts the command under zsh's
    default `nomatch` option):
    ```
+   mkdir -p ~/.local/share/Trash/files ~/.local/share/Trash/info
    find ~/.local/share/Trash/files ~/.local/share/Trash/info -mindepth 1 -delete
    ```
 
