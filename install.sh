@@ -42,6 +42,8 @@ paru -S postgresql
 paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
 paru -S duf dust exfat-utils mlocate ntfs-3g ranger zip
+# ranger preview dependencies (images, video thumbnails, office documents)
+paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
 paru -S bat brightnessctl eza fd fwupd ripgrep sd zoxide
 # install utilities
@@ -164,7 +166,7 @@ sudo systemctl enable --now upower.service
 # NOTE: hibernate requires the swap partition UUID in the kernel cmdline.
 # Add to /boot/loader/entries/arch.conf:
 #   options ... resume=UUID=<swap-partition-uuid>
-# Find the UUID with: lsblk -o NAME,UUID | grep swap-device
+# Find the UUID with: lsblk -o NAME,UUID,FSTYPE | grep swap
 
 # enable networking
 sudo systemctl enable --now NetworkManager.service
