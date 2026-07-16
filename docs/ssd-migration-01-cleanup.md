@@ -8,8 +8,8 @@ Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See 
 
 ## Context
 
-Before backing up ~750G of data, reclaim the obvious junk first: an emptied Trash
-that was never emptied (~128G), a bloated pacman package cache (~112G), and
+Before backing up ~750G of data, reclaim the obvious junk first: an unemptied
+Trash (~128G), a bloated pacman package cache (~112G), and
 orphaned packages (82 at last count). This shrinks and speeds up the backup in
 [Phase 02](ssd-migration-02-backup.md) — none of it is necessary, but it's free.
 
