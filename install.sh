@@ -30,7 +30,7 @@ paru -S darktable feh gimp graphics-magick inkscape
 # install browsers
 paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
-paru -S bottom cpupower hddtemp htop Iio-sensor-proxy lm_sensors powertop procs battop power-profiles-daemon upower
+paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs battop power-profiles-daemon upower
 # install network tools
 paru -S bandwhich bluez-utils clamav curlie firewalld mullvad-vpn-bin networkmanager python-fangfrisch
 paru -Rcnsu dhcpcd netctl
@@ -157,6 +157,9 @@ sudo ln -sf $ROOT/cpupower /etc/default/cpupower
 sudo systemctl enable --now cpupower.service
 
 # enable power management
+# clean up TLP if previously installed (conflicts with power-profiles-daemon)
+sudo systemctl disable --now tlp.service 2>/dev/null || true
+sudo rm -f /etc/tlp.d/01-custom-tlp.conf
 # power-profiles-daemon handles AC/battery performance profiles (replaces TLP)
 sudo systemctl enable --now power-profiles-daemon.service
 # upower triggers hibernate at 1% battery
