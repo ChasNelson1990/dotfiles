@@ -38,10 +38,12 @@ Run these on the live system now. All of it is reversible or already-discarded d
    ```
    Reference: [ArchWiki — Pacman § Cleaning the package cache](https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache)
 
-3. **Remove orphaned packages** — review the list first, then remove:
+3. **Remove orphaned packages** — review the list first, then remove.
+   `xargs -r` makes this a no-op instead of erroring when there are no
+   orphans (a common, benign case):
    ```
    pacman -Qdtq
-   pacman -Qdtq | sudo pacman -Rns -
+   pacman -Qdtq | xargs -r sudo pacman -Rns --
    ```
    Reference: [ArchWiki — Pacman/Tips and tricks § Removing unused packages (orphans)](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Removing_unused_packages_(orphans))
 
