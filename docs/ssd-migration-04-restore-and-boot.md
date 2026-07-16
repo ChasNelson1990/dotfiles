@@ -16,11 +16,14 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
 
 ## Steps
 
-1. Mount everything and extract the backup:
+1. Mount everything and extract the backup. Replace the archive path below
+   with the exact filename from [Phase 02](ssd-migration-02-backup.md) (a
+   glob like `framework-backup-*.tar.zst` will break `tar -f` if more than
+   one backup ever ends up on the drive):
    ```
    mount /dev/vg0/root /mnt
    mount --mkdir /dev/nvme0n1p1 /mnt/boot
-   tar --acls --xattrs-include=* --zstd -xpf /path/to/framework-backup-*.tar.zst -C /mnt
+   tar --acls --xattrs-include=* --zstd -xpf /path/to/framework-backup-YYYY-MM-DD.tar.zst -C /mnt
    swapon /dev/vg0/swap
    ```
    Note the extraction flag is `--xattrs-include=*`, not just `--xattrs` — the
