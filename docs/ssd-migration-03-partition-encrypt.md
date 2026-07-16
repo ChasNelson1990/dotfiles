@@ -47,7 +47,7 @@ Do not start this phase until the backup in
    ("LVM on LUKS" — the standard scheme for encrypted swap/hibernation with a
    single passphrase/TPM unlock):
    ```
-   cryptsetup luksFormat /dev/nvme0n1p2
+   cryptsetup luksFormat --type luks2 /dev/nvme0n1p2
    cryptsetup open /dev/nvme0n1p2 cryptlvm
 
    pvcreate /dev/mapper/cryptlvm
