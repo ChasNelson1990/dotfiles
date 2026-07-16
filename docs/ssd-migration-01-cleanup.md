@@ -1,4 +1,4 @@
-# SSD migration — Phase A: Clean up the current drive
+# SSD migration — Phase 01: Clean up the current drive
 
 Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See also:
 [02 — Backup](ssd-migration-02-backup.md) ·
@@ -11,7 +11,7 @@ Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See 
 Before backing up ~750G of data, reclaim the obvious junk first: an emptied Trash
 that was never emptied (~128G), a bloated pacman package cache (~112G), and
 orphaned packages (82 at last count). This shrinks and speeds up the backup in
-Phase B — none of it is necessary, but it's free.
+[Phase 02](ssd-migration-02-backup.md) — none of it is necessary, but it's free.
 
 Run these on the live system now. All of it is reversible or already-discarded data.
 

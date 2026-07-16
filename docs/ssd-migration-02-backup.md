@@ -1,4 +1,4 @@
-# SSD migration — Phase B: Back up the entire OS to the external drive
+# SSD migration — Phase 02: Back up the entire OS to the external drive
 
 Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See also:
 [01 — Cleanup](ssd-migration-01-cleanup.md) ·
@@ -46,7 +46,7 @@ Reference: [ArchWiki — Full system backup with tar](https://wiki.archlinux.org
 ## Verify before proceeding
 
 **This is the point of no return for the internal disk.** Do not move on to
-[Phase C](ssd-migration-03-partition-encrypt.md) until this passes:
+[Phase 03](ssd-migration-03-partition-encrypt.md) until this passes:
 
 ```
 tar --zstd -tf /run/media/chas/ravenwood/framework-backup-*.tar.zst | tail -20

@@ -1,4 +1,4 @@
-# SSD migration — Phase D: Restore the OS onto the new encrypted disk and reconfigure boot
+# SSD migration — Phase 04: Restore the OS onto the new encrypted disk and reconfigure boot
 
 Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See also:
 [01 — Cleanup](ssd-migration-01-cleanup.md) ·
@@ -10,8 +10,8 @@ Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See 
 
 At this point the new disk has an unencrypted ESP (`/dev/nvme0n1p1`) and an
 LUKS2+LVM container (`/dev/vg0/root`, `/dev/vg0/swap`) from
-[Phase C](ssd-migration-03-partition-encrypt.md), and the tar backup from
-[Phase B](ssd-migration-02-backup.md) is ready to extract. Bootloader is
+[Phase 03](ssd-migration-03-partition-encrypt.md), and the tar backup from
+[Phase 02](ssd-migration-02-backup.md) is ready to extract. Bootloader is
 systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
 
 ## Steps

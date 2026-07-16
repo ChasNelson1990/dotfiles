@@ -9,7 +9,7 @@ Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See 
 ## Context
 
 Run through this checklist after rebooting from
-[Phase D](ssd-migration-04-restore-and-boot.md), before trusting the new disk
+[Phase 04](ssd-migration-04-restore-and-boot.md), before trusting the new disk
 for daily use or deleting the backup archive.
 
 ## Checklist

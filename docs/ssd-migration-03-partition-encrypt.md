@@ -1,4 +1,4 @@
-# SSD migration — Phase C: Create the Arch installer USB and repartition/encrypt the SSD
+# SSD migration — Phase 03: Create the Arch installer USB and repartition/encrypt the SSD
 
 Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See also:
 [01 — Cleanup](ssd-migration-01-cleanup.md) ·
@@ -17,7 +17,7 @@ giving a real 64G swap logical volume — large enough to actually hibernate
 passphrase/TPM2 unlock for both root and swap.
 
 Do not start this phase until the backup in
-[Phase B](ssd-migration-02-backup.md) is verified complete.
+[Phase 02](ssd-migration-02-backup.md) is verified complete.
 
 ## Steps
 
@@ -64,4 +64,4 @@ Do not start this phase until the backup in
    boot-partition formatting shown above), plus
    [ArchWiki — LVM § Installation](https://wiki.archlinux.org/title/LVM#Installation)
    (confirms the `lvm2` package requirement, used again in
-   [Phase D](ssd-migration-04-restore-and-boot.md)'s initramfs hooks).
+   [Phase 04](ssd-migration-04-restore-and-boot.md)'s initramfs hooks).
