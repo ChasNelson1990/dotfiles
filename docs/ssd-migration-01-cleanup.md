@@ -20,9 +20,12 @@ Run these on the live system now. All of it is reversible or already-discarded d
 1. **Empty trash** (~128G) — clear the contents of the `files`/`info`
    subdirectories rather than the `Trash/*` glob, which would delete those
    subdirectories themselves (some tools, including this repo's ranger config,
-   expect `Trash/files/` to exist as a directory):
+   expect `Trash/files/` to exist as a directory). Using `find -delete`
+   instead of a glob avoids a shell error if either directory happens to
+   already be empty (an unmatched glob aborts the command under zsh's
+   default `nomatch` option):
    ```
-   rm -rf ~/.local/share/Trash/files/* ~/.local/share/Trash/info/*
+   find ~/.local/share/Trash/files ~/.local/share/Trash/info -mindepth 1 -delete
    ```
 
 2. **Prune the pacman package cache**, keeping only the most recent version of each package:
