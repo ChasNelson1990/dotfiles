@@ -17,9 +17,12 @@ Run these on the live system now. All of it is reversible or already-discarded d
 
 ## Steps
 
-1. **Empty trash** (~128G):
+1. **Empty trash** (~128G) — clear the contents of the `files`/`info`
+   subdirectories rather than the `Trash/*` glob, which would delete those
+   subdirectories themselves (some tools, including this repo's ranger config,
+   expect `Trash/files/` to exist as a directory):
    ```
-   rm -rf ~/.local/share/Trash/*
+   rm -rf ~/.local/share/Trash/files/* ~/.local/share/Trash/info/*
    ```
 
 2. **Prune the pacman package cache**, keeping only the most recent version of each package:
