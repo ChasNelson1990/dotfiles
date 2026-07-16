@@ -160,6 +160,7 @@ sudo systemctl enable --now cpupower.service
 # clean up TLP if previously installed (conflicts with power-profiles-daemon)
 sudo systemctl disable --now tlp.service 2>/dev/null || true
 sudo rm -f /etc/tlp.d/01-custom-tlp.conf
+paru -Rn tlp 2>/dev/null || true
 # power-profiles-daemon handles AC/battery performance profiles (replaces TLP)
 sudo systemctl enable --now power-profiles-daemon.service
 # upower triggers hibernate at 1% battery
