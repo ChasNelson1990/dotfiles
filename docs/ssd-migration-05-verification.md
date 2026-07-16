@@ -18,7 +18,8 @@ for daily use or deleting the backup archive.
   TPM2, or falling back to a passphrase prompt.
 - `lsblk -f` and `swapon --show` confirm the LUKS/LVM/swap layout is live, with
   a 64G swap LV.
-- `systemctl status k3s`, then spot-check the previously-seen
+- `systemctl status k3s` — start it with `sudo systemctl start k3s` if it
+  hasn't come up on its own, then spot-check the previously-seen
   namespaces/PVCs (`zarr-staging`, `ckan-*`, `solr`) are present and healthy
   before resuming real use of `k3s`.
 - Test hibernation deliberately, while at the machine and on AC power (don't
