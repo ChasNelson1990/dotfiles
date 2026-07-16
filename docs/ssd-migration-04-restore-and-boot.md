@@ -132,11 +132,12 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
    PCR 7 is a common baseline measurement — adjust if you also want to bind to
    Secure Boot state or other PCRs, per the page's guidance).
 
-8. Exit the chroot, unmount everything, and reboot without the USB stick:
+8. Exit the chroot, tear down everything from step 1 in reverse, and reboot
+   without the USB stick:
    ```
    exit
-   umount -R /mnt
    swapoff /dev/vg0/swap
+   umount -R /mnt
    reboot
    ```
 
