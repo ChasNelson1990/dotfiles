@@ -79,9 +79,15 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
    [ArchWiki — Mkinitcpio § Image creation and activation](https://wiki.archlinux.org/title/Mkinitcpio#Image_creation_and_activation)
    (for `mkinitcpio -P`).
 
-5. **Update the boot loader entry** at `/boot/loader/entries/arch.conf` — set
-   the kernel command line to unlock the LUKS container and boot from the LVM
-   root, plus the hibernate resume target:
+5. **Update the boot loader entry** at `/boot/loader/entries/arch.conf` — the
+   restored backup already has this file (likely with extra lines this
+   runbook doesn't otherwise touch, e.g. a microcode `initrd`), so only edit
+   its `options` line in place rather than replacing the whole file:
+   ```
+   options rd.luks.name=<luks-uuid-here>=cryptlvm root=/dev/vg0/root rw resume=/dev/vg0/swap
+   ```
+   The rest of the file (`title`, `linux`, `initrd` lines) should be left as
+   they already are, for example:
    ```
    title   Arch Linux
    linux   /vmlinuz-linux
