@@ -46,10 +46,13 @@ Reference: [ArchWiki — Full system backup with tar](https://wiki.archlinux.org
 ## Verify before proceeding
 
 **This is the point of no return for the internal disk.** Do not move on to
-[Phase 03](ssd-migration-03-partition-encrypt.md) until this passes:
+[Phase 03](ssd-migration-03-partition-encrypt.md) until this passes. Use the
+exact filename produced above rather than a glob — if more than one backup
+ever ends up on the drive, a glob expands to multiple paths and `tar -tf`
+will misinterpret the extras as member patterns instead of archives to list:
 
 ```
-tar --zstd -tf /run/media/chas/ravenwood/framework-backup-*.tar.zst | tail -20
+tar --zstd -tf /run/media/chas/ravenwood/framework-backup-YYYY-MM-DD.tar.zst | tail -20
 df -h /run/media/chas/ravenwood
 ```
 
