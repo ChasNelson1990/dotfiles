@@ -23,10 +23,12 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
    ```
    mount /dev/vg0/root /mnt
    mount --mkdir /dev/nvme0n1p1 /mnt/boot
-   tar --acls --xattrs-include=* --zstd -xpf /path/to/framework-backup-YYYY-MM-DD.tar.zst -C /mnt
+   tar --acls --xattrs-include='*' --zstd -xpf /path/to/framework-backup-YYYY-MM-DD.tar.zst -C /mnt
    swapon /dev/vg0/swap
    ```
-   Note the extraction flag is `--xattrs-include=*`, not just `--xattrs` — the
+   Note the extraction flag is `--xattrs-include='*'` (quoted, so the shell
+   doesn't try to glob-expand it in whatever directory the command is run
+   from), not just `--xattrs` — the
    wiki's restore example uses this exact form; without it, tar's default
    include pattern silently drops some xattrs on extraction.
    Reference: [ArchWiki — Full system backup with tar § Restoring](https://wiki.archlinux.org/title/Full_system_backup_with_tar#Restoring)
