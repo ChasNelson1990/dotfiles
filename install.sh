@@ -30,7 +30,7 @@ paru -S darktable feh gimp graphics-magick inkscape
 # install browsers
 paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
-paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs battop power-profiles-daemon upower
+paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs battop upower
 # install network tools
 paru -S bandwhich bluez-utils clamav curlie firewalld mullvad-vpn-bin networkmanager python-fangfrisch
 paru -Rcnsu dhcpcd netctl
@@ -164,6 +164,8 @@ if pacman -Q tlp >/dev/null 2>&1; then
   paru -Rn tlp
 fi
 # power-profiles-daemon handles AC/battery performance profiles (replaces TLP)
+# installed here (after TLP cleanup) to avoid pacman conflict if TLP was present
+paru -S power-profiles-daemon
 sudo systemctl enable --now power-profiles-daemon.service
 # upower triggers hibernate at 1% battery
 sudo install -Dm 0644 "$ROOT/etc/UPower/UPower.conf" /etc/UPower/UPower.conf
