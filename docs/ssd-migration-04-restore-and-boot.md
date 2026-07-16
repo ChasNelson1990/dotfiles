@@ -56,7 +56,7 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
    it's known to the system beyond the boot-time unlock (find its UUID with
    `blkid /dev/nvme0n1p2` first) — optional for boot itself (the kernel
    parameter in step 5 handles early unlock) but keeps `cryptlvm` consistently
-   named. Two fields (name + device) is sufficient to prompt for the passphrase
+   named. Two fields (name + device) are sufficient to prompt for the passphrase
    at boot, matching the wiki's own LUKS example (`home  /dev/lvm/home`):
    ```
    grep -qs '^cryptlvm ' /etc/crypttab || echo "cryptlvm UUID=<luks-uuid-here>" >> /etc/crypttab
