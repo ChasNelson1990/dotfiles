@@ -25,7 +25,7 @@ for daily use or deleting the backup archive.
 - Test hibernation deliberately, while at the machine and on AC power (don't
   test this on battery):
   ```
-  systemctl hibernate
+  sudo systemctl hibernate
   ```
   Power back on and confirm the session resumes rather than booting fresh.
 - `cat /sys/power/resume` should reflect the swap LV's major:minor device
