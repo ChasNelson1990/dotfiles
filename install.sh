@@ -158,7 +158,7 @@ sudo systemctl enable --now cpupower.service
 
 # enable power management
 # clean up TLP if previously installed (conflicts with power-profiles-daemon)
-if pacman -Q tlp &>/dev/null; then
+if pacman -Q tlp >/dev/null 2>&1; then
   sudo systemctl disable --now tlp.service
   sudo rm -f /etc/tlp.d/01-custom-tlp.conf
   paru -Rn tlp
