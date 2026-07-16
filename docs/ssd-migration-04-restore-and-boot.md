@@ -54,7 +54,7 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
    named. Two fields (name + device) is sufficient to prompt for the passphrase
    at boot, matching the wiki's own LUKS example (`home  /dev/lvm/home`):
    ```
-   grep -q '^cryptlvm ' /etc/crypttab || echo "cryptlvm UUID=<luks-uuid-here>" >> /etc/crypttab
+   grep -qs '^cryptlvm ' /etc/crypttab || echo "cryptlvm UUID=<luks-uuid-here>" >> /etc/crypttab
    ```
    Reference: [ArchWiki — Dm-crypt/System configuration § crypttab](https://wiki.archlinux.org/title/Dm-crypt/System_configuration#crypttab)
    (verified exact example syntax on the page: `name  device  password  options`,
