@@ -158,14 +158,17 @@ sudo systemctl enable --now cpupower.service
 
 # enable power management
 # clean up TLP if previously installed (conflicts with power-profiles-daemon)
-sudo systemctl disable --now tlp.service 2>/dev/null || true
-sudo rm -f /etc/tlp.d/01-custom-tlp.conf
-paru -Rn tlp 2>/dev/null || true
+if pacman -Q tlp &>/dev/null; then
+  sudo systemctl disable --now tlp.service
+  sudo rm -f /etc/tlp.d/01-custom-tlp.conf
+  paru -Rn tlp
+fi
 # power-profiles-daemon handles AC/battery performance profiles (replaces TLP)
 sudo systemctl enable --now power-profiles-daemon.service
 # upower triggers hibernate at 1% battery
 sudo install -Dm 0644 "$ROOT/etc/UPower/UPower.conf" /etc/UPower/UPower.conf
-sudo systemctl enable --now upower.service
+sudo systemctl enable upower.service
+sudo systemctl try-restart upower.service
 # NOTE: hibernate requires the swap partition UUID in the kernel cmdline.
 # Add to /boot/loader/entries/arch.conf:
 #   options ... resume=UUID=<swap-partition-uuid>
