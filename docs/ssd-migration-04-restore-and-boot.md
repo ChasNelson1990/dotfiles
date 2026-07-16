@@ -28,11 +28,18 @@ systemd-boot; its entry lives at `/boot/loader/entries/arch.conf`.
    include pattern silently drops some xattrs on extraction.
    Reference: [ArchWiki — Full system backup with tar § Restoring](https://wiki.archlinux.org/title/Full_system_backup_with_tar#Restoring)
 
-2. Generate fstab and enter the new system:
+2. Generate fstab and enter the new system. The extracted backup already
+   contains the *old* disk's `/etc/fstab` (referencing the previous
+   unencrypted partition layout), so move it aside and write a fresh one
+   rather than appending — appending would leave stale/duplicate entries for
+   partitions that no longer exist:
    ```
-   genfstab -U /mnt >> /mnt/etc/fstab
+   mv /mnt/etc/fstab /mnt/etc/fstab.old
+   genfstab -U /mnt > /mnt/etc/fstab
    ```
-   Check the resulting file, then:
+   Check the resulting file against `/mnt/etc/fstab.old` for any custom
+   mounts worth carrying forward (e.g. bind mounts, network shares) before
+   discarding it, then:
    ```
    arch-chroot -S /mnt
    ```
