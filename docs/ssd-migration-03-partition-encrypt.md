@@ -24,7 +24,7 @@ Do not start this phase until the backup in
 1. **Get a spare USB stick** (separate from the ravenwood backup drive) and write
    the Arch ISO to it:
    ```
-   dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress
+   sudo dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress
    ```
    Identify the correct `/dev/disk/by-id/...` device carefully before running
    this — it is destructive to whatever is currently on that stick.
