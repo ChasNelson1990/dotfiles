@@ -53,5 +53,8 @@ tar --zstd -tf /run/media/chas/ravenwood/framework-backup-*.tar.zst | tail -20
 df -h /run/media/chas/ravenwood
 ```
 
-Do not restart k3s until the whole migration is verified working on the new disk
-(see [Phase 05 — Verification](ssd-migration-05-verification.md)).
+Leave k3s stopped on this (old) install for the rest of the migration — the
+disk is about to be wiped in [Phase 03](ssd-migration-03-partition-encrypt.md)
+regardless. On the new disk, k3s will auto-start via systemd after reboot;
+don't rely on it for real work until its health is confirmed in
+[Phase 05 — Verification](ssd-migration-05-verification.md).
