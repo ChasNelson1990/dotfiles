@@ -61,7 +61,7 @@ Also includes custom PKGBUILD files for:
 
 - Note that current BorgBackup script (`local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
 - Password manager: [Proton Pass](https://proton.me/pass), via its Firefox extension — not a standalone package, so `install.sh` doesn't cover it. Install from the exact listing at [addons.mozilla.org/firefox/addon/proton-pass](https://addons.mozilla.org/en-US/firefox/addon/proton-pass/) (not a generic Add-ons search, to avoid an impersonating lookalike) — confirm the publisher shown is **Proton** before installing — then sign in with the existing Proton Unlimited account.
-- Tailscale: `install.sh` installs the package and enables `tailscaled`, but joining the tailnet needs an interactive browser login — run `sudo tailscale up` manually once, per [the homelab's remote-mesh decision](../core/README.md#software-stack) (this laptop is a client on the same tailnet as the compute core, reaching its `*.lab.chasnelson.co.uk` hostnames).
+- Tailscale: `install.sh` installs the package and enables `tailscaled.service`, but joining the tailnet needs an interactive browser login — run `sudo tailscale up` manually once, per [the homelab's remote-mesh decision](../core/README.md#software-stack) (this laptop is a client on the same tailnet as the compute core, reaching its `*.lab.chasnelson.co.uk` hostnames).
 
 ## Notes to self
 
