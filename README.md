@@ -43,9 +43,9 @@ Box 1: router appliance                Box 2: Framework Desktop (bare metal Arch
 and cost for meaningfully better resilience — the router keeps working through a crash, reboot,
 or troubleshooting session on the AI/NAS box, since its uptime isn't coupled to that workload.
 The compute core (`core/`) runs bare-metal Arch Linux directly (no TrueNAS, no hypervisor) — see
-[`core/README.md`](core/) for why. LCARS doesn't name a router-appliance hardware pick, since its
-own architecture never separates the two — that hardware choice is still open, see
-[`router/README.md`](router/).
+[`core/README.md`](core/README.md) for why. LCARS doesn't name a router-appliance hardware pick,
+since its own architecture never separates the two — that hardware choice is still open, see
+[`router/README.md`](router/README.md).
 
 ## Build sequencing: router last, deliberately
 
