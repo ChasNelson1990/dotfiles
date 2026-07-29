@@ -1,7 +1,10 @@
 #!/bin/sh
 case "$2" in
     up)
-        timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
+        tz="$(curl --fail --silent --max-time 5 https://ipapi.co/timezone)"
+        if [ -n "$tz" ] && timedatectl list-timezones | grep -qFx "$tz"; then
+            timedatectl set-timezone "$tz"
+        fi
     ;;
 esac
 
