@@ -1,62 +1,21 @@
 # dotfiles
 
-A living repository including a list of installed software and containing global configuration files where appropriate.
+A living repository tracking configuration and infrastructure across every device this household
+runs — one directory per box, plus the shared philosophy and runbooks behind the choices made in
+each. See [`motivation.md`](motivation.md) for that philosophy.
 
-## Operating System
+Research and rationale for the tool choices live in the public, general-purpose
+[are-we-lcars-yet open-source guide](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html) —
+this repo is the opinionated, tracked implementation of that guide, not the other way round.
 
-This set-up is for a Framework 13 AMD Ryzen 7040 running Arch Linux.
+## Layout
 
-## Configuration files
+| Directory | Device | Status |
+| --- | --- | --- |
+| [`terminal/`](terminal/) | Framework 13 laptop (Arch Linux) — desktop environment, packages, dev tooling | Running |
+| [`core/`](core/) | Framework Desktop compute core (Box 2) — AI inference, agents, home automation hub, shared services | Planned |
+| [`router/`](router/) | Network edge / firewall appliance (Box 1) | Planned — hardware not yet chosen |
+| [`handheld/`](handheld/) | Fairphone (or similar), open-source ROM | Not yet started |
+| [`docs/`](docs/) | Cross-device runbooks (migrations, backups, one-off infra changes) | — |
 
-Configuration files exist for:
-
-- [Alacritty](https://sw.kovidgoyal.net/alacritty/) for terminal emulator
-- [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen) for... well... y'know
-- [BorgBackup](https://www.borgbackup.org/)
-- [clamAV](https://www.clamav.net/) for antivirus
-- [VSCode](https://code.visualstudio.com/)
-- [i3](https://i3wm.org/) for window management
-- i3bar with [i3status-rust](https://github.com/greshake/i3status-rust)
-- [Oh My ZSH](https://ohmyz.sh/)
-- [Ranger](https://ranger.github.io/) for file browser
-- [Redshift](http://jonls.dk/redshift/)
-- [rofi](https://github.com/davatorium/rofi) for launcher
-- [starship](https://starship.rs/) as prompt
-- [wired](https://github.com/Toqozz/wired-notify) for notifications
-
-## Installed Packages
-
-| **_Category_**     |                       |                          |                        |                  |                        |                |                   |             |                  |           |                  |             |               |
-| ------------------ | --------------------- | ------------------------ | ---------------------- | ---------------- | ---------------------- | -------------- | ----------------- | ----------- | ---------------- | --------- | ---------------- | ----------- | ------------- |
-| **3D**             | blender               | openscad                 |                        |                  |                        |                |                   |             |                  |           |                  |             |               |
-| **Audio**          | audacity              | pipewire                 | pipewire-alsa          | pipewire-jack    | pipewire-pulse         | pipewire-v4l2  | pipewire-audio    | wireplumber |                  |           |                  |             |               |
-| **Communications** | signal-desktop        | skypeforlinux-stable-bin | slack-desktop          | telegram-desktop |                        |                |                   |             |                  |           |                  |             |               |
-| **DevOps**         | aws-cli-v2            | azure-cli                | dbeaver                | docker           | docker-buildx          | minikube       | postman-bin       |             |                  |           |                  |             |               |
-| **Documents**      | hunspell-en_GB        | libreoffice-fresh-en-gb  | mailspring             | qpdf             | xournalpp              |                |                   |             |                  |           |                  |             |               |
-| **Fonts**          | otf-monaspace-nerd    | otf-font-awesome-4       |                        |                  |                        |                |                   |             |                  |           |                  |             |               |
-| **GUI**            | betterlockscreen      |                | i3-wm                  | i3blocks         | i3status-rust          | i3wsr          | redshift          | rofi        | rofi-vscode-mode | wired-git | xorg-xinit       | xorg-server | xorg-xsetroot |
-| **Imaging**        | darktable             | feh                      | gimp                   | graphics-magick  | inkscape               |                |                   |             |                  |           |                  |             |               |
-| **Internet**       | chromium              | firefox                  | firefox-i18n-en-gb     | google-chrome    |                        |                |                   |             |                  |           |                  |             |               |
-| **Monitoring**     | btm                   | cpupower                 | hddtemp                | htop             | Iio-sensor-proxy       | lm_sensors     | powertop          | procs       | tlp              |           |                  |             |               |
-| **Networking**     | bandwhich             | clamav                   | curlie                 | firewalld        | mullvad-vpn-bin        | networkmanager | python-fangfrisch |             |                  |           |                  |             |               |
-| **Programming**    | nvm                   | pyenv                    | r                      | texlive          | visual-studio-code-bin |                |                   |             |                  |           |                  |             |               |
-| **Shell**          | alacritty             | mcfly                    | oh-my-zsh-git          | starship         | tealdeer               | direnv         |                   |             |                  |           |                  |             |               |
-| **Storage**        | duf                   | dust                     | exfat-utils            | mlocate          | ntfs-3g                | ranger         | zip               |             |                  |           |                  |             |               |
-| **System**         | bat                   | brightnessctl            | eza                    | fd               | fwupd                  | ripgrep        | sd                | zoxide      |                  |           |                  |             |               |
-| **Utilities**      | android-file-transfer | borg                     | flameshot              | fprintd          | gnome-keyring          | kalu           | less              | libfprint   | macchina         | paru      | transmission-gtk |             |               |
-| **VCS**            | git                   | git-lfs                  | github-cli             |                  |                        |                |                   |             |                  |           |                  |             |               |
-| **Video**          | obs-studio            | shotcut                  | v4l-utils              | vlc              |                        |                |                   |             |                  |           |                  |             |               |
-
-## Custom Packages
-
-Also includes custom PKGBUILD files for:
-
-- otf-sansguilt (https://fontlibrary.org/en/font/sans-guilt)
-
-## Manual Steps
-
-- Note that current BorgBackup script (`/local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
-
-## Notes to self
-
-- Remember that symlinks should be relative to ~
+Each device directory has its own README with device-specific detail.
