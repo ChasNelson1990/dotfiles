@@ -47,7 +47,7 @@ paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
 paru -S bat brightnessctl eza fd fwupd ripgrep sd zoxide
 # install utilities
-paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina proton-pass-bin transmission-gtk udiskie
+paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina transmission-gtk udiskie
 # install version control
 paru -S git git-lfs github-cli
 # install video tools

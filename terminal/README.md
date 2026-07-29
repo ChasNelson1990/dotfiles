@@ -47,7 +47,7 @@ Configuration files exist for:
 | **Shell**          | alacritty             | mcfly                    | oh-my-zsh-git          | starship         | tealdeer               | direnv         |                   |             |                  |           |                  |             |               |
 | **Storage**        | duf                   | dust                     | exfat-utils            | mlocate          | ntfs-3g                | ranger         | zip               |             |                  |           |                  |             |               |
 | **System**         | bat                   | brightnessctl            | eza                    | fd               | fwupd                  | ripgrep        | sd                | zoxide      |                  |           |                  |             |               |
-| **Utilities**      | android-file-transfer | borg                     | flameshot              | fprintd          | gnome-keyring          | kalu           | less              | libfprint   | macchina         | paru      | proton-pass-bin  | transmission-gtk |               |
+| **Utilities**      | android-file-transfer | borg                     | flameshot              | fprintd          | gnome-keyring          | kalu           | less              | libfprint   | macchina         | paru      | transmission-gtk |             |               |
 | **VCS**            | git                   | git-lfs                  | github-cli             |                  |                        |                |                   |             |                  |           |                  |             |               |
 | **Video**          | obs-studio            | shotcut                  | v4l-utils              | vlc              |                        |                |                   |             |                  |           |                  |             |               |
 
@@ -60,6 +60,7 @@ Also includes custom PKGBUILD files for:
 ## Manual Steps
 
 - Note that current BorgBackup script (`local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
+- Password manager: [Proton Pass](https://proton.me/pass), via its Firefox extension — not a standalone package, so `install.sh` doesn't cover it. Install manually from Firefox's Add-ons page (or `addons.mozilla.org`) and sign in with the existing Proton Unlimited account.
 
 ## Notes to self
 
