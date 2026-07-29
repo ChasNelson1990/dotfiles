@@ -2,7 +2,10 @@
 !/terminal/otf-sansguilt/PKGBUILD
 leftwm
 
-# Homelab secrets — never commit real values, only *.env.example templates
+# Homelab secrets — these files aren't hand-authored; a host-level script populates them from
+# Proton Pass at deploy time (see core/README.md#secrets-management-proton-pass-cli), so they
+# exist on disk as a generated deploy-time artifact even though Proton Pass is the source of
+# truth. Never commit real values here — only *.env.example templates.
 core/**/.env
 core/**/*.key
 core/**/*.pem
