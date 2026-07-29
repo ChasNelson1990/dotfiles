@@ -1,3 +1,13 @@
 /terminal/otf-sansguilt/*
 !/terminal/otf-sansguilt/PKGBUILD
 leftwm
+
+# Homelab secrets — never commit real values, only *.env.example templates
+core/**/.env
+core/**/*.key
+core/**/*.pem
+core/**/secrets/
+router/**/.env
+router/**/*.key
+router/**/*.pem
+router/**/secrets/
