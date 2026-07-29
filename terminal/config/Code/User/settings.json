@@ -492,7 +492,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 },
 "window.customTitleBarVisibility": "windowed",
-"@azure.argTenant": "",
 "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
 },
