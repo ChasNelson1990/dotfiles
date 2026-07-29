@@ -42,7 +42,7 @@ Configuration files exist for:
 | **Imaging**        | darktable             | feh                      | gimp                   | graphics-magick  | inkscape               |                |                   |             |                  |           |                  |             |               |
 | **Internet**       | chromium              | firefox                  | firefox-i18n-en-gb     | google-chrome    |                        |                |                   |             |                  |           |                  |             |               |
 | **Monitoring**     | btm                   | cpupower                 | hddtemp                | htop             | Iio-sensor-proxy       | lm_sensors     | powertop          | procs       | tlp              |           |                  |             |               |
-| **Networking**     | bandwhich             | clamav                   | curlie                 | firewalld        | mullvad-vpn-bin        | networkmanager | python-fangfrisch |             |                  |           |                  |             |               |
+| **Networking**     | bandwhich             | clamav                   | curlie                 | firewalld        | proton-vpn-cli         | networkmanager | python-fangfrisch |             |                  |           |                  |             |               |
 | **Programming**    | nvm                   | pyenv                    | r                      | texlive          | visual-studio-code-bin |                |                   |             |                  |           |                  |             |               |
 | **Shell**          | alacritty             | mcfly                    | oh-my-zsh-git          | starship         | tealdeer               | direnv         |                   |             |                  |           |                  |             |               |
 | **Storage**        | duf                   | dust                     | exfat-utils            | mlocate          | ntfs-3g                | ranger         | zip               |             |                  |           |                  |             |               |
@@ -60,6 +60,7 @@ Also includes custom PKGBUILD files for:
 ## Manual Steps
 
 - Note that current BorgBackup script (`local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
+- Password manager: [Proton Pass](https://proton.me/pass), via its Firefox extension — not a standalone package, so `install.sh` doesn't cover it. Install from the exact listing at [addons.mozilla.org/firefox/addon/proton-pass](https://addons.mozilla.org/en-US/firefox/addon/proton-pass/) (not a generic Add-ons search, to avoid an impersonating lookalike) — confirm the publisher shown is **Proton** before installing — then sign in with the existing Proton Unlimited account.
 
 ## Notes to self
 
