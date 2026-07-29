@@ -60,7 +60,7 @@ Also includes custom PKGBUILD files for:
 ## Manual Steps
 
 - Note that current BorgBackup script (`local/bin/borg_cjn-bak.sh`) uses an empty passphrase and a local file key, which is automatically created in `config/borg/keys` for new systems but must be manually copied across to access an existing repository, i.e. with a clean install.
-- Password manager: [Proton Pass](https://proton.me/pass), via its Firefox extension — not a standalone package, so `install.sh` doesn't cover it. Install manually from Firefox's Add-ons page (or `addons.mozilla.org`) and sign in with the existing Proton Unlimited account.
+- Password manager: [Proton Pass](https://proton.me/pass), via its Firefox extension — not a standalone package, so `install.sh` doesn't cover it. Install from the exact listing at [addons.mozilla.org/firefox/addon/proton-pass](https://addons.mozilla.org/en-US/firefox/addon/proton-pass/) (not a generic Add-ons search, to avoid an impersonating lookalike) — confirm the publisher shown is **Proton** before installing — then sign in with the existing Proton Unlimited account.
 
 ## Notes to self
 
