@@ -4,8 +4,7 @@ Status: **Running**.
 
 The Framework 13's own configuration — window manager, terminal, shell, and every desktop tool
 listed below. See the [top-level README](../README.md) for how this fits alongside the other
-devices. The philosophy behind the choices made here lands as `../motivation.md` in a follow-up
-PR.
+devices, and [`motivation.md`](../motivation.md) for the philosophy behind the choices made here.
 
 ## Operating System
 

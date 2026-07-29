@@ -2,7 +2,7 @@
 
 A living repository tracking configuration and infrastructure across every device this household
 runs — one directory per box, plus the shared philosophy and runbooks behind the choices made in
-each. The philosophy behind those choices lands as `motivation.md` in a follow-up PR.
+each. See [`motivation.md`](motivation.md) for that philosophy.
 
 Research and rationale for the tool choices live in the public, general-purpose
 [are-we-lcars-yet open-source guide](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html) —
