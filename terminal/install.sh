@@ -127,6 +127,10 @@ sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 # cd otf-sansguilt
 # makepkg -si
 
+# install oterm (uv tool, not paru -- avoids depending on the AUR
+# package keeping pace with oterm's fast upstream release cadence)
+uv tool install oterm
+
 # install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
