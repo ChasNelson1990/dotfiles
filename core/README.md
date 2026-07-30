@@ -559,6 +559,31 @@ duplicating it, so neither tool's own notification handling for those specific f
 exercised either way. The daily-chat interface is a synchronous, human-at-the-keyboard surface —
 a different category of interaction from the background/automation layer this pipeline is for.
 
+### Creating CrewAI tasks: voice and chat, gating only what runs
+
+**Decided:** creating a new CrewAI task — ad hoc or scheduled — isn't itself gated by AEGIS; only
+what the task *does* once it runs is. Two creation routes, both reusing pieces already decided
+rather than adding anything new, both ultimately calling CrewAI's already-decided API-wrapper
+activation route (see the Agent framework row in [Software stack](#software-stack)):
+
+- **Voice, via HA Assist**: a custom sentence trigger (e.g. `ask crew to {request}`) captures
+  free text via HA's `{wildcard}` slot syntax and fires it into an automation that calls the
+  API-wrapper endpoint — works from the Voice PE speaker or the HA companion app's own Assist
+  button on the phone.
+- **Typed, via the primary chat interface**: Open WebUI's Tools mechanism (Python
+  function-calling that can hit external HTTP APIs) lets an ordinary chat turn — "schedule a
+  task to draft my weekly report every Monday" — call the same endpoint.
+
+**Decided: don't gate creation, only execution.** Spinning up a new task is treated as low-risk
+— the actual risk sits in what the task does once it's running (file ops, network calls, etc.),
+which AEGIS already gates per
+[AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit). Adding an approval step to
+creation itself would slow down the exact "quick, ambient request" use case both routes exist
+for, without meaningfully reducing risk — the thing worth interrupting a human for is still
+surfaced later via the
+[notifications pipeline](#notifications-unified-via-home-assistant-across-aegis-crewai-and-openhands)
+if/when the task actually needs a decision.
+
 ## Software stack
 
 Picks below start from LCARS's own per-row recommendation. Anything under **Deviation**
@@ -575,6 +600,7 @@ the LCARS research.
 | Persistent agent memory | Letta | Letta | Planned | — | [Holographic crew](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-holographic-crew) |
 | Primary interface (chat client) | oterm / Open WebUI | **oterm + Open WebUI** | Planned | Named trade-off, see [Primary interface](#primary-interface-oterm--open-webui): oterm stays client-side (laptop, terminal) but has no phone story; Open WebUI added specifically to cover the handheld device, same Caddy+Tailscale reachability pattern as OpenHands, auth enabled | [Primary interface](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-primary-interface) |
 | Human-in-the-loop notifications | — | **Home Assistant actionable push notifications** | Planned | Named decision, see [Notifications](#notifications-unified-via-home-assistant-across-aegis-crewai-and-openhands): unifies AEGIS approvals, CrewAI's webhook-based HITL, and (goal) OpenHands async completions through one channel, since CrewAI has no viable self-hosted dashboard of its own (Enterprise-only, community alternatives dead) | — |
+| CrewAI task creation UX | — | **Voice (HA Assist) + chat (Open WebUI Tools)** | Planned | Named decision, see [Creating CrewAI tasks](#creating-crewai-tasks-voice-and-chat-gating-only-what-runs): both call CrewAI's existing API-wrapper activation route; creation itself isn't AEGIS-gated, only what a task does once it's running | — |
 | Agent framework (small daily tasks) | CrewAI | **CrewAI** | Planned | **Decided 2026-07-23**: compared in depth against LangGraph/AG2/OpenAI Agents SDK — CrewAI's Flows (`@persist` + `@human_feedback`) natively cover long-waiting scheduled tasks and an approval queue, and its guardrail gap is closed by AEGIS's native `BeforeToolCallHook` integration (see [AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit)), rather than needing a framework with built-in tool guardrails. **Activation: all three routes, not one exclusive mechanism** — an API wrapper (for on-demand triggers from other services, e.g. HA), scheduled/cron (via Flows' `@persist`, for recurring daily tasks), and manual CLI invocation (for ad hoc use) all fire the same underlying crew. Not a packaged app — needs a custom Dockerfile. Distinct from the coding agent row below | [Autonomous decision-making](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-autonomous-decision-making) |
 | Coding agent (replaces Claude Code usage) | — | **OpenHands** | Planned | Named trade-off, see [Coding agent](#coding-agent-openhands): sandboxing + self-hosted Tailscale-based remote access beat Goose (no sandbox web UI since v1.25.0, mobile via Cloudflare) and Aider (no sandboxing at all); hybrid ~99% local (Qwen3.6-27B) / 1% frontier-via-API-key | — |
 | AI safety: runtime tool-call policy | NeMo Guardrails | **AEGIS** | Planned | Named trade-off, see [AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit): native CrewAI hook + built-in data-exfiltration detection map directly onto this household's rules; accepted risk that AEGIS is early-stage/single-maintainer, same shape of risk already accepted for Proton Pass CLI | [Autonomous decision-making](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-autonomous-decision-making) |
