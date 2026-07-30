@@ -516,6 +516,49 @@ never reachable outside the tailnet either way.
 **Checked, not a blocker:** Open WebUI's 2025 relicensing added a branding-retention clause that
 only applies at 50+ active users — irrelevant at household scale.
 
+### Notifications: unified via Home Assistant, across AEGIS, CrewAI, and OpenHands
+
+**Decided:** every "a human needs to look at this" moment across the agent stack routes through
+the same channel — Home Assistant's actionable push notifications — rather than each tool
+getting its own dashboard or notification path.
+
+**Why this is possible, not just convenient:** CrewAI's open-source layer ships no first-party UI
+at all — its HITL (`@human_feedback`) mechanic is webhook-based by design: you provide a webhook
+URL and auth strategy when starting a Flow, a human responds with `approved`/`rejected`/
+`needs_revision`, and a callback resumes the Flow. The polished dashboard, approval routing, and
+analytics all live in CrewAI Enterprise, a separate commercial hosted product, not something
+self-hosted. The two community-built open-source CrewAI dashboards found (`crewAI-dashboard`,
+`CrewAI-UI`) are both dead — over two years since their last commit, one with zero stars — so
+there was never a viable dashboard to adopt here. AEGIS already reaches for the same shape: its
+alerting is webhook/Slack-based, and a webhook can drive an HA notification directly (see
+[AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit)).
+
+HA's own actionable-notification feature is the piece that makes "route it all through HA"
+concrete rather than aspirational: the companion app supports up to 3 buttons on Android (~10 on
+iOS) plus an optional free-text response, firing an event HA can act on — matching CrewAI's own
+`approved`/`rejected`/`needs_revision` vocabulary almost exactly.
+
+**The pipeline:**
+- AEGIS holds a tool call for approval → webhook → HA sends an actionable push notification
+  (e.g. Approve/Block) → tap fires an HA automation → calls back to AEGIS's approval API.
+- CrewAI's `@human_feedback` pauses a Flow → its own webhook → the same HA notification path,
+  with buttons matching CrewAI's approve/reject/revise options (plus free-text for a
+  `needs_revision` explanation).
+- **Goal, not yet built:** OpenHands' async/headless completions (e.g. a GitHub Resolver PR
+  ready for review) route through the same channel too — one "something needs you" surface
+  across the whole agent stack, not three separately-checked inboxes.
+
+**Deliberately not pursued:** a dedicated CrewAI monitoring dashboard, bespoke or otherwise — the
+household doesn't need to *watch* Crews run continuously, only to be interrupted when a decision
+is actually needed, which this pipeline already covers.
+
+**Not a factor in the Primary interface pick** (see
+[Primary interface](#primary-interface-oterm--open-webui)): both Open WebUI's and AnythingLLM's
+own built-in automation/scheduling features were already ruled out in favour of CrewAI to avoid
+duplicating it, so neither tool's own notification handling for those specific features is ever
+exercised either way. The daily-chat interface is a synchronous, human-at-the-keyboard surface —
+a different category of interaction from the background/automation layer this pipeline is for.
+
 ## Software stack
 
 Picks below start from LCARS's own per-row recommendation. Anything under **Deviation**
@@ -531,6 +574,7 @@ the LCARS research.
 | Model (coding agent) | — | **Qwen3-Coder-Next**, UD-Q8/Q8_0 | Planned | Named trade-off, see [Models and quantization](#models-and-quantization-two-models-both-at-q8): separate MoE model (80B total/3B active) instead of sharing Qwen3.6-27B, purpose-built for coding agents; adds operational complexity (two models) in exchange for a likely speed/quality edge on OpenHands specifically | — |
 | Persistent agent memory | Letta | Letta | Planned | — | [Holographic crew](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-holographic-crew) |
 | Primary interface (chat client) | oterm / Open WebUI | **oterm + Open WebUI** | Planned | Named trade-off, see [Primary interface](#primary-interface-oterm--open-webui): oterm stays client-side (laptop, terminal) but has no phone story; Open WebUI added specifically to cover the handheld device, same Caddy+Tailscale reachability pattern as OpenHands, auth enabled | [Primary interface](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-primary-interface) |
+| Human-in-the-loop notifications | — | **Home Assistant actionable push notifications** | Planned | Named decision, see [Notifications](#notifications-unified-via-home-assistant-across-aegis-crewai-and-openhands): unifies AEGIS approvals, CrewAI's webhook-based HITL, and (goal) OpenHands async completions through one channel, since CrewAI has no viable self-hosted dashboard of its own (Enterprise-only, community alternatives dead) | — |
 | Agent framework (small daily tasks) | CrewAI | **CrewAI** | Planned | **Decided 2026-07-23**: compared in depth against LangGraph/AG2/OpenAI Agents SDK — CrewAI's Flows (`@persist` + `@human_feedback`) natively cover long-waiting scheduled tasks and an approval queue, and its guardrail gap is closed by AEGIS's native `BeforeToolCallHook` integration (see [AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit)), rather than needing a framework with built-in tool guardrails. **Activation: all three routes, not one exclusive mechanism** — an API wrapper (for on-demand triggers from other services, e.g. HA), scheduled/cron (via Flows' `@persist`, for recurring daily tasks), and manual CLI invocation (for ad hoc use) all fire the same underlying crew. Not a packaged app — needs a custom Dockerfile. Distinct from the coding agent row below | [Autonomous decision-making](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-autonomous-decision-making) |
 | Coding agent (replaces Claude Code usage) | — | **OpenHands** | Planned | Named trade-off, see [Coding agent](#coding-agent-openhands): sandboxing + self-hosted Tailscale-based remote access beat Goose (no sandbox web UI since v1.25.0, mobile via Cloudflare) and Aider (no sandboxing at all); hybrid ~99% local (Qwen3.6-27B) / 1% frontier-via-API-key | — |
 | AI safety: runtime tool-call policy | NeMo Guardrails | **AEGIS** | Planned | Named trade-off, see [AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit): native CrewAI hook + built-in data-exfiltration detection map directly onto this household's rules; accepted risk that AEGIS is early-stage/single-maintainer, same shape of risk already accepted for Proton Pass CLI | [Autonomous decision-making](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-autonomous-decision-making) |
