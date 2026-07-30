@@ -61,16 +61,13 @@ rm -rf ~/.aws
 ```
 
 ### 4. Clean VS Code settings
-**Done in the tracked repo** — these four keys are removed from
-`terminal/config/Code/User/settings.json` as of the `chore: :fire: remove stale
-AWS keys from settings.json` commit, so a fresh `install.sh` symlink already
-gets a clean file. If they're still present on a live system whose settings.json
-predates that commit, remove them by hand and watch for a trailing comma on the
-preceding line after removal:
+Remove these keys from `~/.config/Code/User/settings.json`:
 - `aws.codeWhisperer.importRecommendation`
 - `aws.codeWhisperer.includeSuggestionsWithCodeReferences`
 - `aws.codeWhisperer.shareCodeWhispererContentWithAWS`
 - `aws.resources.enabledResources`
+
+Watch for a trailing comma on the preceding line after removal.
 
 ## Verification
 - `command -v aws aws_completer` → nothing found
