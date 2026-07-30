@@ -482,6 +482,40 @@ specifically recommends for self-hosting, and no mention that this model's code-
 quality is more quantization-sensitive than typical — directly relevant given LCARS's own
 description names "agentic coding" as the point of this model.
 
+### Primary interface: oterm + Open WebUI
+
+LCARS's "Primary interface" row actually names three tools, not a single pick: Open WebUI, Home
+Assistant Assist (the voice pipeline — already decided separately, see
+[Voice pipeline](#voice-pipeline-whispercpp-vulkan--piper-centralized-on-the-compute-core)), and
+oterm. It frames Open WebUI and oterm as complementary, not competing: "quick, no-server terminal
+access to the same local models" (oterm) alongside "a shared, multi-user chat surface" (Open
+WebUI) — both pointing at the same Ollama backend rather than three separate stacks.
+
+**Originally recorded as oterm only** — revisited once this household's actual multi-endpoint
+shape was accounted for: oterm is a terminal UI, and the handheld device (`../handheld/`, a
+phone) has no terminal surface at all. LCARS itself has no phone-specific AI-chat row — its two
+phone-adjacent rows cover messaging (Signal) and hardware (the Fairphone itself), neither of
+which touches Ollama access — so the phone case was a genuine gap, not something already covered
+elsewhere.
+
+**Decided: both**, following the same reachability pattern already established for OpenHands
+(see [Coding agent](#coding-agent-openhands)) — self-hosted, a Docker Compose container on the
+core, reached via Caddy + Tailscale, no native app, no Play Store dependency:
+
+- **oterm** stays for the laptop (`../terminal/`) — near-zero setup, matches this household's
+  terminal-first workflow, MIT licensed.
+- **Open WebUI** covers the phone (`../handheld/`) and browser-based access generally — gets a
+  `*.lab.chasnelson.co.uk` hostname (see [Caddy hostname mapping](#caddy-hostname-mapping)),
+  the same as every other persistent, browser-facing service in this stack.
+- Both point at the same Ollama instance — no duplicate model serving.
+
+**Auth: on.** Open WebUI's own multi-user account system stays enabled rather than running
+single-user/no-auth — relevant since more than one household member may use it, even though it's
+never reachable outside the tailnet either way.
+
+**Checked, not a blocker:** Open WebUI's 2025 relicensing added a branding-retention clause that
+only applies at 50+ active users — irrelevant at household scale.
+
 ## Software stack
 
 Picks below start from LCARS's own per-row recommendation. Anything under **Deviation**
@@ -496,7 +530,7 @@ the LCARS research.
 | Model (daily-task agent) | Qwen3.6-27B | Qwen3.6-27B, **Q8_0** | Planned | LCARS names the model but gives no quantization guidance; see [Models and quantization](#models-and-quantization-two-models-both-at-q8) — Q8_0 (near-lossless) over the generic Q4_K_M default, since 128GB unified memory removes any capacity pressure to accept the quality hit | [Natural language processing](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-nlp) |
 | Model (coding agent) | — | **Qwen3-Coder-Next**, UD-Q8/Q8_0 | Planned | Named trade-off, see [Models and quantization](#models-and-quantization-two-models-both-at-q8): separate MoE model (80B total/3B active) instead of sharing Qwen3.6-27B, purpose-built for coding agents; adds operational complexity (two models) in exchange for a likely speed/quality edge on OpenHands specifically | — |
 | Persistent agent memory | Letta | Letta | Planned | — | [Holographic crew](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-holographic-crew) |
-| Primary interface (chat client) | oterm / Open WebUI | **oterm** | Planned | Runs on the client (Framework 13 laptop, over Tailscale), not deployed as a Box 2 app — it's an interactive TUI, not a background service | [Primary interface](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-primary-interface) |
+| Primary interface (chat client) | oterm / Open WebUI | **oterm + Open WebUI** | Planned | Named trade-off, see [Primary interface](#primary-interface-oterm--open-webui): oterm stays client-side (laptop, terminal) but has no phone story; Open WebUI added specifically to cover the handheld device, same Caddy+Tailscale reachability pattern as OpenHands, auth enabled | [Primary interface](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-primary-interface) |
 | Agent framework (small daily tasks) | CrewAI | **CrewAI** | Planned | **Decided 2026-07-23**: compared in depth against LangGraph/AG2/OpenAI Agents SDK — CrewAI's Flows (`@persist` + `@human_feedback`) natively cover long-waiting scheduled tasks and an approval queue, and its guardrail gap is closed by AEGIS's native `BeforeToolCallHook` integration (see [AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit)), rather than needing a framework with built-in tool guardrails. **Activation: all three routes, not one exclusive mechanism** — an API wrapper (for on-demand triggers from other services, e.g. HA), scheduled/cron (via Flows' `@persist`, for recurring daily tasks), and manual CLI invocation (for ad hoc use) all fire the same underlying crew. Not a packaged app — needs a custom Dockerfile. Distinct from the coding agent row below | [Autonomous decision-making](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-autonomous-decision-making) |
 | Coding agent (replaces Claude Code usage) | — | **OpenHands** | Planned | Named trade-off, see [Coding agent](#coding-agent-openhands): sandboxing + self-hosted Tailscale-based remote access beat Goose (no sandbox web UI since v1.25.0, mobile via Cloudflare) and Aider (no sandboxing at all); hybrid ~99% local (Qwen3.6-27B) / 1% frontier-via-API-key | — |
 | AI safety: runtime tool-call policy | NeMo Guardrails | **AEGIS** | Planned | Named trade-off, see [AI safety/guardrails](#ai-safetyguardrails-aegis-garak-and-pyrit): native CrewAI hook + built-in data-exfiltration detection map directly onto this household's rules; accepted risk that AEGIS is early-stage/single-maintainer, same shape of risk already accepted for Proton Pass CLI | [Autonomous decision-making](https://chasnelson1990.github.io/are-we-lcars-yet/open-source.html#row-autonomous-decision-making) |
@@ -549,6 +583,7 @@ Caddy; purely internal or non-HTTP tools don't.
 | Letta | `letta.lab.chasnelson.co.uk` |
 | Ollama | `ollama.lab.chasnelson.co.uk` — wanted for convenience (human-readable in oterm's config, CLI use) even though most callers are other services, not a browser |
 | CrewAI | `crew.lab.chasnelson.co.uk` — needs both API and CLI access, per the household's stated requirement, so it gets a stable hostname rather than staying bare-IP |
+| Open WebUI | `chat.lab.chasnelson.co.uk` — the browser-facing primary interface for the handheld device (and anywhere else a browser's easier than oterm), see [Primary interface](#primary-interface-oterm--open-webui) |
 
 **No hostname — internal-only or not applicable:**
 - **whisper.cpp / Piper** — Wyoming protocol is TCP, not HTTP, and both are only ever called by
