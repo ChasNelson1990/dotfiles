@@ -15,15 +15,12 @@ so there is nothing to revoke server-side before deleting.
    credentials).
 3. **VS Code stale settings** in `~/.config/Code/User/settings.json`, left
    over from the since-uninstalled "GitHub Copilot for Azure" extension:
-   - `"@azure.argTenant"` — **removed from the tracked repo** as of the
-     `chore: :fire: remove stale Azure key from settings.json` commit.
-   - `"@azure.deployModel"`, `"@azure.enableAutoSetAzureRules"`, and the
-     entire `"github.copilot.chat.codeGeneration.instructions"` array (all
-     five entries are "@azure Rule" instructions) — **not present in the
-     tracked repo file** at all, so there's nothing to remove there; if
-     they show up on a live system's settings.json (e.g. from a newer
-     Copilot-for-Azure install than what's reflected in git), remove them
-     by hand using the same logic.
+   - `"@azure.argTenant"` (~line 506)
+   - `"@azure.deployModel"` and `"@azure.enableAutoSetAzureRules"`
+     (~lines 536–537)
+   - the entire `"github.copilot.chat.codeGeneration.instructions"` array
+     (~lines 510–527) — all five entries are "@azure Rule" instructions,
+     so removing the whole key is correct; it contains nothing else.
 
 **Clean already**: no azcopy / func / bicep / azd / azurite binaries, no
 Azure pip/pipx/uv/npm packages, nothing in shell configs or env vars, no
@@ -52,9 +49,8 @@ rmdir ~/.azure
 something has appeared in it since the audit.
 
 ### 3. Clean VS Code settings
-`@azure.argTenant` is already removed from the tracked repo (see above). The
-other three keys aren't present in the tracked file; if found on a live
-system, remove them by hand:
+Remove from `~/.config/Code/User/settings.json`:
+- `@azure.argTenant`
 - `@azure.deployModel`
 - `@azure.enableAutoSetAzureRules`
 - the whole `github.copilot.chat.codeGeneration.instructions` array
