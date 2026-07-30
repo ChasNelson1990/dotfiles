@@ -524,8 +524,8 @@ getting its own dashboard or notification path.
 
 **Why this is possible, not just convenient:** CrewAI's open-source layer ships no first-party UI
 at all — its HITL (`@human_feedback`) mechanic is webhook-based by design: you provide a webhook
-URL and auth strategy when starting a Flow, a human responds with `approved`/`rejected`/
-`needs_revision`, and a callback resumes the Flow. The polished dashboard, approval routing, and
+URL and auth strategy when starting a Flow, a human responds with `approved`/`rejected`/`needs_revision`,
+and a callback resumes the Flow. The polished dashboard, approval routing, and
 analytics all live in CrewAI Enterprise, a separate commercial hosted product, not something
 self-hosted. The two community-built open-source CrewAI dashboards found (`crewAI-dashboard`,
 `CrewAI-UI`) are both dead — over two years since their last commit, one with zero stars — so
