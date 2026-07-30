@@ -35,7 +35,7 @@ paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs 
 paru -S bandwhich bluez-utils clamav curlie firewalld proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
-paru -S nvm pyenv python-pipenv r texlive visual-studio-code-bin
+paru -S nvm pyenv python-pipenv r texlive uv visual-studio-code-bin
 # install databases
 paru -S postgresql
 # install shell tools
@@ -126,6 +126,14 @@ sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 # install custom packages
 # cd otf-sansguilt
 # makepkg -si
+
+# install oterm (uv tool, not paru -- avoids depending on the AUR
+# package keeping pace with oterm's fast upstream release cadence)
+uv tool install oterm
+# uv installs to ~/.local/bin, which .zshrc already puts on PATH for future
+# shells -- export it here too so oterm is discoverable for the rest of
+# this script run, in this same non-login shell
+export PATH="$HOME/.local/bin:$PATH"
 
 # install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
