@@ -134,6 +134,15 @@ preference, see `motivation.md`), it's already the tool used for the Framework 1
 (ecosystem consistency), and Borg 2.0 added native S3-compatible backend support, closing the
 narrower-transport gap it used to have against restic/Kopia.
 
+**Implementation note (checked 2026-07-30):** Borg 2.0 is still beta (`2.0.0b22`, no stable
+release yet) — not something to depend on for backups. The actual laptop implementation stays on
+stable Borg 1.4.x and reaches Exoscale the established way for that line: Borg writes to a local
+repo as normal, and `rclone sync` mirrors that repo to Exoscale's S3-compatible storage as a
+second step, entirely configured via `RCLONE_CONFIG_EXOSCALE_*` environment variables (no
+`rclone.conf` with credentials on disk). See `terminal/local/bin/borg_cjn-bak.sh` and
+`terminal/config/systemd/user/borg_cjn-bak.service`. Revisit once Borg 2.0 reaches a stable
+release.
+
 **Destination: Exoscale** (Swiss, S3-compatible), not Proton Drive, Backblaze B2, rsync.net,
 Storj, or Sia:
 - **Proton Drive** — ruled out on technical fit alone, independent of jurisdiction: restic/Borg
