@@ -309,9 +309,6 @@
   "isort.check": true,
   "isort.args": ["--python-version=311", "--profile=black"],
   "black-formatter.importStrategy": "fromEnvironment",
-  "aws.codeWhisperer.importRecommendation": false,
-  "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
-  "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
   "git.enableSmartCommit": true,
   "git.suggestSmartCommit": false,
   "githubPullRequests.createOnPublishBranch": "never",
@@ -379,7 +376,6 @@
         "/home/chas/.kube/config"
     ]
 },
-  "aws.resources.enabledResources": ["AWS::RDS::DBInstance"],
   "explorer.confirmDelete": false,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -496,7 +492,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 },
 "window.customTitleBarVisibility": "windowed",
-"@azure.argTenant": "",
 "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
 },
