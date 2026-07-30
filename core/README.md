@@ -516,6 +516,27 @@ never reachable outside the tailnet either way.
 **Checked, not a blocker:** Open WebUI's 2025 relicensing added a branding-retention clause that
 only applies at 50+ active users — irrelevant at household scale.
 
+**Considered and not adopted, named as real trade-offs:**
+- **LibreChat** — comparable scale and activity, and a genuinely cleaner license (plain MIT, no
+  branding-retention clause at all) — but requires **MongoDB**, a third database engine on the
+  compute core for no other reason than this one service, when Open WebUI can run on the
+  Postgres already needed for Letta's memory. The cleaner license didn't outweigh that
+  operational-complexity cost.
+- **AnythingLLM** — equally huge, clean MIT license, and genuinely the most mature RAG/
+  document-chat implementation of the three (its original design centre, not bolted on). Two
+  things ruled it out: it's a heavier tool than "just chat" needs (built around multi-workspace
+  RAG, more scope than this use case calls for), and its speech-to-text defaults to the
+  browser's own Web Speech API with no self-hosted alternative — in most browsers that routes
+  audio through a third-party cloud service (Google, in Chrome), a real conflict with
+  `motivation.md`'s privacy-first principle if voice-in-chat-UI is ever turned on. Open WebUI's
+  STT and TTS can both point at a self-hosted OpenAI-compatible endpoint instead, so it doesn't
+  force that trade-off even though voice stays off by default (see
+  [Notifications](#notifications-unified-via-home-assistant-across-aegis-crewai-and-openhands)).
+- Checked and found genuinely neutral either way, not deciding factors: AEGIS's tool-call
+  guardrails reach both equally (its MCP/HTTP proxy is framework-agnostic, not tied to one
+  product), and both tools' own built-in agent/scheduling features get turned off in favour of
+  CrewAI regardless of which one is used.
+
 ### Notifications: unified via Home Assistant, across AEGIS, CrewAI, and OpenHands
 
 **Decided:** every "a human needs to look at this" moment across the agent stack routes through
