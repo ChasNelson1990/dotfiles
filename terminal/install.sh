@@ -130,6 +130,10 @@ sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 # install oterm (uv tool, not paru -- avoids depending on the AUR
 # package keeping pace with oterm's fast upstream release cadence)
 uv tool install oterm
+# uv installs to ~/.local/bin, which .zshrc already puts on PATH for future
+# shells -- export it here too so oterm is discoverable for the rest of
+# this script run, in this same non-login shell
+export PATH="$HOME/.local/bin:$PATH"
 
 # install oh-my-zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
