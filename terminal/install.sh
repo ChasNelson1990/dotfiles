@@ -32,7 +32,7 @@ paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
 paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs battop upower
 # install network tools
-paru -S bandwhich bluez-utils clamav curlie firewalld proton-vpn-cli networkmanager python-fangfrisch tailscale
+paru -S bandwhich bluez-utils clamav curlie firewalld proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
 paru -S nvm pyenv python-pipenv r texlive uv visual-studio-code-bin
@@ -41,7 +41,7 @@ paru -S postgresql
 # install shell tools
 paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
-paru -S duf dust exfat-utils mlocate ntfs-3g ranger zip
+paru -S duf dust exfat-utils mlocate ntfs-3g ranger rclone zip
 # ranger preview dependencies (images, video thumbnails, office documents)
 paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools

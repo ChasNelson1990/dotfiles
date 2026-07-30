@@ -1,10 +1,22 @@
 [Unit]
-Description=Backup to external HDD
+Description=Backup to external HDD, mirrored off-site to Exoscale
 Requires=run-media-chas-CJN.bak.mount
 After=run-media-chas-CJN.bak.mount
 
 [Service]
-ExecStart=/home/chas/.local/bin/borg_cjn-bak.sh
+# PROTON_PASS_PERSONAL_ACCESS_TOKEN lives outside the repo entirely -- see
+# terminal/README.md's Manual Steps for how to create this file. Everything
+# else below is a pass://... reference, not a secret itself, so it's safe
+# to track.
+EnvironmentFile=-%h/.config/proton-pass-cli.env
+Environment=BORG_PASSPHRASE=pass://Homelab/laptop-borg-backup/password
+Environment=RCLONE_CONFIG_EXOSCALE_TYPE=s3
+Environment=RCLONE_CONFIG_EXOSCALE_PROVIDER=Other
+Environment=RCLONE_CONFIG_EXOSCALE_REGION=CH-GVA-2
+Environment=RCLONE_CONFIG_EXOSCALE_ENDPOINT=https://sos-ch-gva-2.exo.io
+Environment=RCLONE_CONFIG_EXOSCALE_ACCESS_KEY_ID=pass://Homelab/exoscale-sos/access-key-id
+Environment=RCLONE_CONFIG_EXOSCALE_SECRET_ACCESS_KEY=pass://Homelab/exoscale-sos/secret-access-key
+ExecStart=/usr/bin/pass-cli run -- %h/.local/bin/borg_cjn-bak.sh
 
 [Install]
 WantedBy=run-media-chas-CJN.bak.mount
