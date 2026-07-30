@@ -25,5 +25,5 @@ substitute for that.
 
 `<type>: <emoji> <lowercase description>` — gitmoji-style, e.g. `feat: :sparkles: add homelab
 plan content`, `fix: :bug: make clamonacc ignore firefox extensions`. Emoji shortcode or raw
-unicode are both fine. Only the title/subject line gets this treatment — commit bodies and PR
+Unicode are both fine. Only the title/subject line gets this treatment — commit bodies and PR
 descriptions stay normal prose.
