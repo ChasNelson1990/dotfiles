@@ -1,7 +1,6 @@
 a5huynh.vscode-ron
 aaron-bond.better-comments
 albert.tabout
-amazonwebservices.aws-toolkit-vscode
 arcticicestudio.nord-visual-studio-code
 astro-build.astro-vscode
 bencoleman.armview
