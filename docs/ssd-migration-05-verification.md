@@ -33,9 +33,13 @@ for daily use or deleting the backup archive.
   work in your current shell — it's loaded by systemd's `EnvironmentFile=`
   directive in `borg_cjn-bak.service`, not read automatically by `pass-cli`,
   so a check that doesn't source it can pass even if the file is missing or
-  unreadable:
+  unreadable. `unset` first and guard with `:?` so a variable already set in
+  the current shell (from some other source) can't mask a broken/empty file:
   ```
+  unset PROTON_PASS_PERSONAL_ACCESS_TOKEN
+  test -r ~/.config/proton-pass-cli.env
   set -a; . ~/.config/proton-pass-cli.env; set +a
+  : "${PROTON_PASS_PERSONAL_ACCESS_TOKEN:?not set by the env file}"
   pass-cli run -- true && echo OK
   ```
   The Borg-to-Exoscale mirror (see [core/README.md](../core/README.md#off-site-backup-borg--exoscale))
