@@ -29,11 +29,18 @@ for daily use or deleting the backup archive.
   tailnet without re-running `sudo tailscale up`. `tailscaled`'s node state
   lives under `/var/lib/tailscale`, which the Phase 02 backup doesn't exclude,
   so the login should survive the migration intact.
-- `pass-cli run -- true` (or similar) — confirms the Proton Pass PAT file at
-  `~/.config/proton-pass-cli.env` survived with usable permissions. The
-  Borg-to-Exoscale mirror (see [core/README.md](../core/README.md#off-site-backup-borg--exoscale))
-  depends on it silently; better to catch a permissions/ownership problem here
-  than at the next scheduled backup run.
+- Confirm the Proton Pass PAT file itself, not just that `pass-cli` happens to
+  work in your current shell — it's loaded by systemd's `EnvironmentFile=`
+  directive in `borg_cjn-bak.service`, not read automatically by `pass-cli`,
+  so a check that doesn't source it can pass even if the file is missing or
+  unreadable:
+  ```
+  set -a; . ~/.config/proton-pass-cli.env; set +a
+  pass-cli run -- true && echo OK
+  ```
+  The Borg-to-Exoscale mirror (see [core/README.md](../core/README.md#off-site-backup-borg--exoscale))
+  depends on this file silently; better to catch a permissions/ownership
+  problem here than at the next scheduled backup run.
 - Test hibernation deliberately, while at the machine and on AC power (don't
   test this on battery):
   ```
