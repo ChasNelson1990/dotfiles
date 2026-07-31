@@ -58,12 +58,15 @@ Run these on the live system now. All of it is reversible or already-discarded d
    with `-` being misread as an option; `find -mindepth 1 -delete` (same
    pattern as the Trash step above) avoids the `~/Downloads/*`-style glob
    that would abort under zsh's default `nomatch` if the directory were
-   already empty:
+   already empty. `mkdir -p` before the last line guards `find` erroring on a
+   directory that doesn't exist at all (e.g. no `~/builds` yet), the same way
+   the Trash step handles it above:
    ```
    find ~ -maxdepth 4 -type d -name node_modules -prune -exec du -sh -- {} \; -exec rm -rf -- {} +
    find ~ -maxdepth 4 -type d -name .venv -prune -exec du -sh -- {} \; -exec rm -rf -- {} +
    rm -rf -- ~/.cargo/registry ~/.rustup/toolchains
    rm -rf -- ~/.npm/_cacache ~/.nvm/.cache
+   mkdir -p ~/Downloads ~/builds
    find ~/Downloads ~/builds -mindepth 1 -delete
    ```
    Skip anything above that holds work you haven't pushed/published yet — this
