@@ -22,6 +22,18 @@ for daily use or deleting the backup archive.
   hasn't come up on its own, then spot-check the previously-seen
   namespaces/PVCs (`zarr-staging`, `ckan-*`, `solr`) are present and healthy
   before resuming real use of `k3s`.
+- `systemctl status power-profiles-daemon upower` — both should be active
+  without intervention (their enablement state is a regular systemd symlink
+  under `/etc`, carried over by the Phase 02 tar backup like everything else).
+- `tailscale status` — should already show this device connected to the
+  tailnet without re-running `sudo tailscale up`. `tailscaled`'s node state
+  lives under `/var/lib/tailscale`, which the Phase 02 backup doesn't exclude,
+  so the login should survive the migration intact.
+- `pass-cli run -- true` (or similar) — confirms the Proton Pass PAT file at
+  `~/.config/proton-pass-cli.env` survived with usable permissions. The
+  Borg-to-Exoscale mirror (see [core/README.md](../core/README.md#off-site-backup-borg--exoscale))
+  depends on it silently; better to catch a permissions/ownership problem here
+  than at the next scheduled backup run.
 - Test hibernation deliberately, while at the machine and on AC power (don't
   test this on battery):
   ```
