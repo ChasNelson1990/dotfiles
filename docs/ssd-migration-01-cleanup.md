@@ -49,9 +49,10 @@ Run these on the live system now. All of it is reversible or already-discarded d
    ```
    Reference: [ArchWiki — Pacman/Tips and tricks § Removing unused packages (orphans)](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Removing_unused_packages_(orphans))
 
-4. **Clear large, reproducible dev-tool caches** — same directories the laptop's
-   Borg backup script (`terminal/local/bin/borg_cjn-bak.sh`) already excludes as
-   "large/reproducible", for the same reason: none of these are needed to
+4. **Clear large, reproducible dev-tool caches** — the same kind of directories
+   the laptop's Borg backup script (`terminal/local/bin/borg_cjn-bak.sh`)
+   already excludes as "large/reproducible" (a representative subset, not an
+   exact 1:1 match with its exclude list): none of these are needed to
    restore a working system, they're just re-fetched or rebuilt on demand.
    Adjust the search roots if projects live somewhere other than `~`. `--`
    before every path guards against a directory name that happens to start
