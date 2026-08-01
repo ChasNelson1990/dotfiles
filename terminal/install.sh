@@ -14,7 +14,7 @@ sudo ln -sf "$ROOT/pacman.conf" /etc/pacman.conf
 
 # clone $1 into $2, or pull if it's already there -- keeps re-runs quiet
 clone_or_pull() {
-  if [ -d "$2/.git" ]; then
+  if [ -e "$2/.git" ]; then
     git -C "$2" pull --ff-only
   elif [ -e "$2" ]; then
     echo "clone_or_pull: $2 exists but isn't a git checkout" >&2
