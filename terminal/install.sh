@@ -3,8 +3,8 @@
 # Fail loudly if $0 doesn't resolve to this file (e.g. piped into a shell
 # or sourced) -- otherwise ROOT silently falls back to $HOME and every
 # symlink below gets created wrong.
-ROOT="$( dirname $( readlink -f $0 ) )"
-if [ ! -f "$ROOT/config/i3/config" ]; then
+ROOT="$( dirname "$( readlink -f "$0" )" )"
+if [ ! -f "$ROOT/install.sh" ]; then
   echo "install.sh: can't find its own repo checkout (ROOT='$ROOT'). Run it directly, e.g. './install.sh'." >&2
   exit 1
 fi
