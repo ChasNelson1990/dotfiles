@@ -10,7 +10,7 @@ if [ ! -f "$ROOT/install.sh" ]; then
 fi
 
 # pacman/paru need this before any package installs below
-sudo ln -sf $ROOT/pacman.conf /etc/pacman.conf
+sudo ln -sf "$ROOT/pacman.conf" /etc/pacman.conf
 
 # clone $1 into $2, or pull if it's already there -- keeps re-runs quiet
 clone_or_pull() {
@@ -22,9 +22,9 @@ clone_or_pull() {
 }
 
 # install latest paru
-mkdir -p ~/builds/
-clone_or_pull https://aur.archlinux.org/paru.git ~/builds/paru
-cd ~/builds/paru
+mkdir -p "$HOME/builds/"
+clone_or_pull https://aur.archlinux.org/paru.git "$HOME/builds/paru"
+cd "$HOME/builds/paru"
 makepkg -si
 cd ~
 
@@ -77,62 +77,62 @@ paru -S obs-studio shotcut v4l-utils vlc
 sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 
 # ensure ~/.ssh exists
-mkdir -p ~/.ssh
+mkdir -p "$HOME/.ssh"
 
 # create symlinks for files
-ln -sf $ROOT/.xinitrc ~/.xinitrc
-ln -sf $ROOT/.zshrc ~/.zshrc
-ln -sf $ROOT/.zlogin ~/.zlogin
+ln -sf "$ROOT/.xinitrc" "$HOME/.xinitrc"
+ln -sf "$ROOT/.zshrc" "$HOME/.zshrc"
+ln -sf "$ROOT/.zlogin" "$HOME/.zlogin"
 
-mkdir -p ~/.config/betterlockscreen
-ln -sf $ROOT/config/betterlockscreen/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
-ln -sf $ROOT/config/betterlockscreen/custom-pre.sh ~/.config/betterlockscreen/custom-pre.sh
-ln -sf $ROOT/config/betterlockscreen/custom-post.sh ~/.config/betterlockscreen/custom-post.sh
-ln -sf $ROOT/config/betterlockscreen/betterlockscreen@.service /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
+mkdir -p "$HOME/.config/betterlockscreen"
+ln -sf "$ROOT/config/betterlockscreen/betterlockscreenrc" "$HOME/.config/betterlockscreen/betterlockscreenrc"
+ln -sf "$ROOT/config/betterlockscreen/custom-pre.sh" "$HOME/.config/betterlockscreen/custom-pre.sh"
+ln -sf "$ROOT/config/betterlockscreen/custom-post.sh" "$HOME/.config/betterlockscreen/custom-post.sh"
+ln -sf "$ROOT/config/betterlockscreen/betterlockscreen@.service" /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
 sudo systemctl daemon-reload
 sudo systemctl enable --now betterlockscreen@$USER
 
-ln -sf $ROOT/config/starship.toml ~/.config/starship.toml
+ln -sf "$ROOT/config/starship.toml" "$HOME/.config/starship.toml"
 
-mkdir -p ~/.config/alacritty
-ln -sf $ROOT/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+mkdir -p "$HOME/.config/alacritty"
+ln -sf "$ROOT/config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 
-mkdir -p ~/.config/Code/User
-ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
-ln -sf $ROOT/config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+mkdir -p "$HOME/.config/Code/User"
+ln -sf "$ROOT/config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+ln -sf "$ROOT/config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 
-mkdir -p ~/.config/wired
-ln -sf $ROOT/config/wired/wired.ron ~/.config/wired/wired.ron
+mkdir -p "$HOME/.config/wired"
+ln -sf "$ROOT/config/wired/wired.ron" "$HOME/.config/wired/wired.ron"
 
-mkdir -p ~/.config/i3
-ln -sf $ROOT/config/i3/config ~/.config/i3/config
+mkdir -p "$HOME/.config/i3"
+ln -sf "$ROOT/config/i3/config" "$HOME/.config/i3/config"
 
-mkdir -p ~/.config/i3status-rs
-ln -sf $ROOT/config/i3status-rs/config.toml ~/.config/i3status-rs/config.toml
+mkdir -p "$HOME/.config/i3status-rs"
+ln -sf "$ROOT/config/i3status-rs/config.toml" "$HOME/.config/i3status-rs/config.toml"
 
-mkdir -p ~/.config/i3wsr
-ln -sf $ROOT/config/i3wsr/config.toml ~/.config/i3wsr/config.toml
+mkdir -p "$HOME/.config/i3wsr"
+ln -sf "$ROOT/config/i3wsr/config.toml" "$HOME/.config/i3wsr/config.toml"
 
-ln -sf $ROOT/config/autorandr ~/.config/autorandr
+ln -sf "$ROOT/config/autorandr" "$HOME/.config/autorandr"
 
-mkdir -p ~/.config/radian
-ln -sf $ROOT/config/radian/profile ~/.config/radian/profile
+mkdir -p "$HOME/.config/radian"
+ln -sf "$ROOT/config/radian/profile" "$HOME/.config/radian/profile"
 
-mkdir -p ~/.config/ranger
-ln -sf $ROOT/config/ranger/commands.py ~/.config/ranger/commands.py
-ln -sf $ROOT/config/ranger/rc.conf ~/.config/ranger/rc.conf
-ln -sf $ROOT/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-ln -sf $ROOT/config/ranger/scope.sh ~/.config/ranger/scope.sh
+mkdir -p "$HOME/.config/ranger"
+ln -sf "$ROOT/config/ranger/commands.py" "$HOME/.config/ranger/commands.py"
+ln -sf "$ROOT/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
+ln -sf "$ROOT/config/ranger/rifle.conf" "$HOME/.config/ranger/rifle.conf"
+ln -sf "$ROOT/config/ranger/scope.sh" "$HOME/.config/ranger/scope.sh"
 
-mkdir -p ~/.config/redshift
-ln -sf $ROOT/config/redshift/redshift.conf ~/.config/redshift/redshift.conf
+mkdir -p "$HOME/.config/redshift"
+ln -sf "$ROOT/config/redshift/redshift.conf" "$HOME/.config/redshift/redshift.conf"
 
-mkdir -p ~/.config/rofi
-ln -sf $ROOT/config/rofi/config.rasi ~/.config/rofi/config.rasi
-ln -sf $ROOT/config/rofi/nord.rasi ~/.config/rofi/nord.rasi
+mkdir -p "$HOME/.config/rofi"
+ln -sf "$ROOT/config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi"
+ln -sf "$ROOT/config/rofi/nord.rasi" "$HOME/.config/rofi/nord.rasi"
 
-mkdir -p ~/.config/macchina
-ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
+mkdir -p "$HOME/.config/macchina"
+ln -sf "$ROOT/config/macchina/macchina.conf" "$HOME/.config/macchina/macchina.conf"
 
 # enable backup service
 # note this will only work if the harddrive is plugged in
@@ -155,16 +155,16 @@ uv tool install oterm
 export PATH="$HOME/.local/bin:$PATH"
 
 # install oh-my-zsh plugins
-clone_or_pull https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-clone_or_pull https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-clone_or_pull https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
-clone_or_pull https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
+clone_or_pull https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+clone_or_pull https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+clone_or_pull https://github.com/lukechilds/zsh-nvm "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-nvm"
+clone_or_pull https://github.com/davidparsson/zsh-pyenv-lazy.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/pyenv-lazy"
 
 # update AV and firewall
-sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
-sudo ln -sf $ROOT/config/clamav/freshclam.conf /etc/clamav/freshclam.conf
-sudo ln -sf $ROOT/config/clamav/fdpass.conf /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
-sudo ln -sf $ROOT/config/clamav/virus-event.bash /etc/clamav/virus-event.bash
+sudo ln -sf "$ROOT/config/clamav/clamd.conf" /etc/clamav/clamd.conf
+sudo ln -sf "$ROOT/config/clamav/freshclam.conf" /etc/clamav/freshclam.conf
+sudo ln -sf "$ROOT/config/clamav/fdpass.conf" /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
+sudo ln -sf "$ROOT/config/clamav/virus-event.bash" /etc/clamav/virus-event.bash
 sudo chmod +x /etc/clamav/virus-event.bash
 sudo systemctl stop clamav-freshclam.service
 sudo freshclam
@@ -180,7 +180,7 @@ sudo systemctl enable --now clamav-freshclam-once.timer
 sudo systemctl enable --now clamav-unofficial-sigs.timer
 
 # enable CPU power management
-sudo ln -sf $ROOT/cpupower /etc/default/cpupower
+sudo ln -sf "$ROOT/cpupower" /etc/default/cpupower
 sudo systemctl enable --now cpupower.service
 
 # enable power management
@@ -219,10 +219,10 @@ systemctl enable --now --user pipewire.socket
 systemctl enable --now --user pipewire-pulse.socket
 
 # link gtk and cursor themes
-ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
-mkdir -p ~/.config/gtk-3.0
-ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-ln -sf $ROOT/icons ~/.icons
+ln -sf "$ROOT/gtkrc-2.0" "$HOME/.gtkrc-2.0"
+mkdir -p "$HOME/.config/gtk-3.0"
+ln -sf "$ROOT/config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
+ln -sf "$ROOT/icons" "$HOME/.icons"
 
 # install vscode extensions
-cat $ROOT/config/Code/extensions.txt | xargs -n 1 code --install-extension
+xargs -n 1 code --install-extension < "$ROOT/config/Code/extensions.txt"
