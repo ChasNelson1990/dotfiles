@@ -166,6 +166,7 @@ clone_or_pull https://github.com/davidparsson/zsh-pyenv-lazy.git "${ZSH_CUSTOM:-
 # update AV and firewall
 sudo ln -sf "$ROOT/config/clamav/clamd.conf" /etc/clamav/clamd.conf
 sudo ln -sf "$ROOT/config/clamav/freshclam.conf" /etc/clamav/freshclam.conf
+sudo mkdir -p /etc/systemd/system/clamav-clamonacc.service.d
 sudo ln -sf "$ROOT/config/clamav/fdpass.conf" /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
 sudo ln -sf "$ROOT/config/clamav/virus-event.bash" /etc/clamav/virus-event.bash
 sudo chmod +x /etc/clamav/virus-event.bash
