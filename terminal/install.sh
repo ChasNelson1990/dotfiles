@@ -29,7 +29,7 @@ mkdir -p "$HOME/builds/"
 clone_or_pull https://aur.archlinux.org/paru.git "$HOME/builds/paru"
 cd "$HOME/builds/paru"
 makepkg -si
-cd ~
+cd "$HOME"
 
 # upgrade current system
 paru
