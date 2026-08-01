@@ -121,7 +121,7 @@ ln -sf $ROOT/config/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -sf $ROOT/config/rofi/nord.rasi ~/.config/rofi/nord.rasi
 
 mkdir -p ~/.config/macchina
-sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
+ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 
 # enable backup service
 # note this will only work if the harddrive is plugged in
@@ -208,10 +208,10 @@ systemctl enable --now --user pipewire.socket
 systemctl enable --now --user pipewire-pulse.socket
 
 # link gtk and cursor themes
-sudo ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
+ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
 mkdir -p ~/.config/gtk-3.0
-sudo ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-sudo ln -sf $ROOT/icons ~/.icons
+ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+ln -sf $ROOT/icons ~/.icons
 
 # install vscode extensions
 cat $ROOT/config/Code/extensions.txt | xargs -n 1 code --install-extension
