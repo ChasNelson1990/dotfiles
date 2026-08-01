@@ -91,7 +91,7 @@ mkdir -p "$HOME/.config/betterlockscreen"
 ln -sf "$ROOT/config/betterlockscreen/betterlockscreenrc" "$HOME/.config/betterlockscreen/betterlockscreenrc"
 ln -sf "$ROOT/config/betterlockscreen/custom-pre.sh" "$HOME/.config/betterlockscreen/custom-pre.sh"
 ln -sf "$ROOT/config/betterlockscreen/custom-post.sh" "$HOME/.config/betterlockscreen/custom-post.sh"
-ln -sf "$ROOT/config/betterlockscreen/betterlockscreen@.service" /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
+sudo ln -sf "$ROOT/config/betterlockscreen/betterlockscreen@.service" /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
 sudo systemctl daemon-reload
 sudo systemctl enable --now betterlockscreen@$USER
 
