@@ -1,10 +1,30 @@
 #! /bin/sh
 
+# Fail loudly if $0 doesn't resolve to this file (e.g. piped into a shell
+# or sourced) -- otherwise ROOT silently falls back to $HOME and every
+# symlink below gets created wrong.
+ROOT="$( dirname "$( readlink -f "$0" )" )"
+if [ ! -f "$ROOT/install.sh" ]; then
+  echo "install.sh: can't find its own repo checkout (ROOT='$ROOT'). Run it directly, e.g. './install.sh'." >&2
+  exit 1
+fi
+
+# pacman/paru need this before any package installs below
+sudo ln -sf $ROOT/pacman.conf /etc/pacman.conf
+
+# clone $1 into $2, or pull if it's already there -- keeps re-runs quiet
+clone_or_pull() {
+  if [ -d "$2/.git" ]; then
+    git -C "$2" pull --ff-only
+  else
+    git clone "$1" "$2"
+  fi
+}
+
 # install latest paru
-mkdir ~/builds/
-cd ~/builds/
-git clone https://aur.archlinux.org/paru.git
-cd paru
+mkdir -p ~/builds/
+clone_or_pull https://aur.archlinux.org/paru.git ~/builds/paru
+cd ~/builds/paru
 makepkg -si
 cd ~
 
@@ -59,7 +79,6 @@ sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 # ensure ~/.ssh exists
 mkdir -p ~/.ssh
 
-ROOT="$( dirname $( readlink -f $0 ) )"
 # create symlinks for files
 ln -sf $ROOT/.xinitrc ~/.xinitrc
 ln -sf $ROOT/.zshrc ~/.zshrc
@@ -113,7 +132,7 @@ ln -sf $ROOT/config/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -sf $ROOT/config/rofi/nord.rasi ~/.config/rofi/nord.rasi
 
 mkdir -p ~/.config/macchina
-sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
+ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 
 # enable backup service
 # note this will only work if the harddrive is plugged in
@@ -136,10 +155,10 @@ uv tool install oterm
 export PATH="$HOME/.local/bin:$PATH"
 
 # install oh-my-zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
-git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
+clone_or_pull https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+clone_or_pull https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+clone_or_pull https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
+clone_or_pull https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
 
 # update AV and firewall
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
@@ -200,10 +219,10 @@ systemctl enable --now --user pipewire.socket
 systemctl enable --now --user pipewire-pulse.socket
 
 # link gtk and cursor themes
-sudo ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
+ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
 mkdir -p ~/.config/gtk-3.0
-sudo ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-sudo ln -sf $ROOT/icons ~/.icons
+ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+ln -sf $ROOT/icons ~/.icons
 
 # install vscode extensions
 cat $ROOT/config/Code/extensions.txt | xargs -n 1 code --install-extension
