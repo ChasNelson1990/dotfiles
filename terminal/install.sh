@@ -9,6 +9,9 @@ if [ ! -f "$ROOT/config/i3/config" ]; then
   exit 1
 fi
 
+# pacman/paru need this before any package installs below
+sudo ln -sf $ROOT/pacman.conf /etc/pacman.conf
+
 # clone $1 into $2, or pull if it's already there -- keeps re-runs quiet
 clone_or_pull() {
   if [ -d "$2/.git" ]; then
