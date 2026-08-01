@@ -9,11 +9,19 @@ if [ ! -f "$ROOT/config/i3/config" ]; then
   exit 1
 fi
 
+# clone $1 into $2, or pull if it's already there -- keeps re-runs quiet
+clone_or_pull() {
+  if [ -d "$2/.git" ]; then
+    git -C "$2" pull
+  else
+    git clone "$1" "$2"
+  fi
+}
+
 # install latest paru
-mkdir ~/builds/
-cd ~/builds/
-git clone https://aur.archlinux.org/paru.git
-cd paru
+mkdir -p ~/builds/
+clone_or_pull https://aur.archlinux.org/paru.git ~/builds/paru
+cd ~/builds/paru
 makepkg -si
 cd ~
 
@@ -144,10 +152,10 @@ uv tool install oterm
 export PATH="$HOME/.local/bin:$PATH"
 
 # install oh-my-zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
-git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
+clone_or_pull https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+clone_or_pull https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+clone_or_pull https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
+clone_or_pull https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
 
 # update AV and firewall
 sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
