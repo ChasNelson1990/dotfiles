@@ -1,5 +1,14 @@
 #! /bin/sh
 
+# Fail loudly if $0 doesn't resolve to this file (e.g. piped into a shell
+# or sourced) -- otherwise ROOT silently falls back to $HOME and every
+# symlink below gets created wrong.
+ROOT="$( dirname $( readlink -f $0 ) )"
+if [ ! -f "$ROOT/config/i3/config" ]; then
+  echo "install.sh: can't find its own repo checkout (ROOT='$ROOT'). Run it directly, e.g. './install.sh'." >&2
+  exit 1
+fi
+
 # install latest paru
 mkdir ~/builds/
 cd ~/builds/
@@ -59,7 +68,6 @@ sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 # ensure ~/.ssh exists
 mkdir -p ~/.ssh
 
-ROOT="$( dirname $( readlink -f $0 ) )"
 # create symlinks for files
 ln -sf $ROOT/.xinitrc ~/.xinitrc
 ln -sf $ROOT/.zshrc ~/.zshrc
