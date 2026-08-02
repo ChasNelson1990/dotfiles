@@ -68,7 +68,7 @@ paru -S dosfstools duf dust exfat-utils gdu nfs-utils ntfs-3g plocate ranger rcl
 # ranger preview dependencies (images, video thumbnails, office documents)
 paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
-paru -S bat brightnessctl eza fd fwupd ripgrep sd zoxide
+paru -S bat brightnessctl eza fd fwupd ripgrep sd sysfsutils usbutils zoxide
 # install utilities
 paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina transmission-gtk udiskie
 # install version control
