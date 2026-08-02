@@ -53,7 +53,7 @@ paru -S argyllcms darktable feh gimp graphicsmagick inkscape
 # install browsers
 paru -S chromium firefox firefox-developer-edition firefox-i18n-en-gb google-chrome torbrowser-launcher
 # install monitors
-paru -S bottom cpupower hddtemp htop lm_sensors powertop procs battop upower
+paru -S batsignal battop bottom cpupower hddtemp htop iotop lm_sensors powertop procs upower
 # install network tools
 paru -S bandwhich bluez-utils clamav curlie firewalld proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
