@@ -49,7 +49,7 @@ paru -S noto-fonts-emoji otf-monaspace-nerd
 paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-power-menu rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
 paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
-paru -S darktable feh gimp graphicsmagick inkscape
+paru -S argyllcms darktable feh gimp graphicsmagick inkscape
 # install browsers
 paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
