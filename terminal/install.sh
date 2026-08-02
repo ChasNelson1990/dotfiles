@@ -146,8 +146,9 @@ ln -sf "$ROOT/config/macchina/macchina.conf" "$HOME/.config/macchina/macchina.co
 #systemctl enable --now --user borg_cjn-bak.service
 
 # install custom packages
-# cd otf-sansguilt
-# makepkg -si
+if ! pacman -Q otf-sansguilt >/dev/null 2>&1; then
+  (cd "$ROOT/otf-sansguilt" && makepkg -si --noconfirm)
+fi
 
 # install oterm (uv tool, not paru -- avoids depending on the AUR
 # package keeping pace with oterm's fast upstream release cadence)
