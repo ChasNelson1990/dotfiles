@@ -36,7 +36,7 @@ paru
 # install 3D modelling/printing tools
 paru -S openscad
 # install audio tools
-paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
+paru -S audacity pavucontrol pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 rtkit wireplumber
 # install comms tools
 paru -S signal-desktop slack-desktop telegram-desktop
 # install devOps tools
