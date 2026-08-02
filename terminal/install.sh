@@ -55,7 +55,7 @@ paru -S chromium firefox firefox-developer-edition firefox-i18n-en-gb google-chr
 # install monitors
 paru -S batsignal battop bottom cpupower hddtemp htop iotop lm_sensors powertop procs upower
 # install network tools
-paru -S bandwhich bluez-utils clamav curlie firewalld proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
+paru -S bandwhich bind bluez-utils clamav curlie filezilla firewalld iftop nethogs ngrok proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
 paru -S nvm pyenv python-pipenv r texlive uv visual-studio-code-bin
