@@ -42,7 +42,7 @@ paru -S signal-desktop slack-desktop telegram-desktop
 # install devOps tools
 paru -S dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
 # install office tools
-paru -S hunspell-en_GB libreoffice-fresh-en-gb mailspring qpdf xournalpp
+paru -S hunspell-en_GB libreoffice-fresh-en-gb qpdf xournalpp
 # install fonts
 paru -S otf-monaspace-nerd
 # install system gui
