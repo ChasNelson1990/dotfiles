@@ -33,7 +33,7 @@ cd "$HOME"
 
 # upgrade current system
 paru
-# install 3D graphics and printing tools
+# install 3D modelling/printing tools
 paru -S openscad
 # install audio tools
 paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
