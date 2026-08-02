@@ -33,27 +33,27 @@ cd "$HOME"
 
 # upgrade current system
 paru
-# install 3D graphics and printing tools
-paru -S blender	openscad
+# install 3D modelling/printing tools
+paru -S openscad
 # install audio tools
 paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
 # install comms tools
-paru -S signal-desktop skypeforlinux-stable-bin slack-desktop telegram-desktop
+paru -S signal-desktop slack-desktop telegram-desktop
 # install devOps tools
 paru -S dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
 # install office tools
-paru -S hunspell-en_GB libreoffice-fresh-en-gb mailspring qpdf xournalpp
+paru -S hunspell-en_gb libreoffice-fresh-en-gb qpdf xournalpp
 # install fonts
 paru -S otf-monaspace-nerd
 # install system gui
-paru -S autorandr betterlockscreen i3-layouts i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired-git xorg-xinit xorg-server xorg-xsetroot
+paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
 paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
-paru -S darktable feh gimp graphics-magick inkscape
+paru -S darktable feh gimp graphicsmagick inkscape
 # install browsers
 paru -S chromium firefox firefox-i18n-en-gb google-chrome
 # install monitors
-paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs battop upower
+paru -S bottom cpupower hddtemp htop lm_sensors powertop procs battop upower
 # install network tools
 paru -S bandwhich bluez-utils clamav curlie firewalld proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
@@ -64,7 +64,7 @@ paru -S postgresql
 # install shell tools
 paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
-paru -S duf dust exfat-utils mlocate ntfs-3g ranger rclone zip
+paru -S duf dust exfat-utils ntfs-3g plocate ranger rclone zip
 # ranger preview dependencies (images, video thumbnails, office documents)
 paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
