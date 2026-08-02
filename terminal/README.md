@@ -49,7 +49,7 @@ Configuration files exist for:
 | **System**         | bat                   | brightnessctl            | eza                    | fd               | fwupd                  | ripgrep        | sd                | sysfsutils  | usbutils         | zoxide    |                  |             |               |               |               |
 | **Utilities**      | android-file-transfer | borg                     | flameshot              | fprintd          | gnome-keyring          | kalu           | less              | libfprint   | macchina         | paru      | seahorse         | transmission-gtk |           |               |               |
 | **VCS**            | git                   | git-lfs                  | github-cli             |                  |                        |                |                   |             |                  |           |                  |             |               |               |               |
-| **Video**          | obs-studio            | shotcut                  | v4l-utils              | vlc              |                        |                |                   |             |                  |           |                  |             |               |               |               |
+| **Video**          | handbrake             | libdvdcss                | libdvdnav              | libdvdread       | mplayer                | obs-studio     | shotcut           | v4l-utils   | vlc              |           |                  |             |               |               |               |
 
 ## Custom Packages
 

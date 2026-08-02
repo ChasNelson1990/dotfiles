@@ -74,7 +74,7 @@ paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less lib
 # install version control
 paru -S git git-lfs github-cli
 # install video tools
-paru -S obs-studio shotcut v4l-utils vlc
+paru -S handbrake libdvdcss libdvdnav libdvdread mplayer obs-studio shotcut v4l-utils vlc
 
 # locale (needed for i3 kbd control)
 sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
