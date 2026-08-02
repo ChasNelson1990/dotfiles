@@ -64,7 +64,7 @@ paru -S postgresql
 # install shell tools
 paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
 # install file storage tools
-paru -S duf dust exfat-utils mlocate ntfs-3g ranger rclone zip
+paru -S duf dust exfat-utils ntfs-3g ranger rclone zip
 # ranger preview dependencies (images, video thumbnails, office documents)
 paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
