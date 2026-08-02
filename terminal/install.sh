@@ -38,7 +38,7 @@ paru -S openscad
 # install audio tools
 paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
 # install comms tools
-paru -S signal-desktop skypeforlinux-stable-bin slack-desktop telegram-desktop
+paru -S signal-desktop slack-desktop telegram-desktop
 # install devOps tools
 paru -S dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
 # install office tools
