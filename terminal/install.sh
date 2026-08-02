@@ -62,7 +62,7 @@ paru -S nvm pyenv python-pipenv r texlive uv visual-studio-code-bin
 # install databases
 paru -S postgresql
 # install shell tools
-paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
+paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer vim zsh
 # install file storage tools
 paru -S duf dust exfat-utils ntfs-3g plocate ranger rclone zip
 # ranger preview dependencies (images, video thumbnails, office documents)
