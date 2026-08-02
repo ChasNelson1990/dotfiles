@@ -51,7 +51,7 @@ paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
 paru -S argyllcms darktable feh gimp graphicsmagick inkscape
 # install browsers
-paru -S chromium firefox firefox-i18n-en-gb google-chrome
+paru -S chromium firefox firefox-developer-edition firefox-i18n-en-gb google-chrome torbrowser-launcher
 # install monitors
 paru -S bottom cpupower hddtemp htop lm_sensors powertop procs battop upower
 # install network tools
