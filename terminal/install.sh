@@ -46,7 +46,7 @@ paru -S hunspell-en_gb libreoffice-fresh-en-gb mupdf qpdf xournalpp
 # install fonts
 paru -S noto-fonts-emoji otf-monaspace-nerd
 # install system gui
-paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
+paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-power-menu rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
 paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
 paru -S darktable feh gimp graphicsmagick inkscape
