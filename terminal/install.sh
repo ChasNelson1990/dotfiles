@@ -36,45 +36,45 @@ paru
 # install 3D modelling/printing tools
 paru -S openscad
 # install audio tools
-paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
+paru -S audacity pavucontrol pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 rtkit wireplumber
 # install comms tools
 paru -S signal-desktop slack-desktop telegram-desktop
 # install devOps tools
-paru -S dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
+paru -S ctop dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
 # install office tools
-paru -S hunspell-en_gb libreoffice-fresh-en-gb qpdf xournalpp
+paru -S hunspell-en_gb libreoffice-fresh-en-gb mupdf qpdf xournalpp
 # install fonts
-paru -S otf-monaspace-nerd
+paru -S noto-fonts-emoji otf-monaspace-nerd
 # install system gui
-paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
+paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-power-menu rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
 paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
-paru -S darktable feh gimp graphicsmagick inkscape
+paru -S argyllcms darktable feh gimp graphicsmagick inkscape
 # install browsers
-paru -S chromium firefox firefox-i18n-en-gb google-chrome
+paru -S chromium firefox firefox-developer-edition firefox-i18n-en-gb google-chrome torbrowser-launcher
 # install monitors
-paru -S bottom cpupower hddtemp htop lm_sensors powertop procs battop upower
+paru -S batsignal battop bottom cpupower hddtemp htop iotop lm_sensors powertop procs upower
 # install network tools
-paru -S bandwhich bluez-utils clamav curlie firewalld proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
+paru -S bandwhich bind bluez-utils clamav curlie filezilla firewalld iftop nethogs ngrok proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
 paru -S nvm pyenv python-pipenv r texlive uv visual-studio-code-bin
 # install databases
 paru -S postgresql
 # install shell tools
-paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
+paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer vim zsh
 # install file storage tools
-paru -S duf dust exfat-utils ntfs-3g plocate ranger rclone zip
+paru -S dosfstools duf dust exfat-utils gdu nfs-utils ntfs-3g plocate ranger rclone zip
 # ranger preview dependencies (images, video thumbnails, office documents)
 paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
-paru -S bat brightnessctl eza fd fwupd ripgrep sd zoxide
+paru -S bat brightnessctl eza fd fwupd ripgrep sd sysfsutils usbutils zoxide
 # install utilities
-paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina transmission-gtk udiskie
+paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina seahorse transmission-gtk udiskie
 # install version control
 paru -S git git-lfs github-cli
 # install video tools
-paru -S obs-studio shotcut v4l-utils vlc
+paru -S handbrake libdvdcss libdvdnav libdvdread mplayer obs-studio shotcut v4l-utils vlc
 
 # locale (needed for i3 kbd control)
 sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
@@ -146,8 +146,11 @@ ln -sf "$ROOT/config/macchina/macchina.conf" "$HOME/.config/macchina/macchina.co
 #systemctl enable --now --user borg_cjn-bak.service
 
 # install custom packages
-# cd otf-sansguilt
-# makepkg -si
+if ! pacman -Q otf-sansguilt >/dev/null 2>&1; then
+  mkdir -p "$HOME/builds/otf-sansguilt"
+  cp "$ROOT/otf-sansguilt/PKGBUILD" "$HOME/builds/otf-sansguilt/PKGBUILD"
+  (cd "$HOME/builds/otf-sansguilt" && makepkg -si --noconfirm)
+fi
 
 # install oterm (uv tool, not paru -- avoids depending on the AUR
 # package keeping pace with oterm's fast upstream release cadence)
