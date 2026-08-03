@@ -147,7 +147,9 @@ ln -sf "$ROOT/config/macchina/macchina.conf" "$HOME/.config/macchina/macchina.co
 
 # install custom packages
 if ! pacman -Q otf-sansguilt >/dev/null 2>&1; then
-  (cd "$ROOT/otf-sansguilt" && makepkg -si --noconfirm)
+  mkdir -p "$HOME/builds/otf-sansguilt"
+  cp "$ROOT/otf-sansguilt/PKGBUILD" "$HOME/builds/otf-sansguilt/PKGBUILD"
+  (cd "$HOME/builds/otf-sansguilt" && makepkg -si --noconfirm)
 fi
 
 # install oterm (uv tool, not paru -- avoids depending on the AUR
