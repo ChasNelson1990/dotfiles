@@ -9,8 +9,9 @@ Part of the Framework laptop SSD cleanup/backup/encryption/restore runbook. See 
 ## Context
 
 Before backing up ~750G of data, reclaim the obvious junk first: an unemptied
-Trash (~128G), a bloated pacman package cache (~112G), and
-orphaned packages (82 at last count). This shrinks and speeds up the backup in
+Trash (~128G), a bloated pacman package cache (~112G), orphaned packages (82 at
+last count), and large-but-reproducible dev-tool directories (`node_modules`,
+language-version caches, etc.). This shrinks and speeds up the backup in
 [Phase 02](ssd-migration-02-backup.md) — none of it is necessary, but it's free.
 
 Run these on the live system now. All of it is reversible or already-discarded data.
@@ -48,7 +49,31 @@ Run these on the live system now. All of it is reversible or already-discarded d
    ```
    Reference: [ArchWiki — Pacman/Tips and tricks § Removing unused packages (orphans)](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Removing_unused_packages_(orphans))
 
-4. Recheck headroom:
+4. **Clear large, reproducible dev-tool caches** — the same kind of directories
+   the laptop's Borg backup script (`terminal/local/bin/borg_cjn-bak.sh`)
+   already excludes as "large/reproducible" (a representative subset, not an
+   exact 1:1 match with its exclude list): none of these are needed to
+   restore a working system, they're just re-fetched or rebuilt on demand.
+   Adjust the search roots if projects live somewhere other than `~`. `--`
+   before every path guards against a directory name that happens to start
+   with `-` being misread as an option; `find -mindepth 1 -delete` (same
+   pattern as the Trash step above) avoids the `~/Downloads/*`-style glob
+   that would abort under zsh's default `nomatch` if the directory were
+   already empty. `mkdir -p` before the last line guards `find` erroring on a
+   directory that doesn't exist at all (e.g. no `~/builds` yet), the same way
+   the Trash step handles it above:
+   ```
+   find ~ -maxdepth 4 -type d -name node_modules -prune -exec du -sh -- {} \; -exec rm -rf -- {} +
+   find ~ -maxdepth 4 -type d -name .venv -prune -exec du -sh -- {} \; -exec rm -rf -- {} +
+   rm -rf -- ~/.cargo/registry ~/.rustup/toolchains
+   rm -rf -- ~/.npm/_cacache ~/.nvm/.cache
+   mkdir -p ~/Downloads ~/builds
+   find ~/Downloads ~/builds -mindepth 1 -delete
+   ```
+   Skip anything above that holds work you haven't pushed/published yet — this
+   step is optional headroom, not required for the migration to succeed.
+
+5. Recheck headroom:
    ```
    df -h /
    ```
