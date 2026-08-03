@@ -1,119 +1,141 @@
 #! /bin/sh
 
+# Fail loudly if $0 doesn't resolve to this file (e.g. piped into a shell
+# or sourced) -- otherwise ROOT silently falls back to $HOME and every
+# symlink below gets created wrong.
+ROOT="$( dirname "$( readlink -f "$0" )" )"
+if [ ! -f "$ROOT/install.sh" ]; then
+  echo "install.sh: can't find its own repo checkout (ROOT='$ROOT'). Run it directly, e.g. './install.sh'." >&2
+  exit 1
+fi
+
+# pacman/paru need this before any package installs below
+sudo ln -sf "$ROOT/pacman.conf" /etc/pacman.conf
+
+# clone $1 into $2, or pull if it's already there -- keeps re-runs quiet
+clone_or_pull() {
+  if [ -e "$2/.git" ] && git -C "$2" rev-parse --git-dir >/dev/null 2>&1; then
+    git -C "$2" pull --ff-only || exit 1
+  elif [ -e "$2" ]; then
+    echo "clone_or_pull: $2 exists but isn't a git checkout" >&2
+    exit 1
+  else
+    git clone "$1" "$2" || exit 1
+  fi
+}
+
 # install latest paru
-mkdir ~/builds/
-cd ~/builds/
-git clone https://aur.archlinux.org/paru.git
-cd paru
+mkdir -p "$HOME/builds/"
+clone_or_pull https://aur.archlinux.org/paru.git "$HOME/builds/paru"
+cd "$HOME/builds/paru"
 makepkg -si
-cd ~
+cd "$HOME"
 
 # upgrade current system
 paru
-# install 3D graphics and printing tools
-paru -S blender	openscad
+# install 3D modelling/printing tools
+paru -S openscad
 # install audio tools
-paru -S audacity pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 wireplumber
+paru -S audacity pavucontrol pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-pulse pipewire-v4l2 rtkit wireplumber
 # install comms tools
-paru -S signal-desktop skypeforlinux-stable-bin slack-desktop telegram-desktop
+paru -S signal-desktop slack-desktop telegram-desktop
 # install devOps tools
-paru -S dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
+paru -S ctop dbeaver docker docker-compose docker-buildx minikube kubectl postman-bin
 # install office tools
-paru -S hunspell-en_GB libreoffice-fresh-en-gb mailspring qpdf xournalpp
+paru -S hunspell-en_gb libreoffice-fresh-en-gb mupdf qpdf xournalpp
 # install fonts
-paru -S otf-monaspace-nerd
+paru -S noto-fonts-emoji otf-monaspace-nerd
 # install system gui
-paru -S autorandr betterlockscreen i3-layouts i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-vscode-mode wired-git xorg-xinit xorg-server xorg-xsetroot
+paru -S autorandr betterlockscreen i3-wm i3blocks i3status-rust i3wsr redshift rofi rofi-power-menu rofi-vscode-mode wired xorg-xinit xorg-server xorg-xsetroot
 paru -S nordzy-cursors nordzy-icon-theme
 # install image viewing and editing tools
-paru -S darktable feh gimp graphics-magick inkscape
+paru -S argyllcms darktable feh gimp graphicsmagick inkscape
 # install browsers
-paru -S chromium firefox firefox-i18n-en-gb google-chrome
+paru -S chromium firefox firefox-developer-edition firefox-i18n-en-gb google-chrome torbrowser-launcher
 # install monitors
-paru -S bottom cpupower hddtemp htop iio-sensor-proxy lm_sensors powertop procs battop upower
+paru -S batsignal battop bottom cpupower hddtemp htop iotop lm_sensors powertop procs upower
 # install network tools
-paru -S bandwhich bluez-utils clamav curlie firewalld proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
+paru -S bandwhich bind bluez-utils clamav curlie filezilla firewalld iftop nethogs ngrok proton-pass-cli-bin proton-vpn-cli networkmanager python-fangfrisch tailscale
 paru -Rcnsu dhcpcd netctl
 # install programming languages and IDEs
 paru -S nvm pyenv python-pipenv r texlive uv visual-studio-code-bin
 # install databases
 paru -S postgresql
 # install shell tools
-paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer
+paru -S alacritty direnv mcfly oh-my-zsh-git starship tealdeer vim zsh
 # install file storage tools
-paru -S duf dust exfat-utils mlocate ntfs-3g ranger rclone zip
+paru -S dosfstools duf dust exfat-utils gdu nfs-utils ntfs-3g plocate ranger rclone zip
 # ranger preview dependencies (images, video thumbnails, office documents)
 paru -S ueberzugpp ffmpegthumbnailer odt2txt
 # install system tools
-paru -S bat brightnessctl eza fd fwupd ripgrep sd zoxide
+paru -S bat brightnessctl eza fd fwupd ripgrep sd sysfsutils usbutils zoxide
 # install utilities
-paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina transmission-gtk udiskie
+paru -S android-file-transfer borg flameshot fprintd gnome-keyring kalu less libsecret libfprint macchina seahorse transmission-gtk udiskie
 # install version control
 paru -S git git-lfs github-cli
 # install video tools
-paru -S obs-studio shotcut v4l-utils vlc
+paru -S handbrake libdvdcss libdvdnav libdvdread mplayer obs-studio shotcut v4l-utils vlc
 
 # locale (needed for i3 kbd control)
 sudo localectl --no-convert set-x11-keymap gb numpad:microsoft
 
 # ensure ~/.ssh exists
-mkdir -p ~/.ssh
+mkdir -p "$HOME/.ssh"
 
-ROOT="$( dirname $( readlink -f $0 ) )"
 # create symlinks for files
-ln -sf $ROOT/.xinitrc ~/.xinitrc
-ln -sf $ROOT/.zshrc ~/.zshrc
-ln -sf $ROOT/.zlogin ~/.zlogin
+ln -sf "$ROOT/.xinitrc" "$HOME/.xinitrc"
+ln -sf "$ROOT/.zshrc" "$HOME/.zshrc"
+ln -sf "$ROOT/.zlogin" "$HOME/.zlogin"
 
-mkdir -p ~/.config/betterlockscreen
-ln -sf $ROOT/config/betterlockscreen/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
-ln -sf $ROOT/config/betterlockscreen/custom-pre.sh ~/.config/betterlockscreen/custom-pre.sh
-ln -sf $ROOT/config/betterlockscreen/custom-post.sh ~/.config/betterlockscreen/custom-post.sh
-ln -sf $ROOT/config/betterlockscreen/betterlockscreen@.service /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
+mkdir -p "$HOME/.config/betterlockscreen"
+ln -sf "$ROOT/config/betterlockscreen/betterlockscreenrc" "$HOME/.config/betterlockscreen/betterlockscreenrc"
+ln -sf "$ROOT/config/betterlockscreen/custom-pre.sh" "$HOME/.config/betterlockscreen/custom-pre.sh"
+ln -sf "$ROOT/config/betterlockscreen/custom-post.sh" "$HOME/.config/betterlockscreen/custom-post.sh"
+sudo ln -sf "$ROOT/config/betterlockscreen/betterlockscreen@.service" /usr/lib/systemd/system/betterlockscreen@.service  # changes unit type to forking
 sudo systemctl daemon-reload
 sudo systemctl enable --now betterlockscreen@$USER
 
-ln -sf $ROOT/config/starship.toml ~/.config/starship.toml
+ln -sf "$ROOT/config/starship.toml" "$HOME/.config/starship.toml"
 
-mkdir -p ~/.config/alacritty
-ln -sf $ROOT/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+mkdir -p "$HOME/.config/alacritty"
+ln -sf "$ROOT/config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 
-mkdir -p ~/.config/Code/User
-ln -sf $ROOT/config/Code/User/settings.json ~/.config/Code/User/settings.json
-ln -sf $ROOT/config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+mkdir -p "$HOME/.config/Code/User"
+ln -sf "$ROOT/config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+ln -sf "$ROOT/config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 
-mkdir -p ~/.config/wired
-ln -sf $ROOT/config/wired/wired.ron ~/.config/wired/wired.ron
+mkdir -p "$HOME/.config/wired"
+ln -sf "$ROOT/config/wired/wired.ron" "$HOME/.config/wired/wired.ron"
 
-mkdir -p ~/.config/i3
-ln -sf $ROOT/config/i3/config ~/.config/i3/config
+mkdir -p "$HOME/.config/i3"
+ln -sf "$ROOT/config/i3/config" "$HOME/.config/i3/config"
 
-mkdir -p ~/.config/i3status-rs
-ln -sf $ROOT/config/i3status-rs/config.toml ~/.config/i3status-rs/config.toml
+mkdir -p "$HOME/.config/i3status-rs"
+ln -sf "$ROOT/config/i3status-rs/config.toml" "$HOME/.config/i3status-rs/config.toml"
 
-mkdir -p ~/.config/i3wsr
-ln -sf $ROOT/config/i3wsr/config.toml ~/.config/i3wsr/config.toml
+mkdir -p "$HOME/.config/i3wsr"
+ln -sf "$ROOT/config/i3wsr/config.toml" "$HOME/.config/i3wsr/config.toml"
 
-ln -sf $ROOT/config/autorandr ~/.config/autorandr
+ln -sf "$ROOT/config/autorandr" "$HOME/.config/autorandr"
 
-mkdir -p ~/.config/radian
-ln -sf $ROOT/config/radian/profile ~/.config/radian/profile
+mkdir -p "$HOME/.config/radian"
+ln -sf "$ROOT/config/radian/profile" "$HOME/.config/radian/profile"
 
-mkdir -p ~/.config/ranger
-ln -sf $ROOT/config/ranger/commands.py ~/.config/ranger/commands.py
-ln -sf $ROOT/config/ranger/rc.conf ~/.config/ranger/rc.conf
-ln -sf $ROOT/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-ln -sf $ROOT/config/ranger/scope.sh ~/.config/ranger/scope.sh
+mkdir -p "$HOME/.config/ranger"
+ln -sf "$ROOT/config/ranger/commands.py" "$HOME/.config/ranger/commands.py"
+ln -sf "$ROOT/config/ranger/rc.conf" "$HOME/.config/ranger/rc.conf"
+ln -sf "$ROOT/config/ranger/rifle.conf" "$HOME/.config/ranger/rifle.conf"
+ln -sf "$ROOT/config/ranger/scope.sh" "$HOME/.config/ranger/scope.sh"
 
-mkdir -p ~/.config/redshift
-ln -sf $ROOT/config/redshift/redshift.conf ~/.config/redshift/redshift.conf
+mkdir -p "$HOME/.config/redshift"
+ln -sf "$ROOT/config/redshift/redshift.conf" "$HOME/.config/redshift/redshift.conf"
 
-mkdir -p ~/.config/rofi
-ln -sf $ROOT/config/rofi/config.rasi ~/.config/rofi/config.rasi
-ln -sf $ROOT/config/rofi/nord.rasi ~/.config/rofi/nord.rasi
+mkdir -p "$HOME/.config/rofi"
+ln -sf "$ROOT/config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi"
+ln -sf "$ROOT/config/rofi/nord.rasi" "$HOME/.config/rofi/nord.rasi"
 
-mkdir -p ~/.config/macchina
-sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
+mkdir -p "$HOME/.config/macchina"
+ln -sf "$ROOT/config/macchina/macchina.conf" "$HOME/.config/macchina/macchina.conf"
 
 # enable backup service
 # note this will only work if the harddrive is plugged in
@@ -124,8 +146,11 @@ sudo ln -sf $ROOT/config/macchina/macchina.conf ~/.config/macchina/macchina.conf
 #systemctl enable --now --user borg_cjn-bak.service
 
 # install custom packages
-# cd otf-sansguilt
-# makepkg -si
+if ! pacman -Q otf-sansguilt >/dev/null 2>&1; then
+  mkdir -p "$HOME/builds/otf-sansguilt"
+  cp "$ROOT/otf-sansguilt/PKGBUILD" "$HOME/builds/otf-sansguilt/PKGBUILD"
+  (cd "$HOME/builds/otf-sansguilt" && makepkg -si --noconfirm)
+fi
 
 # install oterm (uv tool, not paru -- avoids depending on the AUR
 # package keeping pace with oterm's fast upstream release cadence)
@@ -136,16 +161,17 @@ uv tool install oterm
 export PATH="$HOME/.local/bin:$PATH"
 
 # install oh-my-zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
-git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/pyenv-lazy
+clone_or_pull https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+clone_or_pull https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+clone_or_pull https://github.com/lukechilds/zsh-nvm "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-nvm"
+clone_or_pull https://github.com/davidparsson/zsh-pyenv-lazy.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/pyenv-lazy"
 
 # update AV and firewall
-sudo ln -sf $ROOT/config/clamav/clamd.conf /etc/clamav/clamd.conf
-sudo ln -sf $ROOT/config/clamav/freshclam.conf /etc/clamav/freshclam.conf
-sudo ln -sf $ROOT/config/clamav/fdpass.conf /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
-sudo ln -sf $ROOT/config/clamav/virus-event.bash /etc/clamav/virus-event.bash
+sudo ln -sf "$ROOT/config/clamav/clamd.conf" /etc/clamav/clamd.conf
+sudo ln -sf "$ROOT/config/clamav/freshclam.conf" /etc/clamav/freshclam.conf
+sudo mkdir -p /etc/systemd/system/clamav-clamonacc.service.d
+sudo ln -sf "$ROOT/config/clamav/fdpass.conf" /etc/systemd/system/clamav-clamonacc.service.d/fdpass.conf
+sudo ln -sf "$ROOT/config/clamav/virus-event.bash" /etc/clamav/virus-event.bash
 sudo chmod +x /etc/clamav/virus-event.bash
 sudo systemctl stop clamav-freshclam.service
 sudo freshclam
@@ -161,7 +187,7 @@ sudo systemctl enable --now clamav-freshclam-once.timer
 sudo systemctl enable --now clamav-unofficial-sigs.timer
 
 # enable CPU power management
-sudo ln -sf $ROOT/cpupower /etc/default/cpupower
+sudo ln -sf "$ROOT/cpupower" /etc/default/cpupower
 sudo systemctl enable --now cpupower.service
 
 # enable power management
@@ -200,10 +226,10 @@ systemctl enable --now --user pipewire.socket
 systemctl enable --now --user pipewire-pulse.socket
 
 # link gtk and cursor themes
-sudo ln -sf $ROOT/gtkrc-2.0 ~/.gtkrc-2.0
-mkdir -p ~/.config/gtk-3.0
-sudo ln -sf $ROOT/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-sudo ln -sf $ROOT/icons ~/.icons
+ln -sf "$ROOT/gtkrc-2.0" "$HOME/.gtkrc-2.0"
+mkdir -p "$HOME/.config/gtk-3.0"
+ln -sf "$ROOT/config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
+ln -sf "$ROOT/icons" "$HOME/.icons"
 
 # install vscode extensions
-cat $ROOT/config/Code/extensions.txt | xargs -n 1 code --install-extension
+xargs -n 1 code --install-extension < "$ROOT/config/Code/extensions.txt"
